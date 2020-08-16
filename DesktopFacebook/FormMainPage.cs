@@ -49,6 +49,40 @@ namespace DesktopFacebook
 
           }
 
+          private void fetchUserFriends()
+          {
+                listBoxFriends.Items.Clear();
+                foreach (User friend in m_LoggedInUser.Friends)
+                {
+                    listBoxFriends.Items.Add(friend);
+                }
+          }
+
+          private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
+          {
+                displaySelectedFriend();
+          }
+
+          private void displaySelectedFriend()
+          {
+                if (listBoxFriends.SelectedItems.Count == 1)
+                {
+                    User selectedFriend = listBoxFriends.SelectedItem as User;
+                    if (selectedFriend.PictureNormalURL != null)
+                    {
+                        pictureBoxFriend.LoadAsync(selectedFriend.PictureNormalURL);
+                    }
+
+                    labelFriendsName.Text = String.Format("{0} {1}", selectedFriend.FirstName, selectedFriend.LastName);
+                    labelFriendsBirthday.Text = selectedFriend.Birthday;
+                    labelFriendsGender.Text = selectedFriend.Gender;
+                    labelFriendsLocation.Text = selectedFriend.Location;
+                    labelFriendsHometown.Text = selectedFriend.Hometown;
+                    labelFriendsRelationship.Text = selectedFriend.RelationshipStatus;
+                    labelFriendsStatus.Text = selectedFriend.Statuses[0].Message;
+                }
+          }
+
           private void textBox1_TextChanged(object sender, EventArgs e)
           {
 
