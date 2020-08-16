@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0F207F54-0708-41B2-B3A9-E61CCF17C342}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>DesktopFacebook</RootNamespace>
     <AssemblyName>DesktopFacebook</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -31,13 +31,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Facebook">
-      <HintPath>..\..\..\..\Desktop\01_FB01_BasicFacebookFeatures.V6.8.0.18\FBApi\Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="FbGraphApiWrapper">
-      <HintPath>..\..\..\..\Desktop\01_FB01_BasicFacebookFeatures.V6.8.0.18\FBApi\FbGraphApiWrapper.dll</HintPath>
-    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.14.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.14.0\lib\net40\FontAwesome.Sharp.dll</HintPath>
     </Reference>
