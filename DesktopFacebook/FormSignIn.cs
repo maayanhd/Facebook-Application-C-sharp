@@ -37,6 +37,8 @@ namespace DesktopFacebook
                this.Enabled = false;
                FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets);
                mainForm.ShowDialog();
+            User user = new User();
+            user.Events.
           }
 
           private void customPictureBoxButton1_Click(object sender, EventArgs e)
@@ -58,26 +60,36 @@ namespace DesktopFacebook
           {
                m_IsAskingToRememberLoginDets = m_CheckBoxRememberMe.Checked;
           }
-         
-          //     if (!string.IsNullOrEmpty(result.AccessToken))
-          //     {
-          //          m_LoggedInUser = result.LoggedInUser;
-          //          fetchUserInfo();
-          //     }
-          //     else
-          //     {
-          //          MessageBox.Show(result.ErrorMessage);
-          //     }
-          //}
 
-          //private void fetchUserInfo()
-          //{
-          //     m_pictureBox_smallProfilePicture.LoadAsync(m_LoggedInUser.PictureNormalURL);
-          //     if (m_LoggedInUser.Posts.Count > 0)
-          //     {
-          //          textBoxStatus.Text = m_LoggedInUser.Posts[0].Message;
-          //     }
-          //}
+        private void customPictureBoxButton1_MouseLeave_1(object sender, EventArgs e)
+        {
 
-     }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //     if (!string.IsNullOrEmpty(result.AccessToken))
+        //     {
+        //          m_LoggedInUser = result.LoggedInUser;
+        //          fetchUserInfo();
+        //     }
+        //     else
+        //     {
+        //          MessageBox.Show(result.ErrorMessage);
+        //     }
+        //}
+
+        //private void fetchUserInfo()
+        //{
+        //     m_pictureBox_smallProfilePicture.LoadAsync(m_LoggedInUser.PictureNormalURL);
+        //     if (m_LoggedInUser.Posts.Count > 0)
+        //     {
+        //          textBoxStatus.Text = m_LoggedInUser.Posts[0].Message;
+        //     }
+        //}
+
+    }
 }

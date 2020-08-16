@@ -18,15 +18,15 @@ namespace DesktopFacebook
                InitializeComponent();
           }
 
-          private void CustomPictureBoxButton_MouseHover(object sender, EventArgs e)
-          {
-               this.Image = m_HoverImage;
-          }
+          //private void CustomPictureBoxButton_MouseHover(object sender, EventArgs e)
+          //{
+          //     this.Image = m_HoverImage;
+          //}
 
-          private void CustomPictureBoxButton_MouseLeave(object sender, EventArgs e)
-          {
-               this.Image = m_NormalImage;
-          }
+          //private void CustomPictureBoxButton_MouseLeave(object sender, EventArgs e)
+          //{
+          //     this.Image = m_NormalImage;
+          //}
 
      }
 }
