@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1145
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopFacebook", "DesktopFacebook\DesktopFacebook.csproj", "{0F207F54-0708-41B2-B3A9-E61CCF17C342}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopFacebookUi", "DesktopFacebook\DesktopFacebookUi.csproj", "{0F207F54-0708-41B2-B3A9-E61CCF17C342}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControls", "CustomControls\CustomControls.csproj", "{23F0618B-5587-41C5-AEE9-53CA34982CA3}"
 EndProject

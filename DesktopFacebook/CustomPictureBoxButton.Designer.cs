@@ -33,7 +33,6 @@
                // 
                // CustomPictureBoxButton
                // 
-               this.Click += new System.EventHandler(this.CustomPictureBoxButton_Click);
                this.MouseLeave += new System.EventHandler(this.CustomPictureBoxButton_MouseLeave);
                this.MouseHover += new System.EventHandler(this.CustomPictureBoxButton_MouseHover);
                ((System.ComponentModel.ISupportInitialize)(this)).EndInit();

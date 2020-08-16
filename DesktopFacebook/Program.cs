@@ -8,10 +8,11 @@ namespace DesktopFacebook
      static class Program
      {
          static void Main()
-          {
+         {
                Application.EnableVisualStyles();
                Application.SetCompatibleTextRenderingDefault(false);
-               Application.Run(new signInForm());
-          }
+               UIManager ui = new UIManager();
+               ui.Run();
+         }
      }
 }

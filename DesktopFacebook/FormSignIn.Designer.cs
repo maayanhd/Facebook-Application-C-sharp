@@ -1,6 +1,8 @@
-﻿namespace DesktopFacebook
+﻿using System;
+
+namespace DesktopFacebook
 {
-     partial class signInForm
+     partial class FormSignIn
      {
           /// <summary>
           /// Required designer variable.
@@ -28,7 +30,7 @@
           /// </summary>
           private void InitializeComponent()
           {
-               System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(signInForm));
+               System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSignIn));
                this.panel1 = new System.Windows.Forms.Panel();
                this.customPictureBoxButton1 = new DesktopFacebook.CustomPictureBoxButton();
                this.m_CheckBoxRememberMe = new System.Windows.Forms.CheckBox();
@@ -61,6 +63,7 @@
                this.customPictureBoxButton1.TabStop = false;
                this.customPictureBoxButton1.Click += new System.EventHandler(this.customPictureBoxButton1_Click);
                this.customPictureBoxButton1.MouseHover += new System.EventHandler(this.customPictureBoxButton1_MouseHover);
+               this.customPictureBoxButton1.MouseLeave += CustomPictureBoxButton1_MouseLeave;
                // 
                // m_CheckBoxRememberMe
                // 
@@ -89,20 +92,30 @@
                this.panel2.Size = new System.Drawing.Size(1145, 375);
                this.panel2.TabIndex = 1;
                // 
-               // signInForm
+               // FormSignIn
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.ClientSize = new System.Drawing.Size(1145, 589);
                this.Controls.Add(this.panel2);
                this.Controls.Add(this.panel1);
-               this.Name = "signInForm";
+               this.Name = "FormSignIn";
                this.Text = "signInForm";
                this.panel1.ResumeLayout(false);
                this.panel1.PerformLayout();
                ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxButton1)).EndInit();
                this.ResumeLayout(false);
 
+          }
+
+          private void CustomPictureBoxButton1_MouseLeave(object sender, EventArgs e)
+          {
+               this.CustomPictureBoxButton1_MouseLeave(sender, e);
+          }
+
+          private void customPictureBoxButton1_MouseHover(object sender, EventArgs e)
+          {
+               this.customPictureBoxButton1_MouseHover(this, e);
           }
 
           #endregion

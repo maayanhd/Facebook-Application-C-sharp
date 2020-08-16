@@ -28,9 +28,5 @@ namespace DesktopFacebook
                this.Image = m_NormalImage;
           }
 
-          private void CustomPictureBoxButton_Click(object sender, EventArgs e)
-          {
-
-          }
      }
 }
