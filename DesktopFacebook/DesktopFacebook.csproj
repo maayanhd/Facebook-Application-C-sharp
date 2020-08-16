@@ -74,6 +74,7 @@
     <Compile Include="CustomPictureBoxButton.Designer.cs">
       <DependentUpon>CustomPictureBoxButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIManaging.cs" />
     <EmbeddedResource Include="FacebookFormUi.resx">
       <DependentUpon>FacebookFormUi.cs</DependentUpon>
     </EmbeddedResource>

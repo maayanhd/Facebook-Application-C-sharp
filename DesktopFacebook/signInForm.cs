@@ -29,6 +29,9 @@ namespace DesktopFacebook
           private void customPictureBoxButton1_Click(object sender, EventArgs e)
           {
                loginAndInit();
+               this.Enabled = false;
+               this.Hide();
+
           }
 
           private void m_CheckBoxRememberMe_CheckedChanged(object sender, EventArgs e)
