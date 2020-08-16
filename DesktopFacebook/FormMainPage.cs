@@ -15,7 +15,7 @@ namespace DesktopFacebook
      {
           private User m_LoggedInUser;
           bool m_IsAskingToRememberLoginDets;
-     
+               
           public FormMainPage(bool i_IsAskingToRememberLoginDets)
           {
                InitializeComponent();
@@ -64,5 +64,14 @@ namespace DesktopFacebook
 
           }
 
+          private void m_ButtonFriends_Click(object sender, EventArgs e)
+          {
+
+          }
+
+          private void button5_Click(object sender, EventArgs e)
+          {
+
+          }
      }
 }

@@ -38,7 +38,7 @@ namespace DesktopFacebook
                FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets);
                mainForm.ShowDialog();
             User user = new User();
-            user.Events.
+            
           }
 
           private void customPictureBoxButton1_Click(object sender, EventArgs e)
@@ -48,6 +48,7 @@ namespace DesktopFacebook
 
           private void directToMainForm()
           {
+               m_LoginManager.Login();
                m_LoginManager.directToMainForm();
           }
 
@@ -60,11 +61,6 @@ namespace DesktopFacebook
           {
                m_IsAskingToRememberLoginDets = m_CheckBoxRememberMe.Checked;
           }
-
-        private void customPictureBoxButton1_MouseLeave_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {

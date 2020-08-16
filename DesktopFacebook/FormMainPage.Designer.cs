@@ -93,6 +93,7 @@ namespace DesktopFacebook
                this.button5.TabIndex = 3;
                this.button5.Text = "Logout";
                this.button5.UseVisualStyleBackColor = true;
+               this.button5.Click += new System.EventHandler(this.button5_Click);
                // 
                // panelProfileDetails
                // 
@@ -414,6 +415,7 @@ namespace DesktopFacebook
                this.m_ButtonFriends.Text = "Friends";
                this.m_ButtonFriends.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                this.m_ButtonFriends.UseVisualStyleBackColor = true;
+               this.m_ButtonFriends.Click += new System.EventHandler(this.m_ButtonFriends_Click);
                // 
                // FormMainPage
                // 
