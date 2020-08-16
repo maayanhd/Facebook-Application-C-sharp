@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationSettingsParser.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="LoginManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
