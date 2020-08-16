@@ -8,22 +8,32 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookLogic;
+using DesktopFacebook.Forms;
 
 namespace DesktopFacebook
 {
      public partial class FormMainPage : Form
      {
+          private Form m_CurrentChildForm = new Form();
           private User m_LoggedInUser;
           bool m_IsAskingToRememberLoginDets;
                
-          public FormMainPage(bool i_IsAskingToRememberLoginDets)
+          public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser)
           {
+               m_LoggedInUser = i_LoggedInUser;
                InitializeComponent();
                m_IsAskingToRememberLoginDets = i_IsAskingToRememberLoginDets;
                customizePanelsDesign();
+               fetchUserDetails();
           }
 
-          private void customizePanelsDesign()
+        private void fetchUserDetails()
+        {
+            pictureBox_ProfilePicture.LoadAsync(m_LoggedInUser.PictureNormalURL);
+            label_LoggedInUserFullName.Text = string.Format("{0} {1}", m_LoggedInUser.FirstName, m_LoggedInUser.LastName);
+        }
+
+        private void customizePanelsDesign()
           {
                m_PanelFriends.Visible = false;
                m_PanelPhotos.Visible = false;
@@ -51,10 +61,11 @@ namespace DesktopFacebook
 
           private void fetchUserFriends()
           {
-                listBoxFriends.Items.Clear();
+                FormFriends formFriends = m_CurrentChildForm as FormFriends;
+                formFriends.listBoxFriends.Items.Clear();
                 foreach (User friend in m_LoggedInUser.Friends)
                 {
-                    listBoxFriends.Items.Add(friend);
+                    formFriends.listBoxFriends.Items.Add(friend);
                 }
           }
 
@@ -65,21 +76,22 @@ namespace DesktopFacebook
 
           private void displaySelectedFriend()
           {
-                if (listBoxFriends.SelectedItems.Count == 1)
+                FormFriends formFriends = m_CurrentChildForm as FormFriends;
+                if (formFriends.listBoxFriends.SelectedItems.Count == 1)
                 {
-                    User selectedFriend = listBoxFriends.SelectedItem as User;
+                    User selectedFriend = formFriends.listBoxFriends.SelectedItem as User;
                     if (selectedFriend.PictureNormalURL != null)
                     {
-                        pictureBoxFriend.LoadAsync(selectedFriend.PictureNormalURL);
+                        formFriends.pictureBoxFriend.LoadAsync(selectedFriend.PictureNormalURL);
                     }
 
-                    labelFriendsName.Text = String.Format("{0} {1}", selectedFriend.FirstName, selectedFriend.LastName);
-                    labelFriendsBirthday.Text = selectedFriend.Birthday;
-                    labelFriendsGender.Text = selectedFriend.Gender;
-                    labelFriendsLocation.Text = selectedFriend.Location;
-                    labelFriendsHometown.Text = selectedFriend.Hometown;
-                    labelFriendsRelationship.Text = selectedFriend.RelationshipStatus;
-                    labelFriendsStatus.Text = selectedFriend.Statuses[0].Message;
+                    formFriends.labelFriendsName.Text = String.Format("{0} {1}", selectedFriend.FirstName, selectedFriend.LastName);
+                    formFriends.labelFriendsBirthday.Text = selectedFriend.Birthday;
+                    formFriends.labelFriendsGender.Text = selectedFriend.Gender.ToString();
+                    formFriends.labelFriendsLocation.Text = selectedFriend.Location.ToString();
+                    formFriends.labelFriendsHometown.Text = selectedFriend.Hometown.ToString();
+                    formFriends.labelFriendsRelationship.Text = selectedFriend.RelationshipStatus.ToString();
+                    formFriends.labelFriendsStatus.Text = selectedFriend.Statuses[0].Message;
                 }
           }
 
@@ -94,7 +106,7 @@ namespace DesktopFacebook
                     picBoxAlbum.Visible = true;
                     picBoxAlbum.Tag = album;
                     picBoxAlbum.LoadAsync(album.PictureAlbumURL);
-                    flowLayoutPanelAlbums.Controls.Add(picBoxAlbum);
+                    (m_CurrentChildForm as FormPhotos).flowLayoutPanelAlbums.Controls.Add(picBoxAlbum);
 
                     EventHandler albumClickedEventHandler = new EventHandler(this.album_Clicked);
                     picBoxAlbum.Click += albumClickedEventHandler;
@@ -115,7 +127,7 @@ namespace DesktopFacebook
                     picBoxPhoto.Visible = true;
                     picBoxPhoto.Tag = photo;
                     picBoxPhoto.LoadAsync(photo.PictureNormalURL);
-                    flowLayoutPanelPhotos.Controls.Add(picBoxPhoto);
+                    (m_CurrentChildForm as FormPhotos).flowLayoutPanelPhotos.Controls.Add(picBoxPhoto);
 
                     EventHandler photoClickedEvent = new EventHandler(this.photo_Clicked);
                     picBoxPhoto.Click += photoClickedEvent;
@@ -126,7 +138,7 @@ namespace DesktopFacebook
           {
                 PictureBox clickedPhotoBox = sender as PictureBox;
                 Photo selectedPhoto = clickedPhotoBox.Tag as Photo;
-                pictureBoxSelectedPhoto.Load(selectedPhoto.PictureNormalURL);
+                (m_CurrentChildForm as FormPhotos).pictureBoxSelectedPhoto.Load(selectedPhoto.PictureNormalURL);
           }
 
 
@@ -143,12 +155,14 @@ namespace DesktopFacebook
                               
           private void m_Button_Photos_Click(object sender, EventArgs e)
           {
-
+               openChildForm(new FormPhotos());
+               fetchUserAlbums();
           }
 
           private void m_ButtonFriends_Click(object sender, EventArgs e)
           {
-
+               openChildForm(new FormFriends());
+               fetchUserFriends();
           }
 
           private void button5_Click(object sender, EventArgs e)

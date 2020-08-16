@@ -127,6 +127,12 @@
     <EmbeddedResource Include="FormMainPage.resx">
       <DependentUpon>FormMainPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFriends.resx">
+      <DependentUpon>FormFriends.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPhotos.resx">
+      <DependentUpon>FormPhotos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

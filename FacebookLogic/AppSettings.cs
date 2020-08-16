@@ -11,11 +11,31 @@ namespace FacebookLogic
         private readonly int r_MaxPostsAvailableToSee = 15;
         private readonly string r_AppID = "3267288006666062";
         private readonly string[] r_UserPermissions =
-            {
-                "public_profile", "user_gender", "user_birthday", "user_hometown", "user_age_range", "user_likes",
-                "user_photos", "user_posts", "user_friends", "user_location", "user_tagged_places", "publish_to_groups",
-                "groups_access_member_info", "publish_pages"
-            };
+        //{
+        //    "public_profile", "user_gender", "user_birthday", "user_hometown", "user_age_range", "user_likes",
+        //    "user_photos", "user_posts", "user_friends", "user_location", "user_tagged_places", "publish_to_groups",
+        //    "groups_access_member_info", "publish_pages"
+        //};
+        {
+                "public_profile",
+                "email",
+                "publish_to_groups",
+                "user_birthday",
+                "user_age_range",
+                "user_gender",
+                "user_link",
+                "user_tagged_places",
+                "user_videos",
+                "publish_to_groups",
+                "groups_access_member_info",
+                "user_friends",
+                "user_events",
+                "user_likes",
+                "user_location",
+                "user_photos",
+                "user_posts",
+                "user_hometown"
+        };
 
         private bool m_IsUserAskingToRememberLoginDets;
         private string m_LastAccessToken;

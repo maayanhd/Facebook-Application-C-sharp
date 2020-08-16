@@ -52,6 +52,7 @@ namespace FacebookLogic
           {
                m_LoginResult = i_LoginResult;
                m_LoggedInUser = i_LoginResult.LoggedInUser;
+               
           }
 
           public void Connect(string i_AccessToken)
@@ -98,19 +99,19 @@ namespace FacebookLogic
           public void Login()
           {
                LoginResult result;
-               try
-               {
-                    result = FacebookService.Login(r_AppSettings.AppID, r_AppSettings.UserPermissions);
+                try
+                {
+                result = FacebookService.Login(r_AppSettings.AppID, r_AppSettings.UserPermissions);
                     if (!string.IsNullOrEmpty(result.AccessToken))
                     {
                          saveLoginData(result);
                     }
-               }
-               catch (Exception)
-               {
+                }
+                catch (Exception e)
+                {
                     throw new Exception(sr_ErrorLoginMassage);
-               }
-          }
+                }
+}
 
           public void Logout()
           {

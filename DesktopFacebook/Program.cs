@@ -7,6 +7,7 @@ namespace DesktopFacebook
 {
      static class Program
      {
+         [STAThread]
          static void Main()
          {
                Application.EnableVisualStyles();

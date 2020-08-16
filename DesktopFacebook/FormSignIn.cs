@@ -35,7 +35,7 @@ namespace DesktopFacebook
           {
                this.Hide();
                this.Enabled = false;
-               FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets);
+               FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets, m_LoginManager.LoggedInUser);
                mainForm.ShowDialog();
             User user = new User();
             
