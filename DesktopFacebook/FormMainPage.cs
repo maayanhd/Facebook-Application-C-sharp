@@ -83,6 +83,54 @@ namespace DesktopFacebook
                 }
           }
 
+          private void fetchUserAlbums()
+          {
+                foreach (Album album in m_LoggedInUser.Albums)
+                {
+                    PictureBox picBoxAlbum = new PictureBox();
+                    picBoxAlbum.Name = album.Name;
+                    picBoxAlbum.Size = new System.Drawing.Size(75, 75);
+                    picBoxAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                    picBoxAlbum.Visible = true;
+                    picBoxAlbum.Tag = album;
+                    picBoxAlbum.LoadAsync(album.PictureAlbumURL);
+                    flowLayoutPanelAlbums.Controls.Add(picBoxAlbum);
+
+                    EventHandler albumClickedEventHandler = new EventHandler(this.album_Clicked);
+                    picBoxAlbum.Click += albumClickedEventHandler;
+                }
+          }
+
+
+          private void album_Clicked(object sender, EventArgs e)
+          {
+                PictureBox clickedAlbumBox = sender as PictureBox;
+                Album selectedAlbum = clickedAlbumBox.Tag as Album;
+                foreach (Photo photo in selectedAlbum.Photos)
+                {
+                    PictureBox picBoxPhoto = new PictureBox();
+                    picBoxPhoto.Name = photo.Name;
+                    picBoxPhoto.Size = new System.Drawing.Size(75, 75);
+                    picBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                    picBoxPhoto.Visible = true;
+                    picBoxPhoto.Tag = photo;
+                    picBoxPhoto.LoadAsync(photo.PictureNormalURL);
+                    flowLayoutPanelPhotos.Controls.Add(picBoxPhoto);
+
+                    EventHandler photoClickedEvent = new EventHandler(this.photo_Clicked);
+                    picBoxPhoto.Click += photoClickedEvent;
+                }
+          }
+
+          private void photo_Clicked(object sender, EventArgs e)
+          {
+                PictureBox clickedPhotoBox = sender as PictureBox;
+                Photo selectedPhoto = clickedPhotoBox.Tag as Photo;
+                pictureBoxSelectedPhoto.Load(selectedPhoto.PictureNormalURL);
+          }
+
+
+
           private void textBox1_TextChanged(object sender, EventArgs e)
           {
 
