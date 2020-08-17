@@ -39,6 +39,7 @@ namespace DesktopFacebook
 
           private void customPictureBoxbutton_Click(object sender, EventArgs e)
           {
+               m_LoginManager.Login();
                directToMainForm();
           }
 

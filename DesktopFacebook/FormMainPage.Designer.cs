@@ -76,8 +76,8 @@ namespace DesktopFacebook
                this.m_TextBoxPost = new System.Windows.Forms.TextBox();
                this.buttonPost = new System.Windows.Forms.Button();
                this.panelProfileDetails = new System.Windows.Forms.Panel();
-               this.pictureBox_ProfilePicture = new System.Windows.Forms.PictureBox();
                this.label_LoggedInUserFullName = new System.Windows.Forms.Label();
+               this.pictureBox_ProfilePicture = new System.Windows.Forms.PictureBox();
                this.ButtonChosenMenu = new System.Windows.Forms.Button();
                this.panel_TopMainForm = new System.Windows.Forms.Panel();
                this.buttonLogout = new System.Windows.Forms.Button();
@@ -381,7 +381,7 @@ namespace DesktopFacebook
                this.m_TextBoxPost.Size = new System.Drawing.Size(403, 22);
                this.m_TextBoxPost.TabIndex = 0;
                this.m_TextBoxPost.Text = "What\'s on your mind?";
-               this.m_TextBoxPost.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+               this.m_TextBoxPost.MouseClick += new System.Windows.Forms.MouseEventHandler(this.m_TextBoxPost_MouseClick);
                // 
                // buttonPost
                // 
@@ -413,18 +413,6 @@ namespace DesktopFacebook
                this.panelProfileDetails.Size = new System.Drawing.Size(197, 142);
                this.panelProfileDetails.TabIndex = 2;
                // 
-               // pictureBox_ProfilePicture
-               // 
-               this.pictureBox_ProfilePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_ProfilePicture.BackgroundImage")));
-               this.pictureBox_ProfilePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-               this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(37, 6);
-               this.pictureBox_ProfilePicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-               this.pictureBox_ProfilePicture.Name = "pictureBox_ProfilePicture";
-               this.pictureBox_ProfilePicture.Size = new System.Drawing.Size(120, 111);
-               this.pictureBox_ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-               this.pictureBox_ProfilePicture.TabIndex = 2;
-               this.pictureBox_ProfilePicture.TabStop = false;
-               // 
                // label_LoggedInUserFullName
                // 
                this.label_LoggedInUserFullName.AutoSize = true;
@@ -436,6 +424,18 @@ namespace DesktopFacebook
                this.label_LoggedInUserFullName.Size = new System.Drawing.Size(162, 17);
                this.label_LoggedInUserFullName.TabIndex = 1;
                this.label_LoggedInUserFullName.Text = "loggedInUserFullName";
+               // 
+               // pictureBox_ProfilePicture
+               // 
+               this.pictureBox_ProfilePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_ProfilePicture.BackgroundImage")));
+               this.pictureBox_ProfilePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(37, 6);
+               this.pictureBox_ProfilePicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.pictureBox_ProfilePicture.Name = "pictureBox_ProfilePicture";
+               this.pictureBox_ProfilePicture.Size = new System.Drawing.Size(120, 111);
+               this.pictureBox_ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+               this.pictureBox_ProfilePicture.TabIndex = 2;
+               this.pictureBox_ProfilePicture.TabStop = false;
                // 
                // ButtonChosenMenu
                // 

@@ -134,5 +134,7 @@ namespace DesktopFacebook
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox m_CheckBoxRememberMe;
         private CustomPictureBoxButton customPictureBoxbutton;
-    }
+
+        public CustomPictureBoxButton CustomPictureBoxbutton { get; set; }
+     }
 }

@@ -115,7 +115,16 @@ namespace FacebookLogic
 
           public void Logout()
           {
-               FacebookWrapper.FacebookService.Logout(operateLogoutSuccessful, r_AppSettings.AppID);
+               try
+               {
+                    FacebookWrapper.FacebookService.Logout(operateLogoutSuccessful, r_AppSettings.AppID);
+                    directToSignInForm();
+               }
+               catch(Exception)
+               {
+                    throw new Exception("Error: unsuccessful Logout for unknown reason");
+               }
+
           }
 
           private void operateLogoutSuccessful()

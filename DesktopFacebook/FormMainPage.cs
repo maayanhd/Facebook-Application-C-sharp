@@ -207,11 +207,6 @@ namespace DesktopFacebook
                }
           }
 
-          private void textBox1_TextChanged(object sender, EventArgs e)
-          {
-               activateTextbox(sender as TextBox);
-          }
-
           private void activateTextbox(TextBox o_PostTextBox)
           {
                o_PostTextBox.Text = o_PostTextBox.Text.Equals("What\'s on your mind?") ? string.Empty : o_PostTextBox.Text;
@@ -303,8 +298,12 @@ namespace DesktopFacebook
                LoginManager eventLogoutHandler = LoginManager.Instance;
 
                eventLogoutHandler.Logout();
-               eventLogoutHandler.directToSignInForm();
                this.Close();
+          }
+
+          private void m_TextBoxPost_MouseClick(object sender, MouseEventArgs e)
+          {
+               activateTextbox(sender as TextBox);
           }
      }
 }
