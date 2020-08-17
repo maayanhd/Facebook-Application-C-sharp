@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -8,8 +9,10 @@ namespace FacebookLogic
     public sealed class AppSettings
     {
         private static AppSettings s_Instance = null;
+        private static readonly string sr_AppSettingsPath = AppDomain.CurrentDomain.BaseDirectory +  @"\AppSettings.xml";
         private readonly int r_MaxPostsAvailableToSee = 15;
         private readonly string r_AppID = "3267288006666062";
+          
         private readonly string[] r_UserPermissions =
         //{
         //    "public_profile", "user_gender", "user_birthday", "user_hometown", "user_age_range", "user_likes",
@@ -110,5 +113,23 @@ namespace FacebookLogic
                 m_LastAccessToken = value;
             }
         }
-    }
+
+          public void SaveAppSettings()
+          {
+               if(m_IsUserAskingToRememberLoginDets)
+               {
+                    using (Stream stream = new FileStream(sr_AppSettingsPath, FileMode.Create))
+                    {
+                         ApplicationSettingsParser.Serialize(stream, Instance);
+                    }
+               }
+               else
+               {    // Delete the xml file of settings 
+                    if (File.Exists(sr_AppSettingsPath))
+                    {
+                         File.Delete(sr_AppSettingsPath);
+                    }
+               }
+          }
+     }
 }

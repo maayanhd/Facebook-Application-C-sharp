@@ -17,18 +17,27 @@ namespace DesktopFacebook
      {
           private Form m_CurrentChildForm = new Form();
           private User m_LoggedInUser;
-          private readonly AppSettings m_AppSettings;
           bool m_IsAskingToRememberLoginDets;
-               
-          public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, AppSettings i_AppSettings)
+          readonly string logoutSuccessfulMessage = "Loging out successfully!";
+          
+          public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser)
           {
                m_LoggedInUser = i_LoggedInUser;
                InitializeComponent();
                m_IsAskingToRememberLoginDets = i_IsAskingToRememberLoginDets;
                customizePanelsDesign();
-               m_AppSettings = i_AppSettings;
                fetchUserDetails();
                fetchNewsFeed();
+               LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;
+          }
+
+          private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
+          {
+               MessageBox.Show(
+                    logoutSuccessfulMessage,
+                    "Logout",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.None);
           }
 
           private void fetchUserDetails()
@@ -147,49 +156,54 @@ namespace DesktopFacebook
 
           private void fetchNewsFeed()
           {
-                int postIndex = 0;
-                foreach (Post post in m_LoggedInUser.NewsFeed)
-                {
+               int postIndex = 0;
+               foreach (Post post in m_LoggedInUser.NewsFeed)
+               {
                     PostBox postBox = new PostBox(post);
                     (m_CurrentChildForm as FormNewsFeed).flowLayoutPanelNewsFeed.Controls.Add(postBox);
                     postIndex++;
-                    if (postIndex == m_AppSettings.MaxPostsShown)
+                    if (postIndex == AppSettings.Instance.MaxPostsShown)
                     {
-                        break;
+                         break;
                     }
-                }
+               }
 
-                if (m_LoggedInUser.Posts.Count == 0)
-                {
+               if (m_LoggedInUser.Posts.Count == 0)
+               {
                     MessageBox.Show("No posts to retrieve!");
-                }
+               }
           }
 
-            private void fetchPosts()
-            {
-                int postIndex = 0;
-                foreach (Post post in m_LoggedInUser.Posts)
-                {
-                    PostBox postBox = new PostBox(post);
-                    (m_CurrentChildForm as FormNewsFeed).flowLayoutPanelNewsFeed.Controls.Add(postBox);
-                    postIndex++;
-                    if (postIndex == m_AppSettings.MaxPostsShown)
-                    {
-                        break;
-                    }
-                }
-
-                if (m_LoggedInUser.Posts.Count == 0)
-                {
-                    MessageBox.Show("No posts to retrieve!");
-                }
-            }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+          private void fetchPosts()
           {
+               int postIndex = 0;
+               foreach (Post post in m_LoggedInUser.Posts)
+               {
+                    PostBox postBox = new PostBox(post);
+                    (m_CurrentChildForm as FormNewsFeed).flowLayoutPanelNewsFeed.Controls.Add(postBox);
+                    postIndex++;
+                    if (postIndex == AppSettings.Instance.MaxPostsShown)
+                    {
+                         break;
+                    }
+               }
 
+               if (m_LoggedInUser.Posts.Count == 0)
+               {
+                    MessageBox.Show("No posts to retrieve!");
+               }
           }
 
+          private void textBox1_TextChanged(object sender, EventArgs e)
+          {
+               activateTextbox(sender as TextBox);
+          }
+
+          private void activateTextbox(TextBox o_PostTextBox)
+          {
+               o_PostTextBox.Text = o_PostTextBox.Text.Equals("What\'s on your mind?") ? string.Empty : o_PostTextBox.Text;
+          }
+                   
           private void buttonPost_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = (sender as Button).Text;
@@ -268,6 +282,14 @@ namespace DesktopFacebook
                ButtonChosenMenu.Text = (sender as Button).Text;
                hideSubMenu();
                showSubMenu(panelPosts);
+          }
+
+          private void buttonLogout_Click(object sender, EventArgs e)
+          {
+               AppSettings.Instance.SaveAppSettings();
+               LoginManager.Instance.Logout();
+               ;
+
           }
      }
 }

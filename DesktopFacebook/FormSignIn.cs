@@ -33,10 +33,9 @@ namespace DesktopFacebook
           {
                this.Hide();
                this.Enabled = false;
-               FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets, m_LoginManager.LoggedInUser, m_AppSettings);
+               FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets, m_LoginManager.LoggedInUser);
                mainForm.ShowDialog();
-            User user = new User();
-            
+               User user = new User();
           }
 
           private void customPictureBoxbutton_Click(object sender, EventArgs e)
@@ -60,9 +59,9 @@ namespace DesktopFacebook
                m_IsAskingToRememberLoginDets = m_CheckBoxRememberMe.Checked;
           }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
+          private void panel2_Paint(object sender, PaintEventArgs e)
+          {
 
-        }
-    }
+          }
+     }
 }
