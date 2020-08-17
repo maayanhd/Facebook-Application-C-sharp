@@ -20,7 +20,7 @@ namespace FacebookLogic
         //    "groups_access_member_info", "publish_pages"
         //};
         {
-                "public_profile",
+               "public_profile",
                 "email",
                 "publish_to_groups",
                 "user_birthday",

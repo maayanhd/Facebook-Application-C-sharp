@@ -40,7 +40,11 @@ namespace DesktopFacebook
           private void customPictureBoxbutton_Click(object sender, EventArgs e)
           {
                m_LoginManager.Login();
-               directToMainForm();
+
+               if(m_LoginManager.IsLoggedIn)
+               {
+                    directToMainForm();
+               }
           }
 
           private void directToMainForm()

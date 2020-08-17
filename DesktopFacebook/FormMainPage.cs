@@ -30,7 +30,6 @@ namespace DesktopFacebook
                customizePanelsDesign();
                fetchUserDetails();
                (LoginManager.Instance).LogoutSuccessful += LoginManager_LogoutSuccessful;
-               (LoginManager.Instance).DirectedToSignInForm += FormMainPage_DirectedToSignInForm;
           }
 
           private void FormMainPage_DirectedToSignInForm(object sender, EventArgs e)
