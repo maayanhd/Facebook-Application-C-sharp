@@ -1,6 +1,6 @@
 ﻿namespace DesktopFacebook.Forms
 {
-     partial class FormPhotos
+     partial class FormMyAlbumss
      {
           /// <summary>
           /// Required designer variable.
