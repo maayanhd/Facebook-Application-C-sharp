@@ -85,12 +85,6 @@
     <Compile Include="Forms\FormMatchMakerByParameters.Designer.cs">
       <DependentUpon>FormMatchMakerByParameters.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormMyFeed.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormMyFeed.Designer.cs">
-      <DependentUpon>FormMyFeed.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormNewsFeed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +96,18 @@
     </Compile>
     <Compile Include="Forms\FormMyAlbumss.Designer.cs">
       <DependentUpon>FormMyAlbumss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPosts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPosts.Designer.cs">
+      <DependentUpon>FormPosts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PostBox.Designer.cs">
+      <DependentUpon>PostBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMyAlbumss.resx">
       <DependentUpon>FormMyAlbumss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPosts.resx">
+      <DependentUpon>FormPosts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostBox.resx">
+      <DependentUpon>PostBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

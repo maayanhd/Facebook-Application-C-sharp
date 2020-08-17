@@ -28,7 +28,6 @@ namespace DesktopFacebook
                customizePanelsDesign();
                m_AppSettings = i_AppSettings;
                fetchUserDetails();
-               openChildForm(new FormNewsFeed());
                fetchNewsFeed();
           }
 
@@ -257,9 +256,11 @@ namespace DesktopFacebook
 
           private void buttonNewsFeed_Click(object sender, EventArgs e)
           {
+
                ButtonChosenMenu.Text = (sender as Button).Text;
                openChildForm(new FormNewsFeed());
-               //fetchAndInitNewsFeed();
+               fetchNewsFeed();
+
           }
 
           private void buttonPosts_Click(object sender, EventArgs e)

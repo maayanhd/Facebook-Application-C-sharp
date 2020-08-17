@@ -66,7 +66,7 @@ namespace DesktopFacebook
                this.PanelLeftSided = new System.Windows.Forms.Panel();
                this.panelPosts = new System.Windows.Forms.Panel();
                this.buttonNewsFeed = new System.Windows.Forms.Button();
-               this.ButtonMyFeed = new System.Windows.Forms.Button();
+               this.ButtonMyPosts = new System.Windows.Forms.Button();
                this.buttonPosts = new System.Windows.Forms.Button();
                this.PanelNewFeatures = new System.Windows.Forms.Panel();
                this.buttonEventsByParam = new System.Windows.Forms.Button();
@@ -231,7 +231,7 @@ namespace DesktopFacebook
                // panelPosts
                // 
                this.panelPosts.Controls.Add(this.buttonNewsFeed);
-               this.panelPosts.Controls.Add(this.ButtonMyFeed);
+               this.panelPosts.Controls.Add(this.ButtonMyPosts);
                this.panelPosts.Dock = System.Windows.Forms.DockStyle.Top;
                this.panelPosts.Location = new System.Drawing.Point(0, 354);
                this.panelPosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -257,22 +257,22 @@ namespace DesktopFacebook
                this.buttonNewsFeed.UseVisualStyleBackColor = true;
                this.buttonNewsFeed.Click += new System.EventHandler(this.buttonNewsFeed_Click);
                // 
-               // ButtonMyFeed
+               // ButtonMyPosts
                // 
-               this.ButtonMyFeed.Dock = System.Windows.Forms.DockStyle.Top;
-               this.ButtonMyFeed.FlatAppearance.BorderSize = 0;
-               this.ButtonMyFeed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-               this.ButtonMyFeed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-               this.ButtonMyFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.ButtonMyFeed.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.ButtonMyFeed.Location = new System.Drawing.Point(0, 0);
-               this.ButtonMyFeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-               this.ButtonMyFeed.Name = "ButtonMyFeed";
-               this.ButtonMyFeed.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-               this.ButtonMyFeed.Size = new System.Drawing.Size(200, 40);
-               this.ButtonMyFeed.TabIndex = 1;
-               this.ButtonMyFeed.Text = "my Feed";
-               this.ButtonMyFeed.UseVisualStyleBackColor = true;
+               this.ButtonMyPosts.Dock = System.Windows.Forms.DockStyle.Top;
+               this.ButtonMyPosts.FlatAppearance.BorderSize = 0;
+               this.ButtonMyPosts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.ButtonMyPosts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.ButtonMyPosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.ButtonMyPosts.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.ButtonMyPosts.Location = new System.Drawing.Point(0, 0);
+               this.ButtonMyPosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.ButtonMyPosts.Name = "ButtonMyPosts";
+               this.ButtonMyPosts.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+               this.ButtonMyPosts.Size = new System.Drawing.Size(200, 40);
+               this.ButtonMyPosts.TabIndex = 1;
+               this.ButtonMyPosts.Text = "my Posts";
+               this.ButtonMyPosts.UseVisualStyleBackColor = true;
                // 
                // buttonPosts
                // 
@@ -557,7 +557,7 @@ namespace DesktopFacebook
           private Panel PanelShadow;
           private Button ButtonChosenMenu;
           private Panel panelPosts;
-          private Button ButtonMyFeed;
+          private Button ButtonMyPosts;
           private Button buttonPosts;
           private Button buttonNewsFeed;
      }
