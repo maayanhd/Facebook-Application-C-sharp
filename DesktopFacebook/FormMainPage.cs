@@ -223,6 +223,7 @@ namespace DesktopFacebook
                ButtonChosenMenu.Text = (sender as Button).Text;
                hideSubMenu();
                showSubMenu(PanelPhotos);
+               openChildForm(new FormMyAlbums());
           }
 
           private void ButtonFriends_Click(object sender, EventArgs e)
@@ -230,6 +231,7 @@ namespace DesktopFacebook
                ButtonChosenMenu.Text = (sender as Button).Text;
                hideSubMenu();
                showSubMenu(PanelFriends);
+               openChildForm(new FormFriends());
           }
 
 

@@ -65,10 +65,8 @@ namespace DesktopFacebook
                this.buttonMatchMaker = new System.Windows.Forms.Button();
                this.buttonNewFeatures = new System.Windows.Forms.Button();
                this.PanelPhotos = new System.Windows.Forms.Panel();
-               this.buttonMyAlbums = new System.Windows.Forms.Button();
                this.button_Photos = new System.Windows.Forms.Button();
                this.PanelFriends = new System.Windows.Forms.Panel();
-               this.buttonMyFriendsList = new System.Windows.Forms.Button();
                this.buttonFriends = new System.Windows.Forms.Button();
                this.panel1 = new System.Windows.Forms.Panel();
                this.PanelSelectedMenu = new System.Windows.Forms.Panel();
@@ -84,8 +82,6 @@ namespace DesktopFacebook
                this.PanelLeftSided.SuspendLayout();
                this.panelPosts.SuspendLayout();
                this.PanelNewFeatures.SuspendLayout();
-               this.PanelPhotos.SuspendLayout();
-               this.PanelFriends.SuspendLayout();
                this.panel1.SuspendLayout();
                this.panelProfileDetails.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
@@ -116,7 +112,7 @@ namespace DesktopFacebook
                this.panelPosts.Controls.Add(this.buttonNewsFeed);
                this.panelPosts.Controls.Add(this.ButtonMyPosts);
                this.panelPosts.Dock = System.Windows.Forms.DockStyle.Top;
-               this.panelPosts.Location = new System.Drawing.Point(0, 354);
+               this.panelPosts.Location = new System.Drawing.Point(0, 302);
                this.panelPosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.panelPosts.Name = "panelPosts";
                this.panelPosts.Size = new System.Drawing.Size(200, 81);
@@ -165,7 +161,7 @@ namespace DesktopFacebook
                this.buttonPosts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
                this.buttonPosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.buttonPosts.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonPosts.Location = new System.Drawing.Point(0, 308);
+               this.buttonPosts.Location = new System.Drawing.Point(0, 256);
                this.buttonPosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.buttonPosts.Name = "buttonPosts";
                this.buttonPosts.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -182,7 +178,7 @@ namespace DesktopFacebook
                this.PanelNewFeatures.Controls.Add(this.buttonEventsByParam);
                this.PanelNewFeatures.Controls.Add(this.buttonMatchMaker);
                this.PanelNewFeatures.Dock = System.Windows.Forms.DockStyle.Top;
-               this.PanelNewFeatures.Location = new System.Drawing.Point(0, 226);
+               this.PanelNewFeatures.Location = new System.Drawing.Point(0, 174);
                this.PanelNewFeatures.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.PanelNewFeatures.Name = "PanelNewFeatures";
                this.PanelNewFeatures.Size = new System.Drawing.Size(200, 82);
@@ -232,7 +228,7 @@ namespace DesktopFacebook
                this.buttonNewFeatures.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
                this.buttonNewFeatures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.buttonNewFeatures.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonNewFeatures.Location = new System.Drawing.Point(0, 180);
+               this.buttonNewFeatures.Location = new System.Drawing.Point(0, 128);
                this.buttonNewFeatures.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.buttonNewFeatures.Name = "buttonNewFeatures";
                this.buttonNewFeatures.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -246,31 +242,12 @@ namespace DesktopFacebook
                // 
                // PanelPhotos
                // 
-               this.PanelPhotos.Controls.Add(this.buttonMyAlbums);
                this.PanelPhotos.Dock = System.Windows.Forms.DockStyle.Top;
-               this.PanelPhotos.Location = new System.Drawing.Point(0, 134);
+               this.PanelPhotos.Location = new System.Drawing.Point(0, 110);
                this.PanelPhotos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.PanelPhotos.Name = "PanelPhotos";
-               this.PanelPhotos.Size = new System.Drawing.Size(200, 46);
+               this.PanelPhotos.Size = new System.Drawing.Size(200, 18);
                this.PanelPhotos.TabIndex = 3;
-               // 
-               // buttonMyAlbums
-               // 
-               this.buttonMyAlbums.Dock = System.Windows.Forms.DockStyle.Top;
-               this.buttonMyAlbums.FlatAppearance.BorderSize = 0;
-               this.buttonMyAlbums.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-               this.buttonMyAlbums.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-               this.buttonMyAlbums.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.buttonMyAlbums.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonMyAlbums.Location = new System.Drawing.Point(0, 0);
-               this.buttonMyAlbums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-               this.buttonMyAlbums.Name = "buttonMyAlbums";
-               this.buttonMyAlbums.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-               this.buttonMyAlbums.Size = new System.Drawing.Size(200, 40);
-               this.buttonMyAlbums.TabIndex = 1;
-               this.buttonMyAlbums.Text = "my Albums";
-               this.buttonMyAlbums.UseVisualStyleBackColor = true;
-               this.buttonMyAlbums.Click += new System.EventHandler(this.buttonMyAlbums_Click);
                // 
                // button_Photos
                // 
@@ -280,7 +257,7 @@ namespace DesktopFacebook
                this.button_Photos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
                this.button_Photos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.button_Photos.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.button_Photos.Location = new System.Drawing.Point(0, 88);
+               this.button_Photos.Location = new System.Drawing.Point(0, 64);
                this.button_Photos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.button_Photos.Name = "button_Photos";
                this.button_Photos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -293,31 +270,12 @@ namespace DesktopFacebook
                // 
                // PanelFriends
                // 
-               this.PanelFriends.Controls.Add(this.buttonMyFriendsList);
                this.PanelFriends.Dock = System.Windows.Forms.DockStyle.Top;
                this.PanelFriends.Location = new System.Drawing.Point(0, 46);
                this.PanelFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.PanelFriends.Name = "PanelFriends";
-               this.PanelFriends.Size = new System.Drawing.Size(200, 42);
+               this.PanelFriends.Size = new System.Drawing.Size(200, 18);
                this.PanelFriends.TabIndex = 1;
-               // 
-               // buttonMyFriendsList
-               // 
-               this.buttonMyFriendsList.Dock = System.Windows.Forms.DockStyle.Top;
-               this.buttonMyFriendsList.FlatAppearance.BorderSize = 0;
-               this.buttonMyFriendsList.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-               this.buttonMyFriendsList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-               this.buttonMyFriendsList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.buttonMyFriendsList.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonMyFriendsList.Location = new System.Drawing.Point(0, 0);
-               this.buttonMyFriendsList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-               this.buttonMyFriendsList.Name = "buttonMyFriendsList";
-               this.buttonMyFriendsList.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-               this.buttonMyFriendsList.Size = new System.Drawing.Size(200, 40);
-               this.buttonMyFriendsList.TabIndex = 1;
-               this.buttonMyFriendsList.Text = "my Friends List";
-               this.buttonMyFriendsList.UseVisualStyleBackColor = true;
-               this.buttonMyFriendsList.Click += new System.EventHandler(this.buttonMyFriendsList_Click);
                // 
                // buttonFriends
                // 
@@ -509,8 +467,6 @@ namespace DesktopFacebook
                this.PanelLeftSided.ResumeLayout(false);
                this.panelPosts.ResumeLayout(false);
                this.PanelNewFeatures.ResumeLayout(false);
-               this.PanelPhotos.ResumeLayout(false);
-               this.PanelFriends.ResumeLayout(false);
                this.panel1.ResumeLayout(false);
                this.panelProfileDetails.ResumeLayout(false);
                this.panelProfileDetails.PerformLayout();
@@ -528,10 +484,8 @@ namespace DesktopFacebook
           private Button buttonMatchMaker;
           private Button buttonNewFeatures;
           private Panel PanelPhotos;
-          private Button buttonMyAlbums;
           private Button button_Photos;
           private Panel PanelFriends;
-          private Button buttonMyFriendsList;
           private Button buttonFriends;
           private Panel panel1;
           private Panel PanelSelectedMenu;
