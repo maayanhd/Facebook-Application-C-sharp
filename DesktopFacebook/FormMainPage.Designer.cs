@@ -36,11 +36,11 @@ namespace DesktopFacebook
                ChildForm.TopLevel = false;
                ChildForm.FormBorderStyle = FormBorderStyle.None;
                ChildForm.Dock = DockStyle.Fill;
-               m_PanelSelectedMenu.Controls.Add(ChildForm);
-               m_PanelSelectedMenu.Tag = ChildForm;
+               PanelSelectedMenu.Controls.Add(ChildForm);
+               PanelSelectedMenu.Tag = ChildForm;
                ChildForm.BringToFront();
                ChildForm.Show();
-               m_ButtonChosenMenu.Text = ChildForm.Text;                        
+               ButtonChosenMenu.Text = ChildForm.Text;                        
 
           }
 
@@ -54,453 +54,480 @@ namespace DesktopFacebook
           /// </summary>
           private void InitializeComponent()
           {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainPage));
-            this.panel_TopMainForm = new System.Windows.Forms.Panel();
-            this.m_ButtonChosenMenu = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panelProfileDetails = new System.Windows.Forms.Panel();
-            this.label_LoggedInUserFullName = new System.Windows.Forms.Label();
-            this.pictureBox_ProfilePicture = new System.Windows.Forms.PictureBox();
-            this.m_ButtonPost = new System.Windows.Forms.Button();
-            this.m_TextBoxPost = new System.Windows.Forms.TextBox();
-            this.m_PanelLeftSided = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.m_ButtonFetch = new System.Windows.Forms.Button();
-            this.m_ButtonEvents = new System.Windows.Forms.Button();
-            this.m_PanelNewFeatures = new System.Windows.Forms.Panel();
-            this.m_ButtonEventsByParam = new System.Windows.Forms.Button();
-            this.m_ButtonMatchMaker = new System.Windows.Forms.Button();
-            this.m_ButtonNewFeatures = new System.Windows.Forms.Button();
-            this.m_PanelPhotos = new System.Windows.Forms.Panel();
-            this.m_ButtonMyAlbums = new System.Windows.Forms.Button();
-            this.m_Button_Photos = new System.Windows.Forms.Button();
-            this.m_PanelFriends = new System.Windows.Forms.Panel();
-            this.m_ButtonMyFriends = new System.Windows.Forms.Button();
-            this.m_ButtonFriends = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.m_PanelSelectedMenu = new System.Windows.Forms.Panel();
-            this.m_PanelShadow = new System.Windows.Forms.Panel();
-            this.panel_TopMainForm.SuspendLayout();
-            this.panelProfileDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
-            this.m_PanelLeftSided.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.m_PanelNewFeatures.SuspendLayout();
-            this.m_PanelPhotos.SuspendLayout();
-            this.m_PanelFriends.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // panel_TopMainForm
-            // 
-            this.panel_TopMainForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.panel_TopMainForm.Controls.Add(this.m_ButtonChosenMenu);
-            this.panel_TopMainForm.Controls.Add(this.button5);
-            this.panel_TopMainForm.Controls.Add(this.panelProfileDetails);
-            this.panel_TopMainForm.Controls.Add(this.m_ButtonPost);
-            this.panel_TopMainForm.Controls.Add(this.m_TextBoxPost);
-            this.panel_TopMainForm.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_TopMainForm.Location = new System.Drawing.Point(0, 0);
-            this.panel_TopMainForm.Margin = new System.Windows.Forms.Padding(2);
-            this.panel_TopMainForm.Name = "panel_TopMainForm";
-            this.panel_TopMainForm.Size = new System.Drawing.Size(1284, 117);
-            this.panel_TopMainForm.TabIndex = 0;
-            // 
-            // m_ButtonChosenMenu
-            // 
-            this.m_ButtonChosenMenu.AutoSize = true;
-            this.m_ButtonChosenMenu.FlatAppearance.BorderSize = 0;
-            this.m_ButtonChosenMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            this.m_ButtonChosenMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.m_ButtonChosenMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonChosenMenu.Font = new System.Drawing.Font("Century Gothic", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonChosenMenu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.m_ButtonChosenMenu.Location = new System.Drawing.Point(162, 90);
-            this.m_ButtonChosenMenu.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonChosenMenu.Name = "m_ButtonChosenMenu";
-            this.m_ButtonChosenMenu.Size = new System.Drawing.Size(95, 26);
-            this.m_ButtonChosenMenu.TabIndex = 4;
-            this.m_ButtonChosenMenu.Text = "ChosenMenu";
-            this.m_ButtonChosenMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.m_ButtonChosenMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.m_ButtonChosenMenu.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(809, 90);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(68, 24);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Logout";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // panelProfileDetails
-            // 
-            this.panelProfileDetails.Controls.Add(this.label_LoggedInUserFullName);
-            this.panelProfileDetails.Controls.Add(this.pictureBox_ProfilePicture);
-            this.panelProfileDetails.Location = new System.Drawing.Point(2, 2);
-            this.panelProfileDetails.Margin = new System.Windows.Forms.Padding(2);
-            this.panelProfileDetails.Name = "panelProfileDetails";
-            this.panelProfileDetails.Size = new System.Drawing.Size(148, 115);
-            this.panelProfileDetails.TabIndex = 2;
-            // 
-            // label_LoggedInUserFullName
-            // 
-            this.label_LoggedInUserFullName.AutoSize = true;
-            this.label_LoggedInUserFullName.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_LoggedInUserFullName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_LoggedInUserFullName.Location = new System.Drawing.Point(9, 97);
-            this.label_LoggedInUserFullName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_LoggedInUserFullName.MaximumSize = new System.Drawing.Size(135, 16);
-            this.label_LoggedInUserFullName.Name = "label_LoggedInUserFullName";
-            this.label_LoggedInUserFullName.Size = new System.Drawing.Size(128, 15);
-            this.label_LoggedInUserFullName.TabIndex = 1;
-            this.label_LoggedInUserFullName.Text = "loggedInUserFullName";
-            // 
-            // pictureBox_ProfilePicture
-            // 
-            this.pictureBox_ProfilePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_ProfilePicture.BackgroundImage")));
-            this.pictureBox_ProfilePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(28, 5);
-            this.pictureBox_ProfilePicture.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox_ProfilePicture.Name = "pictureBox_ProfilePicture";
-            this.pictureBox_ProfilePicture.Size = new System.Drawing.Size(90, 90);
-            this.pictureBox_ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_ProfilePicture.TabIndex = 2;
-            this.pictureBox_ProfilePicture.TabStop = false;
-            // 
-            // m_ButtonPost
-            // 
-            this.m_ButtonPost.AutoSize = true;
-            this.m_ButtonPost.BackColor = System.Drawing.Color.Gray;
-            this.m_ButtonPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.m_ButtonPost.FlatAppearance.BorderSize = 0;
-            this.m_ButtonPost.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.m_ButtonPost.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-            this.m_ButtonPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonPost.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonPost.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.m_ButtonPost.Location = new System.Drawing.Point(268, 70);
-            this.m_ButtonPost.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonPost.Name = "m_ButtonPost";
-            this.m_ButtonPost.Size = new System.Drawing.Size(56, 27);
-            this.m_ButtonPost.TabIndex = 1;
-            this.m_ButtonPost.Text = "Post";
-            this.m_ButtonPost.UseVisualStyleBackColor = false;
-            this.m_ButtonPost.Click += new System.EventHandler(this.m_ButtonPost_Click);
-            // 
-            // m_TextBoxPost
-            // 
-            this.m_TextBoxPost.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.m_TextBoxPost.Location = new System.Drawing.Point(329, 73);
-            this.m_TextBoxPost.Margin = new System.Windows.Forms.Padding(2);
-            this.m_TextBoxPost.Name = "m_TextBoxPost";
-            this.m_TextBoxPost.Size = new System.Drawing.Size(303, 20);
-            this.m_TextBoxPost.TabIndex = 0;
-            this.m_TextBoxPost.Text = "What\'s on your mind?";
-            this.m_TextBoxPost.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // m_PanelLeftSided
-            // 
-            this.m_PanelLeftSided.AutoScroll = true;
-            this.m_PanelLeftSided.BackColor = System.Drawing.Color.Azure;
-            this.m_PanelLeftSided.Controls.Add(this.panel3);
-            this.m_PanelLeftSided.Controls.Add(this.m_ButtonEvents);
-            this.m_PanelLeftSided.Controls.Add(this.m_PanelNewFeatures);
-            this.m_PanelLeftSided.Controls.Add(this.m_ButtonNewFeatures);
-            this.m_PanelLeftSided.Controls.Add(this.m_PanelPhotos);
-            this.m_PanelLeftSided.Controls.Add(this.m_Button_Photos);
-            this.m_PanelLeftSided.Controls.Add(this.m_PanelFriends);
-            this.m_PanelLeftSided.Controls.Add(this.m_ButtonFriends);
-            this.m_PanelLeftSided.Dock = System.Windows.Forms.DockStyle.Left;
-            this.m_PanelLeftSided.Location = new System.Drawing.Point(0, 0);
-            this.m_PanelLeftSided.Margin = new System.Windows.Forms.Padding(2);
-            this.m_PanelLeftSided.Name = "m_PanelLeftSided";
-            this.m_PanelLeftSided.Size = new System.Drawing.Size(150, 844);
-            this.m_PanelLeftSided.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.m_ButtonFetch);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 286);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(150, 33);
-            this.panel3.TabIndex = 7;
-            // 
-            // m_ButtonFetch
-            // 
-            this.m_ButtonFetch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_ButtonFetch.FlatAppearance.BorderSize = 0;
-            this.m_ButtonFetch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-            this.m_ButtonFetch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.m_ButtonFetch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonFetch.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonFetch.Location = new System.Drawing.Point(0, 0);
-            this.m_ButtonFetch.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonFetch.Name = "m_ButtonFetch";
-            this.m_ButtonFetch.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.m_ButtonFetch.Size = new System.Drawing.Size(150, 32);
-            this.m_ButtonFetch.TabIndex = 1;
-            this.m_ButtonFetch.Text = "Fetch";
-            this.m_ButtonFetch.UseVisualStyleBackColor = true;
-            // 
-            // m_ButtonEvents
-            // 
-            this.m_ButtonEvents.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_ButtonEvents.FlatAppearance.BorderSize = 0;
-            this.m_ButtonEvents.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-            this.m_ButtonEvents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.m_ButtonEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonEvents.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonEvents.Location = new System.Drawing.Point(0, 249);
-            this.m_ButtonEvents.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonEvents.Name = "m_ButtonEvents";
-            this.m_ButtonEvents.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.m_ButtonEvents.Size = new System.Drawing.Size(150, 37);
-            this.m_ButtonEvents.TabIndex = 6;
-            this.m_ButtonEvents.Text = "Events";
-            this.m_ButtonEvents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.m_ButtonEvents.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.m_ButtonEvents.UseVisualStyleBackColor = true;
-            // 
-            // m_PanelNewFeatures
-            // 
-            this.m_PanelNewFeatures.Controls.Add(this.m_ButtonEventsByParam);
-            this.m_PanelNewFeatures.Controls.Add(this.m_ButtonMatchMaker);
-            this.m_PanelNewFeatures.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_PanelNewFeatures.Location = new System.Drawing.Point(0, 182);
-            this.m_PanelNewFeatures.Margin = new System.Windows.Forms.Padding(2);
-            this.m_PanelNewFeatures.Name = "m_PanelNewFeatures";
-            this.m_PanelNewFeatures.Size = new System.Drawing.Size(150, 67);
-            this.m_PanelNewFeatures.TabIndex = 5;
-            // 
-            // m_ButtonEventsByParam
-            // 
-            this.m_ButtonEventsByParam.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_ButtonEventsByParam.FlatAppearance.BorderSize = 0;
-            this.m_ButtonEventsByParam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-            this.m_ButtonEventsByParam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.m_ButtonEventsByParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonEventsByParam.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonEventsByParam.Location = new System.Drawing.Point(0, 32);
-            this.m_ButtonEventsByParam.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonEventsByParam.Name = "m_ButtonEventsByParam";
-            this.m_ButtonEventsByParam.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.m_ButtonEventsByParam.Size = new System.Drawing.Size(150, 36);
-            this.m_ButtonEventsByParam.TabIndex = 2;
-            this.m_ButtonEventsByParam.Text = "Event by Filter";
-            this.m_ButtonEventsByParam.UseVisualStyleBackColor = true;
-            // 
-            // m_ButtonMatchMaker
-            // 
-            this.m_ButtonMatchMaker.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_ButtonMatchMaker.FlatAppearance.BorderSize = 0;
-            this.m_ButtonMatchMaker.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-            this.m_ButtonMatchMaker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.m_ButtonMatchMaker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonMatchMaker.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonMatchMaker.Location = new System.Drawing.Point(0, 0);
-            this.m_ButtonMatchMaker.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonMatchMaker.Name = "m_ButtonMatchMaker";
-            this.m_ButtonMatchMaker.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.m_ButtonMatchMaker.Size = new System.Drawing.Size(150, 32);
-            this.m_ButtonMatchMaker.TabIndex = 1;
-            this.m_ButtonMatchMaker.Text = "MatchMaker";
-            this.m_ButtonMatchMaker.UseVisualStyleBackColor = true;
-            // 
-            // m_ButtonNewFeatures
-            // 
-            this.m_ButtonNewFeatures.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_ButtonNewFeatures.FlatAppearance.BorderSize = 0;
-            this.m_ButtonNewFeatures.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-            this.m_ButtonNewFeatures.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.m_ButtonNewFeatures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonNewFeatures.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonNewFeatures.Location = new System.Drawing.Point(0, 145);
-            this.m_ButtonNewFeatures.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonNewFeatures.Name = "m_ButtonNewFeatures";
-            this.m_ButtonNewFeatures.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.m_ButtonNewFeatures.Size = new System.Drawing.Size(150, 37);
-            this.m_ButtonNewFeatures.TabIndex = 4;
-            this.m_ButtonNewFeatures.Text = "New Features";
-            this.m_ButtonNewFeatures.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.m_ButtonNewFeatures.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.m_ButtonNewFeatures.UseVisualStyleBackColor = true;
-            // 
-            // m_PanelPhotos
-            // 
-            this.m_PanelPhotos.Controls.Add(this.m_ButtonMyAlbums);
-            this.m_PanelPhotos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_PanelPhotos.Location = new System.Drawing.Point(0, 108);
-            this.m_PanelPhotos.Margin = new System.Windows.Forms.Padding(2);
-            this.m_PanelPhotos.Name = "m_PanelPhotos";
-            this.m_PanelPhotos.Size = new System.Drawing.Size(150, 37);
-            this.m_PanelPhotos.TabIndex = 3;
-            // 
-            // m_ButtonMyAlbums
-            // 
-            this.m_ButtonMyAlbums.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_ButtonMyAlbums.FlatAppearance.BorderSize = 0;
-            this.m_ButtonMyAlbums.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-            this.m_ButtonMyAlbums.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.m_ButtonMyAlbums.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonMyAlbums.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonMyAlbums.Location = new System.Drawing.Point(0, 0);
-            this.m_ButtonMyAlbums.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonMyAlbums.Name = "m_ButtonMyAlbums";
-            this.m_ButtonMyAlbums.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.m_ButtonMyAlbums.Size = new System.Drawing.Size(150, 32);
-            this.m_ButtonMyAlbums.TabIndex = 1;
-            this.m_ButtonMyAlbums.Text = "my Albums";
-            this.m_ButtonMyAlbums.UseVisualStyleBackColor = true;
-            // 
-            // m_Button_Photos
-            // 
-            this.m_Button_Photos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_Button_Photos.FlatAppearance.BorderSize = 0;
-            this.m_Button_Photos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-            this.m_Button_Photos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.m_Button_Photos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_Button_Photos.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_Button_Photos.Location = new System.Drawing.Point(0, 71);
-            this.m_Button_Photos.Margin = new System.Windows.Forms.Padding(2);
-            this.m_Button_Photos.Name = "m_Button_Photos";
-            this.m_Button_Photos.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.m_Button_Photos.Size = new System.Drawing.Size(150, 37);
-            this.m_Button_Photos.TabIndex = 2;
-            this.m_Button_Photos.Text = "Photos";
-            this.m_Button_Photos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.m_Button_Photos.UseVisualStyleBackColor = true;
-            this.m_Button_Photos.Click += new System.EventHandler(this.m_Button_Photos_Click);
-            // 
-            // m_PanelFriends
-            // 
-            this.m_PanelFriends.Controls.Add(this.m_ButtonMyFriends);
-            this.m_PanelFriends.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_PanelFriends.Location = new System.Drawing.Point(0, 37);
-            this.m_PanelFriends.Margin = new System.Windows.Forms.Padding(2);
-            this.m_PanelFriends.Name = "m_PanelFriends";
-            this.m_PanelFriends.Size = new System.Drawing.Size(150, 34);
-            this.m_PanelFriends.TabIndex = 1;
-            // 
-            // m_ButtonMyFriends
-            // 
-            this.m_ButtonMyFriends.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_ButtonMyFriends.FlatAppearance.BorderSize = 0;
-            this.m_ButtonMyFriends.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-            this.m_ButtonMyFriends.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.m_ButtonMyFriends.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonMyFriends.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonMyFriends.Location = new System.Drawing.Point(0, 0);
-            this.m_ButtonMyFriends.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonMyFriends.Name = "m_ButtonMyFriends";
-            this.m_ButtonMyFriends.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.m_ButtonMyFriends.Size = new System.Drawing.Size(150, 32);
-            this.m_ButtonMyFriends.TabIndex = 1;
-            this.m_ButtonMyFriends.Text = "My Friends List";
-            this.m_ButtonMyFriends.UseVisualStyleBackColor = true;
-            // 
-            // m_ButtonFriends
-            // 
-            this.m_ButtonFriends.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_ButtonFriends.FlatAppearance.BorderSize = 0;
-            this.m_ButtonFriends.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
-            this.m_ButtonFriends.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.m_ButtonFriends.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.m_ButtonFriends.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_ButtonFriends.Location = new System.Drawing.Point(0, 0);
-            this.m_ButtonFriends.Margin = new System.Windows.Forms.Padding(2);
-            this.m_ButtonFriends.Name = "m_ButtonFriends";
-            this.m_ButtonFriends.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.m_ButtonFriends.Size = new System.Drawing.Size(150, 37);
-            this.m_ButtonFriends.TabIndex = 0;
-            this.m_ButtonFriends.Text = "Friends";
-            this.m_ButtonFriends.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.m_ButtonFriends.UseVisualStyleBackColor = true;
-            this.m_ButtonFriends.Click += new System.EventHandler(this.m_ButtonFriends_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Azure;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1134, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(150, 844);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.m_PanelSelectedMenu);
-            this.panel1.Controls.Add(this.m_PanelShadow);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.m_PanelLeftSided);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 117);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1284, 844);
-            this.panel1.TabIndex = 1;
-            // 
-            // m_PanelSelectedMenu
-            // 
-            this.m_PanelSelectedMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_PanelSelectedMenu.Location = new System.Drawing.Point(150, 8);
-            this.m_PanelSelectedMenu.Margin = new System.Windows.Forms.Padding(2);
-            this.m_PanelSelectedMenu.Name = "m_PanelSelectedMenu";
-            this.m_PanelSelectedMenu.Size = new System.Drawing.Size(984, 836);
-            this.m_PanelSelectedMenu.TabIndex = 3;
-            // 
-            // m_PanelShadow
-            // 
-            this.m_PanelShadow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_PanelShadow.Location = new System.Drawing.Point(150, 0);
-            this.m_PanelShadow.Margin = new System.Windows.Forms.Padding(2);
-            this.m_PanelShadow.Name = "m_PanelShadow";
-            this.m_PanelShadow.Size = new System.Drawing.Size(984, 8);
-            this.m_PanelShadow.TabIndex = 2;
-            // 
-            // FormMainPage
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 961);
-            this.ControlBox = false;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel_TopMainForm);
-            this.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(904, 393);
-            this.Name = "FormMainPage";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FacebookFormUi";
-            this.TopMost = true;
-            this.panel_TopMainForm.ResumeLayout(false);
-            this.panel_TopMainForm.PerformLayout();
-            this.panelProfileDetails.ResumeLayout(false);
-            this.panelProfileDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).EndInit();
-            this.m_PanelLeftSided.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.m_PanelNewFeatures.ResumeLayout(false);
-            this.m_PanelPhotos.ResumeLayout(false);
-            this.m_PanelFriends.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.ResumeLayout(false);
+               System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainPage));
+               this.panel_TopMainForm = new System.Windows.Forms.Panel();
+               this.ButtonChosenMenu = new System.Windows.Forms.Button();
+               this.button5 = new System.Windows.Forms.Button();
+               this.panelProfileDetails = new System.Windows.Forms.Panel();
+               this.label_LoggedInUserFullName = new System.Windows.Forms.Label();
+               this.pictureBox_ProfilePicture = new System.Windows.Forms.PictureBox();
+               this.buttonPost = new System.Windows.Forms.Button();
+               this.m_TextBoxPost = new System.Windows.Forms.TextBox();
+               this.PanelLeftSided = new System.Windows.Forms.Panel();
+               this.panelPosts = new System.Windows.Forms.Panel();
+               this.buttonNewsFeed = new System.Windows.Forms.Button();
+               this.ButtonMyFeed = new System.Windows.Forms.Button();
+               this.buttonPosts = new System.Windows.Forms.Button();
+               this.PanelNewFeatures = new System.Windows.Forms.Panel();
+               this.buttonEventsByParam = new System.Windows.Forms.Button();
+               this.buttonMatchMaker = new System.Windows.Forms.Button();
+               this.buttonNewFeatures = new System.Windows.Forms.Button();
+               this.PanelPhotos = new System.Windows.Forms.Panel();
+               this.buttonMyAlbums = new System.Windows.Forms.Button();
+               this.button_Photos = new System.Windows.Forms.Button();
+               this.PanelFriends = new System.Windows.Forms.Panel();
+               this.buttonMyFriendsList = new System.Windows.Forms.Button();
+               this.buttonFriends = new System.Windows.Forms.Button();
+               this.panel2 = new System.Windows.Forms.Panel();
+               this.panel1 = new System.Windows.Forms.Panel();
+               this.PanelSelectedMenu = new System.Windows.Forms.Panel();
+               this.PanelShadow = new System.Windows.Forms.Panel();
+               this.panel_TopMainForm.SuspendLayout();
+               this.panelProfileDetails.SuspendLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
+               this.PanelLeftSided.SuspendLayout();
+               this.panelPosts.SuspendLayout();
+               this.PanelNewFeatures.SuspendLayout();
+               this.PanelPhotos.SuspendLayout();
+               this.PanelFriends.SuspendLayout();
+               this.panel1.SuspendLayout();
+               this.SuspendLayout();
+               // 
+               // panel_TopMainForm
+               // 
+               this.panel_TopMainForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+               this.panel_TopMainForm.Controls.Add(this.ButtonChosenMenu);
+               this.panel_TopMainForm.Controls.Add(this.button5);
+               this.panel_TopMainForm.Controls.Add(this.panelProfileDetails);
+               this.panel_TopMainForm.Controls.Add(this.buttonPost);
+               this.panel_TopMainForm.Controls.Add(this.m_TextBoxPost);
+               this.panel_TopMainForm.Dock = System.Windows.Forms.DockStyle.Top;
+               this.panel_TopMainForm.Location = new System.Drawing.Point(0, 0);
+               this.panel_TopMainForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.panel_TopMainForm.Name = "panel_TopMainForm";
+               this.panel_TopMainForm.Size = new System.Drawing.Size(1712, 144);
+               this.panel_TopMainForm.TabIndex = 0;
+               // 
+               // ButtonChosenMenu
+               // 
+               this.ButtonChosenMenu.AutoSize = true;
+               this.ButtonChosenMenu.FlatAppearance.BorderSize = 0;
+               this.ButtonChosenMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+               this.ButtonChosenMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepSkyBlue;
+               this.ButtonChosenMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.ButtonChosenMenu.Font = new System.Drawing.Font("Century Gothic", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.ButtonChosenMenu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+               this.ButtonChosenMenu.Location = new System.Drawing.Point(216, 111);
+               this.ButtonChosenMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.ButtonChosenMenu.Name = "ButtonChosenMenu";
+               this.ButtonChosenMenu.Size = new System.Drawing.Size(116, 34);
+               this.ButtonChosenMenu.TabIndex = 4;
+               this.ButtonChosenMenu.Text = "ChosenMenu";
+               this.ButtonChosenMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.ButtonChosenMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+               this.ButtonChosenMenu.UseVisualStyleBackColor = true;
+               // 
+               // button5
+               // 
+               this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+               this.button5.FlatAppearance.BorderSize = 0;
+               this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+               this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepSkyBlue;
+               this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.button5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+               this.button5.Location = new System.Drawing.Point(1398, 99);
+               this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.button5.Name = "button5";
+               this.button5.Size = new System.Drawing.Size(91, 30);
+               this.button5.TabIndex = 3;
+               this.button5.Text = "Logout";
+               this.button5.UseVisualStyleBackColor = true;
+               // 
+               // panelProfileDetails
+               // 
+               this.panelProfileDetails.Controls.Add(this.label_LoggedInUserFullName);
+               this.panelProfileDetails.Controls.Add(this.pictureBox_ProfilePicture);
+               this.panelProfileDetails.Location = new System.Drawing.Point(3, 2);
+               this.panelProfileDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.panelProfileDetails.Name = "panelProfileDetails";
+               this.panelProfileDetails.Size = new System.Drawing.Size(197, 142);
+               this.panelProfileDetails.TabIndex = 2;
+               // 
+               // label_LoggedInUserFullName
+               // 
+               this.label_LoggedInUserFullName.AutoSize = true;
+               this.label_LoggedInUserFullName.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.label_LoggedInUserFullName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+               this.label_LoggedInUserFullName.Location = new System.Drawing.Point(12, 119);
+               this.label_LoggedInUserFullName.MaximumSize = new System.Drawing.Size(180, 20);
+               this.label_LoggedInUserFullName.Name = "label_LoggedInUserFullName";
+               this.label_LoggedInUserFullName.Size = new System.Drawing.Size(162, 17);
+               this.label_LoggedInUserFullName.TabIndex = 1;
+               this.label_LoggedInUserFullName.Text = "loggedInUserFullName";
+               // 
+               // pictureBox_ProfilePicture
+               // 
+               this.pictureBox_ProfilePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_ProfilePicture.BackgroundImage")));
+               this.pictureBox_ProfilePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(37, 6);
+               this.pictureBox_ProfilePicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.pictureBox_ProfilePicture.Name = "pictureBox_ProfilePicture";
+               this.pictureBox_ProfilePicture.Size = new System.Drawing.Size(120, 111);
+               this.pictureBox_ProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+               this.pictureBox_ProfilePicture.TabIndex = 2;
+               this.pictureBox_ProfilePicture.TabStop = false;
+               // 
+               // buttonPost
+               // 
+               this.buttonPost.AutoSize = true;
+               this.buttonPost.BackColor = System.Drawing.Color.Gray;
+               this.buttonPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+               this.buttonPost.FlatAppearance.BorderSize = 0;
+               this.buttonPost.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+               this.buttonPost.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+               this.buttonPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.buttonPost.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonPost.ForeColor = System.Drawing.SystemColors.ButtonFace;
+               this.buttonPost.Location = new System.Drawing.Point(395, 73);
+               this.buttonPost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.buttonPost.Name = "buttonPost";
+               this.buttonPost.Size = new System.Drawing.Size(75, 36);
+               this.buttonPost.TabIndex = 1;
+               this.buttonPost.Text = "Post";
+               this.buttonPost.UseVisualStyleBackColor = false;
+               this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
+               // 
+               // m_TextBoxPost
+               // 
+               this.m_TextBoxPost.ForeColor = System.Drawing.SystemColors.InfoText;
+               this.m_TextBoxPost.Location = new System.Drawing.Point(477, 77);
+               this.m_TextBoxPost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.m_TextBoxPost.Name = "m_TextBoxPost";
+               this.m_TextBoxPost.Size = new System.Drawing.Size(403, 22);
+               this.m_TextBoxPost.TabIndex = 0;
+               this.m_TextBoxPost.Text = "What\'s on your mind?";
+               this.m_TextBoxPost.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+               // 
+               // PanelLeftSided
+               // 
+               this.PanelLeftSided.AutoScroll = true;
+               this.PanelLeftSided.BackColor = System.Drawing.Color.Azure;
+               this.PanelLeftSided.Controls.Add(this.panelPosts);
+               this.PanelLeftSided.Controls.Add(this.buttonPosts);
+               this.PanelLeftSided.Controls.Add(this.PanelNewFeatures);
+               this.PanelLeftSided.Controls.Add(this.buttonNewFeatures);
+               this.PanelLeftSided.Controls.Add(this.PanelPhotos);
+               this.PanelLeftSided.Controls.Add(this.button_Photos);
+               this.PanelLeftSided.Controls.Add(this.PanelFriends);
+               this.PanelLeftSided.Controls.Add(this.buttonFriends);
+               this.PanelLeftSided.Dock = System.Windows.Forms.DockStyle.Left;
+               this.PanelLeftSided.Location = new System.Drawing.Point(0, 0);
+               this.PanelLeftSided.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.PanelLeftSided.Name = "PanelLeftSided";
+               this.PanelLeftSided.Size = new System.Drawing.Size(200, 911);
+               this.PanelLeftSided.TabIndex = 0;
+               // 
+               // panelPosts
+               // 
+               this.panelPosts.Controls.Add(this.buttonNewsFeed);
+               this.panelPosts.Controls.Add(this.ButtonMyFeed);
+               this.panelPosts.Dock = System.Windows.Forms.DockStyle.Top;
+               this.panelPosts.Location = new System.Drawing.Point(0, 354);
+               this.panelPosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.panelPosts.Name = "panelPosts";
+               this.panelPosts.Size = new System.Drawing.Size(200, 81);
+               this.panelPosts.TabIndex = 7;
+               // 
+               // buttonNewsFeed
+               // 
+               this.buttonNewsFeed.Dock = System.Windows.Forms.DockStyle.Top;
+               this.buttonNewsFeed.FlatAppearance.BorderSize = 0;
+               this.buttonNewsFeed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.buttonNewsFeed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.buttonNewsFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.buttonNewsFeed.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonNewsFeed.Location = new System.Drawing.Point(0, 40);
+               this.buttonNewsFeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.buttonNewsFeed.Name = "buttonNewsFeed";
+               this.buttonNewsFeed.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+               this.buttonNewsFeed.Size = new System.Drawing.Size(200, 40);
+               this.buttonNewsFeed.TabIndex = 2;
+               this.buttonNewsFeed.Text = "news Feed";
+               this.buttonNewsFeed.UseVisualStyleBackColor = true;
+               this.buttonNewsFeed.Click += new System.EventHandler(this.buttonNewsFeed_Click);
+               // 
+               // ButtonMyFeed
+               // 
+               this.ButtonMyFeed.Dock = System.Windows.Forms.DockStyle.Top;
+               this.ButtonMyFeed.FlatAppearance.BorderSize = 0;
+               this.ButtonMyFeed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.ButtonMyFeed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.ButtonMyFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.ButtonMyFeed.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.ButtonMyFeed.Location = new System.Drawing.Point(0, 0);
+               this.ButtonMyFeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.ButtonMyFeed.Name = "ButtonMyFeed";
+               this.ButtonMyFeed.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+               this.ButtonMyFeed.Size = new System.Drawing.Size(200, 40);
+               this.ButtonMyFeed.TabIndex = 1;
+               this.ButtonMyFeed.Text = "my Feed";
+               this.ButtonMyFeed.UseVisualStyleBackColor = true;
+               // 
+               // buttonPosts
+               // 
+               this.buttonPosts.Dock = System.Windows.Forms.DockStyle.Top;
+               this.buttonPosts.FlatAppearance.BorderSize = 0;
+               this.buttonPosts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.buttonPosts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.buttonPosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.buttonPosts.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonPosts.Location = new System.Drawing.Point(0, 308);
+               this.buttonPosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.buttonPosts.Name = "buttonPosts";
+               this.buttonPosts.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+               this.buttonPosts.Size = new System.Drawing.Size(200, 46);
+               this.buttonPosts.TabIndex = 6;
+               this.buttonPosts.Text = "Posts";
+               this.buttonPosts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.buttonPosts.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+               this.buttonPosts.UseVisualStyleBackColor = true;
+               this.buttonPosts.Click += new System.EventHandler(this.buttonPosts_Click);
+               // 
+               // PanelNewFeatures
+               // 
+               this.PanelNewFeatures.Controls.Add(this.buttonEventsByParam);
+               this.PanelNewFeatures.Controls.Add(this.buttonMatchMaker);
+               this.PanelNewFeatures.Dock = System.Windows.Forms.DockStyle.Top;
+               this.PanelNewFeatures.Location = new System.Drawing.Point(0, 226);
+               this.PanelNewFeatures.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.PanelNewFeatures.Name = "PanelNewFeatures";
+               this.PanelNewFeatures.Size = new System.Drawing.Size(200, 82);
+               this.PanelNewFeatures.TabIndex = 5;
+               // 
+               // buttonEventsByParam
+               // 
+               this.buttonEventsByParam.Dock = System.Windows.Forms.DockStyle.Top;
+               this.buttonEventsByParam.FlatAppearance.BorderSize = 0;
+               this.buttonEventsByParam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.buttonEventsByParam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.buttonEventsByParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.buttonEventsByParam.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonEventsByParam.Location = new System.Drawing.Point(0, 40);
+               this.buttonEventsByParam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.buttonEventsByParam.Name = "buttonEventsByParam";
+               this.buttonEventsByParam.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+               this.buttonEventsByParam.Size = new System.Drawing.Size(200, 40);
+               this.buttonEventsByParam.TabIndex = 2;
+               this.buttonEventsByParam.Text = "Event by Filter";
+               this.buttonEventsByParam.UseVisualStyleBackColor = true;
+               this.buttonEventsByParam.Click += new System.EventHandler(this.buttonEventsByParam_Click);
+               // 
+               // buttonMatchMaker
+               // 
+               this.buttonMatchMaker.Dock = System.Windows.Forms.DockStyle.Top;
+               this.buttonMatchMaker.FlatAppearance.BorderSize = 0;
+               this.buttonMatchMaker.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.buttonMatchMaker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.buttonMatchMaker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.buttonMatchMaker.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonMatchMaker.Location = new System.Drawing.Point(0, 0);
+               this.buttonMatchMaker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.buttonMatchMaker.Name = "buttonMatchMaker";
+               this.buttonMatchMaker.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+               this.buttonMatchMaker.Size = new System.Drawing.Size(200, 40);
+               this.buttonMatchMaker.TabIndex = 1;
+               this.buttonMatchMaker.Text = "MatchMaker";
+               this.buttonMatchMaker.UseVisualStyleBackColor = true;
+               this.buttonMatchMaker.Click += new System.EventHandler(this.buttonMatchMaker_Click);
+               // 
+               // buttonNewFeatures
+               // 
+               this.buttonNewFeatures.Dock = System.Windows.Forms.DockStyle.Top;
+               this.buttonNewFeatures.FlatAppearance.BorderSize = 0;
+               this.buttonNewFeatures.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.buttonNewFeatures.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.buttonNewFeatures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.buttonNewFeatures.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonNewFeatures.Location = new System.Drawing.Point(0, 180);
+               this.buttonNewFeatures.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.buttonNewFeatures.Name = "buttonNewFeatures";
+               this.buttonNewFeatures.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+               this.buttonNewFeatures.Size = new System.Drawing.Size(200, 46);
+               this.buttonNewFeatures.TabIndex = 4;
+               this.buttonNewFeatures.Text = "New Features";
+               this.buttonNewFeatures.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.buttonNewFeatures.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+               this.buttonNewFeatures.UseVisualStyleBackColor = true;
+               this.buttonNewFeatures.Click += new System.EventHandler(this.buttonNewFeatures_Click);
+               // 
+               // PanelPhotos
+               // 
+               this.PanelPhotos.Controls.Add(this.buttonMyAlbums);
+               this.PanelPhotos.Dock = System.Windows.Forms.DockStyle.Top;
+               this.PanelPhotos.Location = new System.Drawing.Point(0, 134);
+               this.PanelPhotos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.PanelPhotos.Name = "PanelPhotos";
+               this.PanelPhotos.Size = new System.Drawing.Size(200, 46);
+               this.PanelPhotos.TabIndex = 3;
+               // 
+               // buttonMyAlbums
+               // 
+               this.buttonMyAlbums.Dock = System.Windows.Forms.DockStyle.Top;
+               this.buttonMyAlbums.FlatAppearance.BorderSize = 0;
+               this.buttonMyAlbums.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.buttonMyAlbums.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.buttonMyAlbums.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.buttonMyAlbums.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonMyAlbums.Location = new System.Drawing.Point(0, 0);
+               this.buttonMyAlbums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.buttonMyAlbums.Name = "buttonMyAlbums";
+               this.buttonMyAlbums.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+               this.buttonMyAlbums.Size = new System.Drawing.Size(200, 40);
+               this.buttonMyAlbums.TabIndex = 1;
+               this.buttonMyAlbums.Text = "my Albums";
+               this.buttonMyAlbums.UseVisualStyleBackColor = true;
+               this.buttonMyAlbums.Click += new System.EventHandler(this.buttonMyAlbums_Click);
+               // 
+               // button_Photos
+               // 
+               this.button_Photos.Dock = System.Windows.Forms.DockStyle.Top;
+               this.button_Photos.FlatAppearance.BorderSize = 0;
+               this.button_Photos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.button_Photos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.button_Photos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.button_Photos.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.button_Photos.Location = new System.Drawing.Point(0, 88);
+               this.button_Photos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.button_Photos.Name = "button_Photos";
+               this.button_Photos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+               this.button_Photos.Size = new System.Drawing.Size(200, 46);
+               this.button_Photos.TabIndex = 2;
+               this.button_Photos.Text = "Photos";
+               this.button_Photos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.button_Photos.UseVisualStyleBackColor = true;
+               this.button_Photos.Click += new System.EventHandler(this.button_Photos_Click);
+               // 
+               // PanelFriends
+               // 
+               this.PanelFriends.Controls.Add(this.buttonMyFriendsList);
+               this.PanelFriends.Dock = System.Windows.Forms.DockStyle.Top;
+               this.PanelFriends.Location = new System.Drawing.Point(0, 46);
+               this.PanelFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.PanelFriends.Name = "PanelFriends";
+               this.PanelFriends.Size = new System.Drawing.Size(200, 42);
+               this.PanelFriends.TabIndex = 1;
+               // 
+               // buttonMyFriendsList
+               // 
+               this.buttonMyFriendsList.Dock = System.Windows.Forms.DockStyle.Top;
+               this.buttonMyFriendsList.FlatAppearance.BorderSize = 0;
+               this.buttonMyFriendsList.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.buttonMyFriendsList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.buttonMyFriendsList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.buttonMyFriendsList.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonMyFriendsList.Location = new System.Drawing.Point(0, 0);
+               this.buttonMyFriendsList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.buttonMyFriendsList.Name = "buttonMyFriendsList";
+               this.buttonMyFriendsList.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+               this.buttonMyFriendsList.Size = new System.Drawing.Size(200, 40);
+               this.buttonMyFriendsList.TabIndex = 1;
+               this.buttonMyFriendsList.Text = "my Friends List";
+               this.buttonMyFriendsList.UseVisualStyleBackColor = true;
+               this.buttonMyFriendsList.Click += new System.EventHandler(this.buttonMyFriendsList_Click);
+               // 
+               // buttonFriends
+               // 
+               this.buttonFriends.Dock = System.Windows.Forms.DockStyle.Top;
+               this.buttonFriends.FlatAppearance.BorderSize = 0;
+               this.buttonFriends.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
+               this.buttonFriends.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+               this.buttonFriends.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.buttonFriends.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonFriends.Location = new System.Drawing.Point(0, 0);
+               this.buttonFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.buttonFriends.Name = "buttonFriends";
+               this.buttonFriends.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+               this.buttonFriends.Size = new System.Drawing.Size(200, 46);
+               this.buttonFriends.TabIndex = 0;
+               this.buttonFriends.Text = "Friends";
+               this.buttonFriends.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.buttonFriends.UseVisualStyleBackColor = true;
+               this.buttonFriends.Click += new System.EventHandler(this.ButtonFriends_Click);
+               // 
+               // panel2
+               // 
+               this.panel2.BackColor = System.Drawing.Color.Azure;
+               this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+               this.panel2.Location = new System.Drawing.Point(1512, 0);
+               this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.panel2.Name = "panel2";
+               this.panel2.Size = new System.Drawing.Size(200, 911);
+               this.panel2.TabIndex = 1;
+               // 
+               // panel1
+               // 
+               this.panel1.AutoScroll = true;
+               this.panel1.BackColor = System.Drawing.Color.Transparent;
+               this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.panel1.Controls.Add(this.PanelSelectedMenu);
+               this.panel1.Controls.Add(this.PanelShadow);
+               this.panel1.Controls.Add(this.panel2);
+               this.panel1.Controls.Add(this.PanelLeftSided);
+               this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+               this.panel1.Location = new System.Drawing.Point(0, 144);
+               this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.panel1.Name = "panel1";
+               this.panel1.Size = new System.Drawing.Size(1712, 911);
+               this.panel1.TabIndex = 1;
+               // 
+               // PanelSelectedMenu
+               // 
+               this.PanelSelectedMenu.AutoScroll = true;
+               this.PanelSelectedMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+               this.PanelSelectedMenu.Location = new System.Drawing.Point(200, 10);
+               this.PanelSelectedMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.PanelSelectedMenu.Name = "PanelSelectedMenu";
+               this.PanelSelectedMenu.Size = new System.Drawing.Size(1312, 901);
+               this.PanelSelectedMenu.TabIndex = 3;
+               // 
+               // PanelShadow
+               // 
+               this.PanelShadow.Dock = System.Windows.Forms.DockStyle.Top;
+               this.PanelShadow.Location = new System.Drawing.Point(200, 0);
+               this.PanelShadow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.PanelShadow.Name = "PanelShadow";
+               this.PanelShadow.Size = new System.Drawing.Size(1312, 10);
+               this.PanelShadow.TabIndex = 2;
+               // 
+               // FormMainPage
+               // 
+               this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+               this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+               this.ClientSize = new System.Drawing.Size(1712, 1055);
+               this.ControlBox = false;
+               this.Controls.Add(this.panel1);
+               this.Controls.Add(this.panel_TopMainForm);
+               this.Cursor = System.Windows.Forms.Cursors.Arrow;
+               this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.MinimumSize = new System.Drawing.Size(1199, 473);
+               this.Name = "FormMainPage";
+               this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+               this.Text = "FacebookFormUi";
+               this.TopMost = true;
+               this.Load += new System.EventHandler(this.FormMainPage_Load);
+               this.panel_TopMainForm.ResumeLayout(false);
+               this.panel_TopMainForm.PerformLayout();
+               this.panelProfileDetails.ResumeLayout(false);
+               this.panelProfileDetails.PerformLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).EndInit();
+               this.PanelLeftSided.ResumeLayout(false);
+               this.panelPosts.ResumeLayout(false);
+               this.PanelNewFeatures.ResumeLayout(false);
+               this.PanelPhotos.ResumeLayout(false);
+               this.PanelFriends.ResumeLayout(false);
+               this.panel1.ResumeLayout(false);
+               this.ResumeLayout(false);
 
           }
 
@@ -508,29 +535,30 @@ namespace DesktopFacebook
 
           private System.Windows.Forms.Panel panel_TopMainForm;
           private System.Windows.Forms.TextBox m_TextBoxPost;
-          private System.Windows.Forms.Button m_ButtonPost;
+          private System.Windows.Forms.Button buttonPost;
           private System.Windows.Forms.PictureBox pictureBox_ProfilePicture;
           private System.Windows.Forms.Label label_LoggedInUserFullName;
           private System.Windows.Forms.Panel panelProfileDetails;
           private System.Windows.Forms.Button button5;
-          private Panel m_PanelLeftSided;
-          private Panel m_PanelNewFeatures;
-          private Button m_ButtonEventsByParam;
-          private Button m_ButtonMatchMaker;
-          private Button m_ButtonNewFeatures;
-          private Panel m_PanelPhotos;
-          private Button m_ButtonMyAlbums;
-          private Button m_Button_Photos;
-          private Panel m_PanelFriends;
-          private Button m_ButtonMyFriends;
-          private Button m_ButtonFriends;
+          private Panel PanelLeftSided;
+          private Panel PanelNewFeatures;
+          private Button buttonEventsByParam;
+          private Button buttonMatchMaker;
+          private Button buttonNewFeatures;
+          private Panel PanelPhotos;
+          private Button buttonMyAlbums;
+          private Button button_Photos;
+          private Panel PanelFriends;
+          private Button buttonMyFriendsList;
+          private Button buttonFriends;
           private Panel panel2;
           private Panel panel1;
-          private Panel m_PanelSelectedMenu;
-          private Panel m_PanelShadow;
-          private Button m_ButtonChosenMenu;
-          private Panel panel3;
-          private Button m_ButtonFetch;
-          private Button m_ButtonEvents;
+          private Panel PanelSelectedMenu;
+          private Panel PanelShadow;
+          private Button ButtonChosenMenu;
+          private Panel panelPosts;
+          private Button ButtonMyFeed;
+          private Button buttonPosts;
+          private Button buttonNewsFeed;
      }
 }

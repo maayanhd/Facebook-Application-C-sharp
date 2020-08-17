@@ -32,18 +32,18 @@ namespace DesktopFacebook
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSignIn));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.customPictureBoxButton1 = new DesktopFacebook.CustomPictureBoxButton();
+            this.customPictureBoxbutton = new DesktopFacebook.CustomPictureBoxButton();
             this.m_CheckBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxbutton)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.customPictureBoxButton1);
+            this.panel1.Controls.Add(this.customPictureBoxbutton);
             this.panel1.Controls.Add(this.m_CheckBoxRememberMe);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -52,22 +52,22 @@ namespace DesktopFacebook
             this.panel1.Size = new System.Drawing.Size(1288, 319);
             this.panel1.TabIndex = 0;
             // 
-            // customPictureBoxButton1
+            // customPictureBoxbutton
             // 
-            this.customPictureBoxButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.customPictureBoxButton1.Image = ((System.Drawing.Image)(resources.GetObject("customPictureBoxButton1.Image")));
-            this.customPictureBoxButton1.Location = new System.Drawing.Point(25, 174);
-            this.customPictureBoxButton1.m_HoverImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxButton1.m_HoverImage")));
-            this.customPictureBoxButton1.m_NormalImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxButton1.m_NormalImage")));
-            this.customPictureBoxButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.customPictureBoxButton1.Name = "customPictureBoxButton1";
-            this.customPictureBoxButton1.Size = new System.Drawing.Size(206, 50);
-            this.customPictureBoxButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.customPictureBoxButton1.TabIndex = 1;
-            this.customPictureBoxButton1.TabStop = false;
-            this.customPictureBoxButton1.Click += new System.EventHandler(this.customPictureBoxButton1_Click);
-            this.customPictureBoxButton1.MouseLeave += new System.EventHandler(this.CustomPictureBoxButton1_MouseLeave);
-            this.customPictureBoxButton1.MouseHover += new System.EventHandler(this.customPictureBoxButton1_MouseHover);
+            this.customPictureBoxbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.customPictureBoxbutton.Image = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.Image")));
+            this.customPictureBoxbutton.Location = new System.Drawing.Point(25, 174);
+            this.customPictureBoxbutton.m_HoverImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.m_HoverImage")));
+            this.customPictureBoxbutton.m_NormalImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.m_NormalImage")));
+            this.customPictureBoxbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.customPictureBoxbutton.Name = "customPictureBoxbutton";
+            this.customPictureBoxbutton.Size = new System.Drawing.Size(206, 50);
+            this.customPictureBoxbutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.customPictureBoxbutton.TabIndex = 1;
+            this.customPictureBoxbutton.TabStop = false;
+            this.customPictureBoxbutton.Click += new System.EventHandler(this.customPictureBoxbutton_Click);
+            this.customPictureBoxbutton.MouseLeave += new System.EventHandler(this.CustomPictureBoxbutton_MouseLeave);
+            this.customPictureBoxbutton.MouseHover += new System.EventHandler(this.customPictureBoxbutton_MouseHover);
             // 
             // m_CheckBoxRememberMe
             // 
@@ -111,18 +111,18 @@ namespace DesktopFacebook
             this.Text = "signInForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxbutton)).EndInit();
             this.ResumeLayout(false);
 
         }
 
-        private void CustomPictureBoxButton1_MouseLeave(object sender, EventArgs e)
+        private void CustomPictureBoxbutton_MouseLeave(object sender, EventArgs e)
         {
             CustomPictureBoxButton customPictureBox = sender as CustomPictureBoxButton;
             customPictureBox.Image = customPictureBox.m_NormalImage;
         }
 
-        private void customPictureBoxButton1_MouseHover(object sender, EventArgs e)
+        private void customPictureBoxbutton_MouseHover(object sender, EventArgs e)
         {
             CustomPictureBoxButton customPictureBox = sender as CustomPictureBoxButton;
             customPictureBox.Image = customPictureBox.m_HoverImage;
@@ -133,6 +133,6 @@ namespace DesktopFacebook
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox m_CheckBoxRememberMe;
-        private CustomPictureBoxButton customPictureBoxButton1;
+        private CustomPictureBoxButton customPictureBoxbutton;
     }
 }

@@ -35,14 +35,14 @@ namespace DesktopFacebook
 
         private void customizePanelsDesign()
           {
-               m_PanelFriends.Visible = false;
-               m_PanelPhotos.Visible = false;
-               m_PanelNewFeatures.Visible = false;
+               PanelFriends.Visible = false;
+               PanelPhotos.Visible = false;
+               PanelNewFeatures.Visible = false;
           }
 
           private void hideSubMenu()
-          {
-               m_PanelFriends.Visible = m_PanelPhotos.Visible = m_PanelNewFeatures.Visible= false;
+          { 
+               PanelPhotos.Visible = PanelFriends.Visible = PanelNewFeatures.Visible = panelPosts.Visible = false;
           }
 
           private void showSubMenu(Panel o_SubMenu)
@@ -148,26 +148,75 @@ namespace DesktopFacebook
 
           }
 
-          private void m_ButtonPost_Click(object sender, EventArgs e)
+          private void buttonPost_Click(object sender, EventArgs e)
           {
                
           }
                               
-          private void m_Button_Photos_Click(object sender, EventArgs e)
+          private void button_Photos_Click(object sender, EventArgs e)
           {
-               openChildForm(new FormPhotos());
-               fetchUserAlbums();
+               hideSubMenu();
+               showSubMenu(PanelFriends);
           }
 
-          private void m_ButtonFriends_Click(object sender, EventArgs e)
+          private void ButtonFriends_Click(object sender, EventArgs e)
           {
+               hideSubMenu();
+               showSubMenu(PanelFriends);
+          }
+
+
+          private void FormMainPage_Load(object sender, EventArgs e)
+          {
+
+          }
+
+          private void buttonMyFriendsList_Click(object sender, EventArgs e)
+          {
+               ButtonChosenMenu.Text = (sender as Button).Text;
                openChildForm(new FormFriends());
                fetchUserFriends();
           }
 
-          private void button5_Click(object sender, EventArgs e)
+          private void buttonMyAlbums_Click(object sender, EventArgs e)
           {
+               ButtonChosenMenu.Text = (sender as Button).Text;
+               openChildForm(new FormPhotos());
+               fetchUserAlbums();
+          }
 
+          private void buttonNewFeatures_Click(object sender, EventArgs e)
+          {
+               ButtonChosenMenu.Text = (sender as Button).Text;
+               hideSubMenu();
+               showSubMenu(PanelNewFeatures);
+          }
+
+          private void buttonMatchMaker_Click(object sender, EventArgs e)
+          {
+               openChildForm(new FormPhotos());
+               //populateMatchMakerAlbums();
+          }
+
+          private void buttonEventsByParam_Click(object sender, EventArgs e)
+          {
+               openChildForm(new FormEventByParameters());
+               //populateEventsByParameters();
+
+          }
+
+
+          private void buttonNewsFeed_Click(object sender, EventArgs e)
+          {
+               openChildForm(new FormNewsFeed());
+               //fetchAndInitNewsFeed();
+          }
+
+          private void buttonPosts_Click(object sender, EventArgs e)
+          {
+               ButtonChosenMenu.Text = (sender as Button).Text;
+               hideSubMenu();
+               showSubMenu(panelPosts);
           }
      }
 }

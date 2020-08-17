@@ -73,12 +73,6 @@
     <Compile Include="Forms\FormEventByParameters.Designer.cs">
       <DependentUpon>FormEventByParameters.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormEvents.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormEvents.Designer.cs">
-      <DependentUpon>FormEvents.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormFriends.cs">
       <SubType>Form</SubType>
     </Compile>

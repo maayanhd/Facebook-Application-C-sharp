@@ -67,7 +67,7 @@ namespace FacebookLogic
                          saveLoginData(loginResult);
                     }
                }
-               catch (Exception e)
+               catch (Exception)
                {
                     throw new Exception(sr_ErrorInvalidAccessTokenMassage);
                }               
@@ -107,7 +107,7 @@ namespace FacebookLogic
                          saveLoginData(result);
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     throw new Exception(sr_ErrorLoginMassage);
                 }

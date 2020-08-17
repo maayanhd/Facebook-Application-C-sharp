@@ -41,7 +41,7 @@ namespace DesktopFacebook
             
           }
 
-          private void customPictureBoxButton1_Click(object sender, EventArgs e)
+          private void customPictureBoxbutton_Click(object sender, EventArgs e)
           {
                directToMainForm();
           }
