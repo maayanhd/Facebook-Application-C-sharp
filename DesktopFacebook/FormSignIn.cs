@@ -26,14 +26,13 @@ namespace DesktopFacebook
                m_AppSettings = AppSettings.Instance;
                m_LoginManager = LoginManager.Instance;
                m_IsAskingToRememberLoginDets = false;
-               m_LoginManager.DirectedToMainForm += m_LoginManager_DirectedToMainForm;
+               m_LoginManager.DirectedToMainForm += FormSignIn_DirectedToMainForm;
           }
 
-          private void m_LoginManager_DirectedToMainForm(object sender, EventArgs e)
+          private void FormSignIn_DirectedToMainForm(object sender, EventArgs e)
           {
                this.Hide();
-               this.Enabled = false;
-               FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets, m_LoginManager.LoggedInUser);
+               FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets, m_LoginManager.LoggedInUser, this);
                mainForm.ShowDialog();
                User user = new User();
           }

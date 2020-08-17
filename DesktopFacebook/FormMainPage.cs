@@ -17,18 +17,31 @@ namespace DesktopFacebook
      {
           private Form m_CurrentChildForm = new Form();
           private User m_LoggedInUser;
+          private FormSignIn m_SignInForm;
           bool m_IsAskingToRememberLoginDets;
-          readonly string logoutSuccessfulMessage = "Loging out successfully!";
+          readonly string logoutSuccessfulMessage = "Logging out successfully!";
           
-          public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser)
+          public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)
           {
                m_LoggedInUser = i_LoggedInUser;
+               m_SignInForm = i_SignInForm;
                InitializeComponent();
                m_IsAskingToRememberLoginDets = i_IsAskingToRememberLoginDets;
                customizePanelsDesign();
                fetchUserDetails();
-               fetchNewsFeed();
-               LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;
+               (LoginManager.Instance).LogoutSuccessful += LoginManager_LogoutSuccessful;
+               (LoginManager.Instance).DirectedToSignInForm += FormMainPage_DirectedToSignInForm;
+          }
+
+          private void FormMainPage_DirectedToSignInForm(object sender, EventArgs e)
+          {
+               DirectToSignInForm((sender as FormMainPage).m_SignInForm);
+          }
+
+          public void DirectToSignInForm(FormSignIn i_SignInForm)
+          {
+               i_SignInForm.Visible = true;
+               i_SignInForm.ShowDialog();
           }
 
           private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
@@ -119,7 +132,7 @@ namespace DesktopFacebook
                     picBoxAlbum.Visible = true;
                     picBoxAlbum.Tag = album;
                     picBoxAlbum.LoadAsync(album.PictureAlbumURL);
-                    (m_CurrentChildForm as FormMyAlbumss).flowLayoutPanelAlbums.Controls.Add(picBoxAlbum);
+                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Add(picBoxAlbum);
 
                     EventHandler albumClickedEventHandler = new EventHandler(this.album_Clicked);
                     picBoxAlbum.Click += albumClickedEventHandler;
@@ -140,7 +153,7 @@ namespace DesktopFacebook
                     picBoxPhoto.Visible = true;
                     picBoxPhoto.Tag = photo;
                     picBoxPhoto.LoadAsync(photo.PictureNormalURL);
-                    (m_CurrentChildForm as FormMyAlbumss).flowLayoutPanelPhotos.Controls.Add(picBoxPhoto);
+                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Add(picBoxPhoto);
 
                     EventHandler photoClickedEvent = new EventHandler(this.photo_Clicked);
                     picBoxPhoto.Click += photoClickedEvent;
@@ -151,7 +164,7 @@ namespace DesktopFacebook
           {
                PictureBox clickedPhotoBox = sender as PictureBox;
                Photo selectedPhoto = clickedPhotoBox.Tag as Photo;
-               (m_CurrentChildForm as FormMyAlbumss).pictureBoxSelectedPhoto.Load(selectedPhoto.PictureNormalURL);
+               (m_CurrentChildForm as FormMyAlbums).pictureBoxSelectedPhoto.Load(selectedPhoto.PictureNormalURL);
           }
 
           private void fetchNewsFeed()
@@ -241,7 +254,7 @@ namespace DesktopFacebook
           private void buttonMyAlbums_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = (sender as Button).Text;
-               openChildForm(new FormMyAlbumss());
+               openChildForm(new FormMyAlbums());
                fetchUserAlbums();
           }
 
@@ -287,9 +300,11 @@ namespace DesktopFacebook
           private void buttonLogout_Click(object sender, EventArgs e)
           {
                AppSettings.Instance.SaveAppSettings();
-               LoginManager.Instance.Logout();
-               ;
+               LoginManager eventLogoutHandler = LoginManager.Instance;
 
+               eventLogoutHandler.Logout();
+               eventLogoutHandler.directToSignInForm();
+               this.Close();
           }
      }
 }

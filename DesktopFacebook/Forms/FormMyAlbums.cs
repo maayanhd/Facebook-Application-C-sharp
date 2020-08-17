@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace DesktopFacebook.Forms
 {
-     public partial class FormMyAlbumss : Form
+     public partial class FormMyAlbums : Form
      {
-          public FormMyAlbumss()
+          public FormMyAlbums()
           {
                InitializeComponent();
           }

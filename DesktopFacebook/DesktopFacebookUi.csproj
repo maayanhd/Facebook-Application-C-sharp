@@ -42,9 +42,6 @@
     <Reference Include="FbGraphApiWrapper">
       <HintPath>..\..\..\..\Desktop\שנה ג'\סמסטר ב'\תכנות מכוון עצמים בשפת C#\FbGraphApiWrapper\FbGraphApiWrapper.dll</HintPath>
     </Reference>
-    <Reference Include="FontAwesome.Sharp, Version=5.14.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.Sharp.5.14.0\lib\net40\FontAwesome.Sharp.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -91,11 +88,11 @@
     <Compile Include="Forms\FormNewsFeed.Designer.cs">
       <DependentUpon>FormNewsFeed.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormMyAlbumss.cs">
+    <Compile Include="Forms\FormMyAlbums.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormMyAlbumss.Designer.cs">
-      <DependentUpon>FormMyAlbumss.cs</DependentUpon>
+    <Compile Include="Forms\FormMyAlbums.Designer.cs">
+      <DependentUpon>FormMyAlbums.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormPosts.cs">
       <SubType>Form</SubType>
@@ -130,8 +127,8 @@
     <EmbeddedResource Include="Forms\FormFriends.resx">
       <DependentUpon>FormFriends.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormMyAlbumss.resx">
-      <DependentUpon>FormMyAlbumss.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormMyAlbums.resx">
+      <DependentUpon>FormMyAlbums.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPosts.resx">
       <DependentUpon>FormPosts.cs</DependentUpon>

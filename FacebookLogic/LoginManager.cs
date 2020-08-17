@@ -17,6 +17,7 @@ namespace FacebookLogic
 
           public event EventHandler LogoutSuccessful;
           public event EventHandler DirectedToMainForm;
+          public event EventHandler DirectedToSignInForm;
 
           private LoginManager()
           {
@@ -52,7 +53,6 @@ namespace FacebookLogic
           {
                m_LoginResult = i_LoginResult;
                m_LoggedInUser = i_LoginResult.LoggedInUser;
-               
           }
 
           public void Connect(string i_AccessToken)
@@ -128,6 +128,11 @@ namespace FacebookLogic
                onDirectedToMainForm(EventArgs.Empty);
           }
 
+          public void directToSignInForm()
+          {
+               onDirectedToSignInForm(EventArgs.Empty);
+          }
+
           private void onLogoutSuccessful(EventArgs e)
           {
                EventHandler handler = LogoutSuccessful;
@@ -140,6 +145,15 @@ namespace FacebookLogic
           private void onDirectedToMainForm(EventArgs e)
           {
                EventHandler handler = DirectedToMainForm;
+               if (handler != null)
+               {
+                    handler.Invoke(this, e);
+               }
+          }
+
+          private void onDirectedToSignInForm(EventArgs e)
+          {
+               EventHandler handler = DirectedToSignInForm;
                if (handler != null)
                {
                     handler.Invoke(this, e);
