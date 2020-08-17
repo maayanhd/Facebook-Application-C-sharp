@@ -1,6 +1,6 @@
 ﻿namespace DesktopFacebook.Forms
 {
-     partial class FormNewsFeed
+     partial class FormPosts
      {
           /// <summary>
           /// Required designer variable.
@@ -28,32 +28,32 @@
           /// </summary>
           private void InitializeComponent()
           {
-            this.flowLayoutPanelNewsFeed = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // flowLayoutPanelNewsFeed
+            // flowLayoutPanel1
             // 
-            this.flowLayoutPanelNewsFeed.AutoScroll = true;
-            this.flowLayoutPanelNewsFeed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanelNewsFeed.Location = new System.Drawing.Point(1, 1);
-            this.flowLayoutPanelNewsFeed.Name = "flowLayoutPanelNewsFeed";
-            this.flowLayoutPanelNewsFeed.Size = new System.Drawing.Size(640, 470);
-            this.flowLayoutPanelNewsFeed.TabIndex = 0;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 1);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(798, 448);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // FormNewsFeed
+            // FormPosts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 474);
-            this.Controls.Add(this.flowLayoutPanelNewsFeed);
-            this.Name = "FormNewsFeed";
-            this.Text = "FormNewsFeed";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Name = "FormPosts";
+            this.Text = "FormPosts";
             this.ResumeLayout(false);
 
           }
 
         #endregion
 
-        internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanelNewsFeed;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

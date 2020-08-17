@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace DesktopFacebook.Forms
 {
-     public partial class FormMyFeed : Form
+     public partial class FormPosts : Form
      {
-          public FormMyFeed()
+          public FormPosts()
           {
                InitializeComponent();
           }

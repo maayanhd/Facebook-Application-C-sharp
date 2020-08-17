@@ -14,8 +14,6 @@ namespace DesktopFacebook
 {
      public partial class FormSignIn : Form
      {
-          User m_LoggedInUser;
-          PictureBox m_pictureBox_smallProfilePicture;
           private LoginManager m_LoginManager;
           private AppSettings m_AppSettings;
           private bool m_IsAskingToRememberLoginDets;
@@ -23,8 +21,8 @@ namespace DesktopFacebook
           public FormSignIn()
           {
                InitializeComponent();
-               FacebookWrapper.FacebookService.s_CollectionLimit = 200;
-               FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
+               FacebookService.s_CollectionLimit = 200;
+               FacebookService.s_FbApiVersion = 2.8f;
                m_AppSettings = AppSettings.Instance;
                m_LoginManager = LoginManager.Instance;
                m_IsAskingToRememberLoginDets = false;
@@ -35,7 +33,7 @@ namespace DesktopFacebook
           {
                this.Hide();
                this.Enabled = false;
-               FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets, m_LoginManager.LoggedInUser);
+               FormMainPage mainForm = new FormMainPage(m_IsAskingToRememberLoginDets, m_LoginManager.LoggedInUser, m_AppSettings);
                mainForm.ShowDialog();
             User user = new User();
             
@@ -66,26 +64,5 @@ namespace DesktopFacebook
         {
 
         }
-
-        //     if (!string.IsNullOrEmpty(result.AccessToken))
-        //     {
-        //          m_LoggedInUser = result.LoggedInUser;
-        //          fetchUserInfo();
-        //     }
-        //     else
-        //     {
-        //          MessageBox.Show(result.ErrorMessage);
-        //     }
-        //}
-
-        //private void fetchUserInfo()
-        //{
-        //     m_pictureBox_smallProfilePicture.LoadAsync(m_LoggedInUser.PictureNormalURL);
-        //     if (m_LoggedInUser.Posts.Count > 0)
-        //     {
-        //          textBoxStatus.Text = m_LoggedInUser.Posts[0].Message;
-        //     }
-        //}
-
     }
 }

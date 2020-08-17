@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookLogic;
 using DesktopFacebook.Forms;
+using FacebookApp.UI;
 
 namespace DesktopFacebook
 {
@@ -16,15 +17,19 @@ namespace DesktopFacebook
      {
           private Form m_CurrentChildForm = new Form();
           private User m_LoggedInUser;
+          private readonly AppSettings m_AppSettings;
           bool m_IsAskingToRememberLoginDets;
                
-          public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser)
+          public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, AppSettings i_AppSettings)
           {
                m_LoggedInUser = i_LoggedInUser;
                InitializeComponent();
                m_IsAskingToRememberLoginDets = i_IsAskingToRememberLoginDets;
                customizePanelsDesign();
+               m_AppSettings = i_AppSettings;
                fetchUserDetails();
+               openChildForm(new FormNewsFeed());
+               fetchNewsFeed();
           }
 
         private void fetchUserDetails()
@@ -141,9 +146,47 @@ namespace DesktopFacebook
                 (m_CurrentChildForm as FormPhotos).pictureBoxSelectedPhoto.Load(selectedPhoto.PictureNormalURL);
           }
 
+          private void fetchNewsFeed()
+          {
+                int postIndex = 0;
+                foreach (Post post in m_LoggedInUser.NewsFeed)
+                {
+                    PostBox postBox = new PostBox(post);
+                    (m_CurrentChildForm as FormNewsFeed).flowLayoutPanelNewsFeed.Controls.Add(postBox);
+                    postIndex++;
+                    if (postIndex == m_AppSettings.MaxPostsShown)
+                    {
+                        break;
+                    }
+                }
 
+                if (m_LoggedInUser.Posts.Count == 0)
+                {
+                    MessageBox.Show("No posts to retrieve!");
+                }
+          }
 
-          private void textBox1_TextChanged(object sender, EventArgs e)
+            private void fetchPosts()
+            {
+                int postIndex = 0;
+                foreach (Post post in m_LoggedInUser.Posts)
+                {
+                    PostBox postBox = new PostBox(post);
+                    (m_CurrentChildForm as FormNewsFeed).flowLayoutPanelNewsFeed.Controls.Add(postBox);
+                    postIndex++;
+                    if (postIndex == m_AppSettings.MaxPostsShown)
+                    {
+                        break;
+                    }
+                }
+
+                if (m_LoggedInUser.Posts.Count == 0)
+                {
+                    MessageBox.Show("No posts to retrieve!");
+                }
+            }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
           {
 
           }
