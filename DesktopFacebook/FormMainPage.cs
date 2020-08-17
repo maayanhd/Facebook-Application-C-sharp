@@ -16,7 +16,7 @@ namespace DesktopFacebook
      public partial class FormMainPage : Form
      {
           private Form m_CurrentChildForm = new Form();
-          private User m_LoggedInUser;
+          protected User m_LoggedInUser;
           private FormSignIn m_SignInForm;
           bool m_IsAskingToRememberLoginDets;
           readonly string logoutSuccessfulMessage = "Logging out successfully!";
@@ -262,11 +262,10 @@ namespace DesktopFacebook
           private void buttonMatchMaker_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = (sender as Button).Text;
-               openChildForm(new FormMatchMakerByParameters());
-               //populateMatchMakerAlbums();
+               openChildForm(new FormMatchMakerByParameters(m_LoggedInUser));
           }
 
-          private void buttonEventsByParam_Click(object sender, EventArgs e)
+        private void buttonEventsByParam_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = (sender as Button).Text;
                openChildForm(new FormEventByParameters());

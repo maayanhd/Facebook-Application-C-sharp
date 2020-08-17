@@ -72,7 +72,7 @@ namespace FacebookApp.UI
             catch (Exception)
             {
                 MessageBox.Show(
-                    string.Format("Unable to retreive post's Likes.{0}Please try again at a later time.", Environment.NewLine)
+                    string.Format("Could not retreive Posts Likes.{0}Please try again at a later time.", Environment.NewLine)
                     );
             }
             
