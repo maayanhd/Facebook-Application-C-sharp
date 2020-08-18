@@ -192,7 +192,7 @@ namespace DesktopFacebook
                foreach (Post post in m_LoggedInUser.Posts)
                {
                     PostBox postBox = new PostBox(post);
-                    (m_CurrentChildForm as FormNewsFeed).flowLayoutPanelNewsFeed.Controls.Add(postBox);
+                    (m_CurrentChildForm as FormPosts).flowLayoutPanelPosts.Controls.Add(postBox);
                     postIndex++;
                     if (postIndex == AppSettings.Instance.MaxPostsShown)
                     {
@@ -268,7 +268,7 @@ namespace DesktopFacebook
         private void buttonEventsByParam_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = (sender as Button).Text;
-               openChildForm(new FormEventByParameters());
+               openChildForm(new FormEventByParameters(m_LoggedInUser));
                //populateEventsByParameters();
 
           }

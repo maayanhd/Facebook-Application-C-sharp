@@ -28,32 +28,34 @@
           /// </summary>
           private void InitializeComponent()
           {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 1);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(798, 448);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // FormPosts
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "FormPosts";
-            this.Text = "FormPosts";
-            this.ResumeLayout(false);
+               this.flowLayoutPanelPosts = new System.Windows.Forms.FlowLayoutPanel();
+               this.SuspendLayout();
+               // 
+               // flowLayoutPanelPosts
+               // 
+               this.flowLayoutPanelPosts.AutoScroll = true;
+               this.flowLayoutPanelPosts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+               this.flowLayoutPanelPosts.Location = new System.Drawing.Point(1, 1);
+               this.flowLayoutPanelPosts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+               this.flowLayoutPanelPosts.Name = "flowLayoutPanelPosts";
+               this.flowLayoutPanelPosts.Size = new System.Drawing.Size(1063, 551);
+               this.flowLayoutPanelPosts.TabIndex = 0;
+               // 
+               // FormPosts
+               // 
+               this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+               this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+               this.ClientSize = new System.Drawing.Size(1067, 554);
+               this.Controls.Add(this.flowLayoutPanelPosts);
+               this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+               this.Name = "FormPosts";
+               this.Text = "FormPosts";
+               this.ResumeLayout(false);
 
           }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPosts;
     }
 }

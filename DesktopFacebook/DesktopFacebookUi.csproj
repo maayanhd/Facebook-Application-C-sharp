@@ -58,6 +58,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="eventCustomedItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="eventCustomedItem.designer.cs">
+      <DependentUpon>eventCustomedItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,7 +73,7 @@
     <Compile Include="Forms\FormEventByParameters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormEventByParameters.Designer.cs">
+    <Compile Include="Forms\FormEventByParameters.designer.cs">
       <DependentUpon>FormEventByParameters.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormFriends.cs">
@@ -121,8 +127,14 @@
       <DependentUpon>CustomPictureBoxButton.cs</DependentUpon>
     </Compile>
     <Compile Include="UIManager.cs" />
+    <EmbeddedResource Include="eventCustomedItem.resx">
+      <DependentUpon>eventCustomedItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMainPage.resx">
       <DependentUpon>FormMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEventByParameters.resx">
+      <DependentUpon>FormEventByParameters.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFriends.resx">
       <DependentUpon>FormFriends.cs</DependentUpon>

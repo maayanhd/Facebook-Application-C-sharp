@@ -473,6 +473,7 @@ namespace DesktopFacebook
                // 
                // buttonLogout
                // 
+               this.buttonLogout.Anchor = System.Windows.Forms.AnchorStyles.Top;
                this.buttonLogout.AutoSize = true;
                this.buttonLogout.FlatAppearance.BorderSize = 0;
                this.buttonLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
