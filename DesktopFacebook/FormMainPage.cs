@@ -220,18 +220,10 @@ namespace DesktopFacebook
 
           private void button_Photos_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
+               ButtonChosenMenu.Text = "Photos";
                hideSubMenu();
                showSubMenu(PanelPhotos);
                openChildForm(new FormMyAlbums());
-          }
-
-          private void ButtonFriends_Click(object sender, EventArgs e)
-          {
-               ButtonChosenMenu.Text = (sender as Button).Text;
-               hideSubMenu();
-               showSubMenu(PanelFriends);
-               openChildForm(new FormFriends());
           }
 
 
@@ -259,37 +251,46 @@ namespace DesktopFacebook
                ButtonChosenMenu.Text = (sender as Button).Text;
                hideSubMenu();
                showSubMenu(PanelNewFeatures);
+               openChildForm(new Form());
           }
 
           private void buttonMatchMaker_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
+               ButtonChosenMenu.Text = "MatchMaker";
                openChildForm(new FormMatchMakerByParameters(m_LoggedInUser));
           }
 
         private void buttonEventsByParam_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
-               openChildForm(new FormEventByParameters());
-               //populateEventsByParameters();
-
+               ButtonChosenMenu.Text = "Event By Filter";
+               openChildForm(new FormEventByParameters(m_LoggedInUser));
           }
 
 
           private void buttonNewsFeed_Click(object sender, EventArgs e)
           {
-
-               ButtonChosenMenu.Text = (sender as Button).Text;
+               ButtonChosenMenu.Text = "News Feed";
                openChildForm(new FormNewsFeed());
-               fetchNewsFeed();
 
+               try
+               {
+                    fetchNewsFeed();
+               }
+               catch(NullReferenceException)
+               {
+                    throw new NullReferenceException("Error: Unable to fetch news feed due to premissions and restrictions of Facebook API");
+               }                        
+               catch(Exception)
+               {
+                    throw new Exception("Error: Unknown Exception");
+               }
           }
-
           private void buttonPosts_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = (sender as Button).Text;
                hideSubMenu();
                showSubMenu(panelPosts);
+               openChildForm(new Form());
           }
 
           private void buttonLogout_Click(object sender, EventArgs e)
@@ -305,5 +306,22 @@ namespace DesktopFacebook
           {
                activateTextbox(sender as TextBox);
           }
+
+          private void ButtonMyPosts_Click(object sender, EventArgs e)
+          {
+               ButtonChosenMenu.Text = "My Posts";
+               openChildForm(new FormPosts());
+               fetchNewsFeed();
+          }
+
+          private void buttonFriends_Click(object sender, EventArgs e)
+          {
+               hideSubMenu();
+               showSubMenu(PanelFriends);
+               ButtonChosenMenu.Text = "Friends";
+               openChildForm(new FormFriends());
+               fetchUserFriends();
+          }
+
      }
 }

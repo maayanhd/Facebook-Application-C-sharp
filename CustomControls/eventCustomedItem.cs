@@ -25,6 +25,14 @@ namespace CustomControls
                }
           }
 
+          public Label LabelDescriptionContent
+          {
+               get
+               {
+                    return LabelDescriptionContent;
+               }
+          }
+
           public Label LabelDurationTime
           {
                get
@@ -65,6 +73,14 @@ namespace CustomControls
                }
           }
 
+          public PictureBox PictureBoxEvent
+          {
+               get
+               {
+                    return PictureBoxEvent;
+               }
+          }
+
           public Label LabelAttendence
           {
                get
@@ -89,11 +105,6 @@ namespace CustomControls
           }
 
           #endregion
-
-          private void label2_Click(object sender, EventArgs e)
-          {
-
-          }
      }
 
 }

@@ -29,6 +29,8 @@
           private void InitializeComponent()
           {
                this.panel1 = new System.Windows.Forms.Panel();
+               this.labelDurationTime = new System.Windows.Forms.Label();
+               this.labelDuration = new System.Windows.Forms.Label();
                this.labelTimeFrame = new System.Windows.Forms.Label();
                this.labelTime = new System.Windows.Forms.Label();
                this.labelFriendName = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@
                this.labelLocation = new System.Windows.Forms.Label();
                this.pictureBox1 = new System.Windows.Forms.PictureBox();
                this.pictureBoxFriendProfile = new System.Windows.Forms.PictureBox();
-               this.labelDuration = new System.Windows.Forms.Label();
-               this.labelDurationTime = new System.Windows.Forms.Label();
                this.panel1.SuspendLayout();
                this.panel2.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,6 +62,30 @@
                this.panel1.Name = "panel1";
                this.panel1.Size = new System.Drawing.Size(270, 65);
                this.panel1.TabIndex = 0;
+               // 
+               // labelDurationTime
+               // 
+               this.labelDurationTime.AutoSize = true;
+               this.labelDurationTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.labelDurationTime.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.labelDurationTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
+               this.labelDurationTime.Location = new System.Drawing.Point(118, 19);
+               this.labelDurationTime.Name = "labelDurationTime";
+               this.labelDurationTime.Size = new System.Drawing.Size(143, 19);
+               this.labelDurationTime.TabIndex = 8;
+               this.labelDurationTime.Text = "00/00  at 0:00 - 0:00";
+               // 
+               // labelDuration
+               // 
+               this.labelDuration.AutoSize = true;
+               this.labelDuration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.labelDuration.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.labelDuration.ForeColor = System.Drawing.SystemColors.ButtonFace;
+               this.labelDuration.Location = new System.Drawing.Point(16, 19);
+               this.labelDuration.Name = "labelDuration";
+               this.labelDuration.Size = new System.Drawing.Size(68, 17);
+               this.labelDuration.TabIndex = 7;
+               this.labelDuration.Text = "Duration:";
                // 
                // labelTimeFrame
                // 
@@ -203,31 +227,6 @@
                this.pictureBoxFriendProfile.Size = new System.Drawing.Size(75, 95);
                this.pictureBoxFriendProfile.TabIndex = 3;
                this.pictureBoxFriendProfile.TabStop = false;
-               // 
-               // labelDuration
-               // 
-               this.labelDuration.AutoSize = true;
-               this.labelDuration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.labelDuration.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.labelDuration.ForeColor = System.Drawing.SystemColors.ButtonFace;
-               this.labelDuration.Location = new System.Drawing.Point(16, 19);
-               this.labelDuration.Name = "labelDuration";
-               this.labelDuration.Size = new System.Drawing.Size(68, 17);
-               this.labelDuration.TabIndex = 7;
-               this.labelDuration.Text = "Duration:";
-               // 
-               // labelDurationTime
-               // 
-               this.labelDurationTime.AutoSize = true;
-               this.labelDurationTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.labelDurationTime.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.labelDurationTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
-               this.labelDurationTime.Location = new System.Drawing.Point(118, 19);
-               this.labelDurationTime.Name = "labelDurationTime";
-               this.labelDurationTime.Size = new System.Drawing.Size(143, 19);
-               this.labelDurationTime.TabIndex = 8;
-               this.labelDurationTime.Text = "00/00  at 0:00 - 0:00";
-               this.labelDurationTime.Click += new System.EventHandler(this.label2_Click);
                // 
                // EventCustomedItem
                // 

@@ -136,6 +136,9 @@
     <EmbeddedResource Include="Forms\FormMyAlbums.resx">
       <DependentUpon>FormMyAlbums.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNewsFeed.resx">
+      <DependentUpon>FormNewsFeed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPosts.resx">
       <DependentUpon>FormPosts.cs</DependentUpon>
     </EmbeddedResource>

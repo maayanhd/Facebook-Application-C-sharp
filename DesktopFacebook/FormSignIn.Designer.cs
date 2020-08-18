@@ -47,21 +47,19 @@ namespace DesktopFacebook
                this.panel1.Controls.Add(this.m_CheckBoxRememberMe);
                this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
                this.panel1.Location = new System.Drawing.Point(0, 0);
-               this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
                this.panel1.Name = "panel1";
-               this.panel1.Size = new System.Drawing.Size(1288, 319);
+               this.panel1.Size = new System.Drawing.Size(1145, 255);
                this.panel1.TabIndex = 0;
                // 
                // customPictureBoxbutton
                // 
                this.customPictureBoxbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                this.customPictureBoxbutton.Image = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.Image")));
-               this.customPictureBoxbutton.Location = new System.Drawing.Point(25, 174);
+               this.customPictureBoxbutton.Location = new System.Drawing.Point(22, 139);
                this.customPictureBoxbutton.m_HoverImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.m_HoverImage")));
                this.customPictureBoxbutton.m_NormalImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.m_NormalImage")));
-               this.customPictureBoxbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
                this.customPictureBoxbutton.Name = "customPictureBoxbutton";
-               this.customPictureBoxbutton.Size = new System.Drawing.Size(206, 50);
+               this.customPictureBoxbutton.Size = new System.Drawing.Size(183, 40);
                this.customPictureBoxbutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                this.customPictureBoxbutton.TabIndex = 1;
                this.customPictureBoxbutton.TabStop = false;
@@ -76,10 +74,9 @@ namespace DesktopFacebook
                this.m_CheckBoxRememberMe.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.m_CheckBoxRememberMe.ForeColor = System.Drawing.SystemColors.ControlLight;
                this.m_CheckBoxRememberMe.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-               this.m_CheckBoxRememberMe.Location = new System.Drawing.Point(40, 230);
-               this.m_CheckBoxRememberMe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+               this.m_CheckBoxRememberMe.Location = new System.Drawing.Point(36, 184);
                this.m_CheckBoxRememberMe.Name = "m_CheckBoxRememberMe";
-               this.m_CheckBoxRememberMe.Size = new System.Drawing.Size(188, 29);
+               this.m_CheckBoxRememberMe.Size = new System.Drawing.Size(153, 23);
                this.m_CheckBoxRememberMe.TabIndex = 0;
                this.m_CheckBoxRememberMe.Text = "Remember Me";
                this.m_CheckBoxRememberMe.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -92,23 +89,23 @@ namespace DesktopFacebook
                this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
                this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-               this.panel2.Location = new System.Drawing.Point(0, 267);
-               this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+               this.panel2.Location = new System.Drawing.Point(0, 214);
                this.panel2.Name = "panel2";
-               this.panel2.Size = new System.Drawing.Size(1288, 469);
+               this.panel2.Size = new System.Drawing.Size(1145, 375);
                this.panel2.TabIndex = 1;
                this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
                // 
                // FormSignIn
                // 
-               this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+               this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.ClientSize = new System.Drawing.Size(1288, 736);
+               this.ClientSize = new System.Drawing.Size(1145, 589);
                this.Controls.Add(this.panel2);
                this.Controls.Add(this.panel1);
-               this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+               this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+               this.MaximizeBox = false;
                this.Name = "FormSignIn";
-               this.Text = "signInForm";
+               this.Text = "signIn - Shahar\'s & Maayan\'s semi-Facebook application ";
                this.panel1.ResumeLayout(false);
                this.panel1.PerformLayout();
                ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxbutton)).EndInit();

@@ -116,7 +116,7 @@ namespace DesktopFacebook
                this.panelPosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.panelPosts.Name = "panelPosts";
                this.panelPosts.Size = new System.Drawing.Size(200, 81);
-               this.panelPosts.TabIndex = 7;
+               this.panelPosts.TabIndex = 15;
                // 
                // buttonNewsFeed
                // 
@@ -130,7 +130,7 @@ namespace DesktopFacebook
                this.buttonNewsFeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.buttonNewsFeed.Name = "buttonNewsFeed";
                this.buttonNewsFeed.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-               this.buttonNewsFeed.Size = new System.Drawing.Size(200, 40);
+               this.buttonNewsFeed.Size = new System.Drawing.Size(200, 39);
                this.buttonNewsFeed.TabIndex = 2;
                this.buttonNewsFeed.Text = "news Feed";
                this.buttonNewsFeed.UseVisualStyleBackColor = true;
@@ -152,6 +152,7 @@ namespace DesktopFacebook
                this.ButtonMyPosts.TabIndex = 1;
                this.ButtonMyPosts.Text = "my Posts";
                this.ButtonMyPosts.UseVisualStyleBackColor = true;
+               this.ButtonMyPosts.Click += new System.EventHandler(this.ButtonMyPosts_Click);
                // 
                // buttonPosts
                // 
@@ -166,7 +167,7 @@ namespace DesktopFacebook
                this.buttonPosts.Name = "buttonPosts";
                this.buttonPosts.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
                this.buttonPosts.Size = new System.Drawing.Size(200, 46);
-               this.buttonPosts.TabIndex = 6;
+               this.buttonPosts.TabIndex = 14;
                this.buttonPosts.Text = "Posts";
                this.buttonPosts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                this.buttonPosts.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -182,7 +183,7 @@ namespace DesktopFacebook
                this.PanelNewFeatures.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.PanelNewFeatures.Name = "PanelNewFeatures";
                this.PanelNewFeatures.Size = new System.Drawing.Size(200, 82);
-               this.PanelNewFeatures.TabIndex = 5;
+               this.PanelNewFeatures.TabIndex = 13;
                // 
                // buttonEventsByParam
                // 
@@ -196,7 +197,7 @@ namespace DesktopFacebook
                this.buttonEventsByParam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.buttonEventsByParam.Name = "buttonEventsByParam";
                this.buttonEventsByParam.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-               this.buttonEventsByParam.Size = new System.Drawing.Size(200, 40);
+               this.buttonEventsByParam.Size = new System.Drawing.Size(200, 42);
                this.buttonEventsByParam.TabIndex = 2;
                this.buttonEventsByParam.Text = "Event by Filter";
                this.buttonEventsByParam.UseVisualStyleBackColor = true;
@@ -233,7 +234,7 @@ namespace DesktopFacebook
                this.buttonNewFeatures.Name = "buttonNewFeatures";
                this.buttonNewFeatures.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
                this.buttonNewFeatures.Size = new System.Drawing.Size(200, 46);
-               this.buttonNewFeatures.TabIndex = 4;
+               this.buttonNewFeatures.TabIndex = 12;
                this.buttonNewFeatures.Text = "New Features";
                this.buttonNewFeatures.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                this.buttonNewFeatures.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -247,7 +248,7 @@ namespace DesktopFacebook
                this.PanelPhotos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.PanelPhotos.Name = "PanelPhotos";
                this.PanelPhotos.Size = new System.Drawing.Size(200, 18);
-               this.PanelPhotos.TabIndex = 3;
+               this.PanelPhotos.TabIndex = 11;
                // 
                // button_Photos
                // 
@@ -262,7 +263,7 @@ namespace DesktopFacebook
                this.button_Photos.Name = "button_Photos";
                this.button_Photos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
                this.button_Photos.Size = new System.Drawing.Size(200, 46);
-               this.button_Photos.TabIndex = 2;
+               this.button_Photos.TabIndex = 10;
                this.button_Photos.Text = "Photos";
                this.button_Photos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                this.button_Photos.UseVisualStyleBackColor = true;
@@ -275,7 +276,7 @@ namespace DesktopFacebook
                this.PanelFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
                this.PanelFriends.Name = "PanelFriends";
                this.PanelFriends.Size = new System.Drawing.Size(200, 18);
-               this.PanelFriends.TabIndex = 1;
+               this.PanelFriends.TabIndex = 9;
                // 
                // buttonFriends
                // 
@@ -290,11 +291,12 @@ namespace DesktopFacebook
                this.buttonFriends.Name = "buttonFriends";
                this.buttonFriends.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
                this.buttonFriends.Size = new System.Drawing.Size(200, 46);
-               this.buttonFriends.TabIndex = 0;
+               this.buttonFriends.TabIndex = 8;
                this.buttonFriends.Text = "Friends";
                this.buttonFriends.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.buttonFriends.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
                this.buttonFriends.UseVisualStyleBackColor = true;
-               this.buttonFriends.Click += new System.EventHandler(this.ButtonFriends_Click);
+               this.buttonFriends.Click += new System.EventHandler(this.buttonFriends_Click);
                // 
                // panel1
                // 
@@ -317,6 +319,7 @@ namespace DesktopFacebook
                this.PanelSelectedMenu.Dock = System.Windows.Forms.DockStyle.Fill;
                this.PanelSelectedMenu.Location = new System.Drawing.Point(200, 10);
                this.PanelSelectedMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.PanelSelectedMenu.MinimumSize = new System.Drawing.Size(1000, 900);
                this.PanelSelectedMenu.Name = "PanelSelectedMenu";
                this.PanelSelectedMenu.Size = new System.Drawing.Size(1072, 901);
                this.PanelSelectedMenu.TabIndex = 3;
@@ -332,6 +335,7 @@ namespace DesktopFacebook
                // 
                // m_TextBoxPost
                // 
+               this.m_TextBoxPost.Anchor = System.Windows.Forms.AnchorStyles.Top;
                this.m_TextBoxPost.ForeColor = System.Drawing.SystemColors.InfoText;
                this.m_TextBoxPost.Location = new System.Drawing.Point(477, 77);
                this.m_TextBoxPost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -343,6 +347,7 @@ namespace DesktopFacebook
                // 
                // buttonPost
                // 
+               this.buttonPost.Anchor = System.Windows.Forms.AnchorStyles.Top;
                this.buttonPost.AutoSize = true;
                this.buttonPost.BackColor = System.Drawing.Color.Gray;
                this.buttonPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -431,6 +436,7 @@ namespace DesktopFacebook
                // 
                // buttonLogout
                // 
+               this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
                this.buttonLogout.AutoSize = true;
                this.buttonLogout.FlatAppearance.BorderSize = 0;
                this.buttonLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
@@ -479,21 +485,9 @@ namespace DesktopFacebook
 
           #endregion
           private Panel PanelLeftSided;
-          private Panel PanelNewFeatures;
-          private Button buttonEventsByParam;
-          private Button buttonMatchMaker;
-          private Button buttonNewFeatures;
-          private Panel PanelPhotos;
-          private Button button_Photos;
-          private Panel PanelFriends;
-          private Button buttonFriends;
           private Panel panel1;
           private Panel PanelSelectedMenu;
           private Panel PanelShadow;
-          private Panel panelPosts;
-          private Button ButtonMyPosts;
-          private Button buttonPosts;
-          private Button buttonNewsFeed;
           private TextBox m_TextBoxPost;
           private Button buttonPost;
           private Panel panelProfileDetails;
@@ -502,5 +496,17 @@ namespace DesktopFacebook
           private Button ButtonChosenMenu;
           private Panel panel_TopMainForm;
           private Button buttonLogout;
+          private Panel panelPosts;
+          private Button buttonNewsFeed;
+          private Button ButtonMyPosts;
+          private Button buttonPosts;
+          private Panel PanelNewFeatures;
+          private Button buttonEventsByParam;
+          private Button buttonMatchMaker;
+          private Button buttonNewFeatures;
+          private Panel PanelPhotos;
+          private Button button_Photos;
+          private Panel PanelFriends;
+          private Button buttonFriends;
      }
 }
