@@ -130,6 +130,9 @@
     <EmbeddedResource Include="Forms\FormFriends.resx">
       <DependentUpon>FormFriends.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMatchMakerByParameters.resx">
+      <DependentUpon>FormMatchMakerByParameters.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMyAlbums.resx">
       <DependentUpon>FormMyAlbums.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +150,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FormSignIn.resx">
       <DependentUpon>FormSignIn.cs</DependentUpon>
@@ -173,6 +177,9 @@
       <Project>{f5471ca2-5646-4cbb-827a-702ba97c2526}</Project>
       <Name>FacebookLogic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\annonymousProfile.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

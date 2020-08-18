@@ -20,6 +20,11 @@ namespace DesktopFacebook.Forms
         {
 
         }
-     }
+
+        private void pictureBoxFriend_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 
 }

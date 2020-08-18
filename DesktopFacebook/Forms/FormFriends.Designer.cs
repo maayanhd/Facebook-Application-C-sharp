@@ -43,11 +43,14 @@
             // pictureBoxFriend
             // 
             this.pictureBoxFriend.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxFriend.Image = global::DesktopFacebook.Properties.Resources.annonymousProfile;
             this.pictureBoxFriend.Location = new System.Drawing.Point(377, 17);
             this.pictureBoxFriend.Name = "pictureBoxFriend";
             this.pictureBoxFriend.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFriend.TabIndex = 0;
             this.pictureBoxFriend.TabStop = false;
+            this.pictureBoxFriend.Click += new System.EventHandler(this.pictureBoxFriend_Click);
             // 
             // labelFriendsName
             // 
