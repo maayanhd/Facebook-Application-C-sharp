@@ -220,16 +220,16 @@ namespace DesktopFacebook
 
           private void button_Photos_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
                hideSubMenu();
                showSubMenu(PanelPhotos);
+               openChildForm(new Form());
           }
 
           private void ButtonFriends_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
                hideSubMenu();
                showSubMenu(PanelFriends);
+               openChildForm(new Form());
           }
 
 
@@ -240,44 +240,42 @@ namespace DesktopFacebook
 
           private void buttonMyFriendsList_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
+               ButtonChosenMenu.Text = "My Friends List";
                openChildForm(new FormFriends());
                fetchUserFriends();
           }
 
           private void buttonMyAlbums_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
+               ButtonChosenMenu.Text = "My Albums";
                openChildForm(new FormMyAlbums());
                fetchUserAlbums();
           }
 
           private void buttonNewFeatures_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
                hideSubMenu();
                showSubMenu(PanelNewFeatures);
+               openChildForm(new Form());
           }
 
           private void buttonMatchMaker_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
+               ButtonChosenMenu.Text = "MatchMaker";
                openChildForm(new FormMatchMakerByParameters(m_LoggedInUser));
           }
 
         private void buttonEventsByParam_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
+               ButtonChosenMenu.Text = "EventByFilter";
                openChildForm(new FormEventByParameters(m_LoggedInUser));
-               //populateEventsByParameters();
 
           }
 
 
           private void buttonNewsFeed_Click(object sender, EventArgs e)
           {
-
-               ButtonChosenMenu.Text = (sender as Button).Text;
+               ButtonChosenMenu.Text = "News Feed";
                openChildForm(new FormNewsFeed());
                fetchNewsFeed();
 
@@ -285,9 +283,9 @@ namespace DesktopFacebook
 
           private void buttonPosts_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
                hideSubMenu();
                showSubMenu(panelPosts);
+               openChildForm(new Form());
           }
 
           private void buttonLogout_Click(object sender, EventArgs e)
@@ -302,6 +300,13 @@ namespace DesktopFacebook
           private void m_TextBoxPost_MouseClick(object sender, MouseEventArgs e)
           {
                activateTextbox(sender as TextBox);
+          }
+
+          private void ButtonMyPosts_Click(object sender, EventArgs e)
+          {
+               ButtonChosenMenu.Text = "My Posts";
+               openChildForm(new FormPosts());
+               fetchPosts();
           }
      }
 }

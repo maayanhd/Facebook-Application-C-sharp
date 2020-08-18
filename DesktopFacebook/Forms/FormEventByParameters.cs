@@ -118,46 +118,73 @@ namespace DesktopFacebook.Forms
                try
                {
                     //FacebookObjectCollection<User> friendsCollections = m_CurrentLoggedInUser.Friends;
-
-                    foreach (User friend in m_CurrentLoggedInUser.Friends)
+                    if(m_CurrentLoggedInUser.Friends.Count>=1)
                     {
-                         FacebookObjectCollection<Event> friendfEvents = friend.Events;
-                         int currentFriendAge = calculateAgeByBirth(friend.Birthday);
-                         eGender currentFriendSex = eGender.male; // Default
-                         if (friend.Gender.HasValue)
+                         foreach (User friend in m_CurrentLoggedInUser.Friends)
                          {
-                              currentFriendSex = friend.Gender.Value;
-                              testerlabel.Text = currentFriendSex.ToString();
-                         }
-                         else
-                         {
-                              MessageBox.Show(
-                                   "Please choose a sex preference first",
-                                   "Sex Preference missing",
-                                   MessageBoxButtons.OK,
-                                   MessageBoxIcon.None);
-                         }
-
-                         if (isCriterionsMatchingFriend(currentFriendAge, currentFriendSex))
-                         {
-                              foreach (Event friendEvent in friendfEvents)
+                              FacebookObjectCollection<Event> friendfEvents = friend.Events;
+                              //int currentFriendAge = calculateAgeByBirth(friend.Birthday);
+                              int currentFriendAge = 25;
+                              eGender currentFriendSex = eGender.male; // Default
+                              if (friend.Gender.HasValue)
                               {
-                                   Point duration = getDurationPointToMap(int.Parse(friendEvent.StartTime.Value.ToString("HH")),
-                                                                int.Parse(friendEvent.EndTime.Value.ToString("HH")),
-                                                                friendEvent.StartTime.Value.ToString("tt"));
-                                   m_DurationToTimeframe.TryGetValue(duration, out eTimeFrame currentEventTimeFrame);
+                                   currentFriendSex = friend.Gender.Value;
+                                   testerlabel.Text = currentFriendSex.ToString();
+                              }
+                              else
+                              {
+                                   MessageBox.Show(
+                                        "Please choose a sex preference first",
+                                        "Sex Preference missing",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.None);
+                              }
 
-                                   string friendAttendence = getFriendAttendence(friend, friendEvent);
-
-                                   testerlabel.Text = friendAttendence;
-                                   if (currentEventTimeFrame.Equals(m_SelectedTimeFrame))
+                              if (isCriterionsMatchingFriend(currentFriendAge, currentFriendSex) && friendfEvents.Count > 1)
+                              {
+                                   bool eventIsMatching = false;
+                                   foreach (Event friendEvent in friendfEvents)
                                    {
+                                        Point duration = getDurationPointToMap(int.Parse(friendEvent.StartTime.Value.ToString("HH")),
+                                                                     int.Parse(friendEvent.EndTime.Value.ToString("HH")),
+                                                                     friendEvent.StartTime.Value.ToString("tt"));
+                                        m_DurationToTimeframe.TryGetValue(duration, out eTimeFrame currentEventTimeFrame);
 
-                                        FlowLayoutPanelCutomedEvents.Controls.Add(createEventCustomedItem(friendEvent, friend, currentEventTimeFrame, friendAttendence));
+                                        string friendAttendence = getFriendAttendence(friend, friendEvent);
+
+                                        testerlabel.Text = friendAttendence;
+                                        if (currentEventTimeFrame.Equals(m_SelectedTimeFrame))
+                                        {
+
+                                             FlowLayoutPanelCutomedEvents.Controls.Add(createEventCustomedItem(friendEvent, friend, currentEventTimeFrame, friendAttendence));
+                                             eventIsMatching = true;
+                                        }
                                    }
+                                   if (eventIsMatching == false)
+                                   {
+                                        MessageBox.Show("We're Sorry, No matching events were found",
+                                             "Event Filter Result",
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.None);
+                                   }
+                              }
+                              else
+                              {
+                                   MessageBox.Show("We're Sorry, no matching events were found ",
+                                            "Event Filter Result",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.None);
                               }
                          }
                     }
+                    else
+                    {
+                         MessageBox.Show("We're Sorry, No friends were found",
+                                      "Event Filter Result",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.None);
+                    }
+
                }
                catch (NullReferenceException)
                {
@@ -253,6 +280,7 @@ namespace DesktopFacebook.Forms
           private int calculateAgeByBirth(string birthday)
           {
                DateTime birthDate = Convert.ToDateTime(birthday);
+               //DateTime birthDate = DateTime.Parse(birthday);
                int age = new DateTime(DateTime.Now.Subtract(birthDate).Ticks).Year - 1;
                return age;
           }

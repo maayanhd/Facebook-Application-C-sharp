@@ -156,6 +156,7 @@ namespace DesktopFacebook
                this.ButtonMyPosts.TabIndex = 1;
                this.ButtonMyPosts.Text = "my Posts";
                this.ButtonMyPosts.UseVisualStyleBackColor = true;
+               this.ButtonMyPosts.Click += new System.EventHandler(this.ButtonMyPosts_Click);
                // 
                // buttonPosts
                // 
@@ -505,7 +506,6 @@ namespace DesktopFacebook
                this.Name = "FormMainPage";
                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                this.Text = "FacebookFormUi";
-               this.TopMost = true;
                this.Load += new System.EventHandler(this.FormMainPage_Load);
                this.PanelLeftSided.ResumeLayout(false);
                this.panelPosts.ResumeLayout(false);
