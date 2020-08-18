@@ -47,12 +47,21 @@
     <Compile Include="CustomPictureBoxButton.Designer.cs">
       <DependentUpon>CustomPictureBoxButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventCustomedItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EventCustomedItem.Designer.cs">
+      <DependentUpon>EventCustomedItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomPictureBoxButton.resx">
       <DependentUpon>CustomPictureBoxButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventCustomedItem.resx">
+      <DependentUpon>EventCustomedItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
