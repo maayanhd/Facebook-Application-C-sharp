@@ -10,7 +10,7 @@ namespace FacebookLogic
     {
         private static AppSettings s_Instance = null;
         private static readonly string sr_AppSettingsPath = AppDomain.CurrentDomain.BaseDirectory +  @"\AppSettings.xml";
-        private readonly int r_MaxPostsAvailableToSee = 15;
+        private readonly int r_MaxPostsAvailableToSee = 8;
         private readonly string r_AppID = "3267288006666062";
           
         private readonly string[] r_UserPermissions =

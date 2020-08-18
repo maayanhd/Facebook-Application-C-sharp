@@ -25,6 +25,16 @@ namespace DesktopFacebook.Forms
         {
 
         }
+
+        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxFriends_ValueMemberChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

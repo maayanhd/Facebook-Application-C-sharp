@@ -46,7 +46,6 @@ namespace DesktopFacebook.Forms
           private void comboBoxAgeRange_SelectedIndexChanged(object sender, EventArgs e)
           {
                m_SelectedAgeRange = (sender as ComboBox).SelectedItem.ToString();
-               testerlabel.Text = m_SelectedAgeRange;
 
                switch (m_SelectedAgeRange)
                {
@@ -123,13 +122,12 @@ namespace DesktopFacebook.Forms
                          foreach (User friend in m_CurrentLoggedInUser.Friends)
                          {
                               FacebookObjectCollection<Event> friendfEvents = friend.Events;
-                              //int currentFriendAge = calculateAgeByBirth(friend.Birthday);
-                              int currentFriendAge = 25;
+                              int currentFriendAge = calculateAgeByBirth(friend.Birthday);
+                              //int currentFriendAge = 25;
                               eGender currentFriendSex = eGender.male; // Default
                               if (friend.Gender.HasValue)
                               {
                                    currentFriendSex = friend.Gender.Value;
-                                   testerlabel.Text = currentFriendSex.ToString();
                               }
                               else
                               {
@@ -152,7 +150,6 @@ namespace DesktopFacebook.Forms
 
                                         string friendAttendence = getFriendAttendence(friend, friendEvent);
 
-                                        testerlabel.Text = friendAttendence;
                                         if (currentEventTimeFrame.Equals(m_SelectedTimeFrame))
                                         {
 
@@ -221,15 +218,6 @@ namespace DesktopFacebook.Forms
           private Point getDurationPointToMap(int i_StartTimeNumericHour, int i_EndTimeNumericHour, string i_AMorPM)
           {
                Point mappedDuration = new Point();
-               //{ new Point(0, 0), eTimeFrame.Midnight},
-               //                    { new Point(0, 3), eTimeFrame.MidnightToDawn},
-               //                    { new Point(3, 6), eTimeFrame.EarlyMorning},
-               //                    { new Point(6, 12), eTimeFrame.Morning},
-               //                    { new Point(12, 16), eTimeFrame.Midday},
-               //                    { new Point(16, 19), eTimeFrame.Afternoon},
-               //                    { new Point(19, 23), eTimeFrame.Evening},
-               testerlabel.Text = i_StartTimeNumericHour.ToString();
-               testerlabel.Text = i_EndTimeNumericHour.ToString();
 
                if (i_AMorPM.Equals("PM"))
                {
@@ -280,7 +268,6 @@ namespace DesktopFacebook.Forms
           private int calculateAgeByBirth(string birthday)
           {
                DateTime birthDate = Convert.ToDateTime(birthday);
-               //DateTime birthDate = DateTime.Parse(birthday);
                int age = new DateTime(DateTime.Now.Subtract(birthDate).Ticks).Year - 1;
                return age;
           }
@@ -305,6 +292,8 @@ namespace DesktopFacebook.Forms
                     currentEventEndTime.ToString("dd/MM"));
                eventCustomedItem.LabelVenueName.Text = i_CriterionizedEvent.Venue.ToString();
                eventCustomedItem.LabelTimeFrame.Text = i_CurrentEventTimeFrame.ToString();
+               labelEventDescription.Visible = true;
+               eventCustomedItem.LabelDescriptionContent.Visible = true;
                eventCustomedItem.LabelDescriptionContent.Text = i_CriterionizedEvent.Description;
 
                return eventCustomedItem;
@@ -320,7 +309,6 @@ namespace DesktopFacebook.Forms
                try
                {
                     eTimeFrame timeFrameParsed = (eTimeFrame)Enum.Parse(typeof(eTimeFrame), (sender as ComboBox).SelectedItem.ToString());
-                    testerlabel.Text = timeFrameParsed.ToString();
                }
                catch (Exception)
                {
@@ -333,7 +321,6 @@ namespace DesktopFacebook.Forms
                try
                {
                     m_SelectedReligion = (eReligions)Enum.Parse(typeof(eReligions), (sender as ComboBox).SelectedIndex.ToString());
-                    testerlabel.Text = m_SelectedReligion.ToString();
                }
                catch (Exception)
                {
@@ -346,7 +333,6 @@ namespace DesktopFacebook.Forms
                try
                {
                     m_SelectedSexPreference = (eGender)Enum.Parse(typeof(eGender), (sender as ComboBox).SelectedItem.ToString());
-                    testerlabel.Text = m_SelectedSexPreference.ToString();
                }
                catch (Exception)
                {
@@ -364,6 +350,14 @@ namespace DesktopFacebook.Forms
                (sender as CustomPictureBoxButton).Image = (sender as CustomPictureBoxButton).m_NormalImage;
           }
 
-          
-     }
+        private void labelAgeRange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormEventByParameters_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

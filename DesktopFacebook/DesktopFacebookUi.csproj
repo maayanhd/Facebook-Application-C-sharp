@@ -145,6 +145,9 @@
     <EmbeddedResource Include="Forms\FormMyAlbums.resx">
       <DependentUpon>FormMyAlbums.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNewsFeed.resx">
+      <DependentUpon>FormNewsFeed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPosts.resx">
       <DependentUpon>FormPosts.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +192,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\annonymousProfile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appSignIn.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appSignIn2.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

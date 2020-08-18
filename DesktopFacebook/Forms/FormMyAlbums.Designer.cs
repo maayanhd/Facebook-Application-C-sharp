@@ -43,7 +43,7 @@
             this.flowLayoutPanelAlbums.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flowLayoutPanelAlbums.Location = new System.Drawing.Point(12, 44);
             this.flowLayoutPanelAlbums.Name = "flowLayoutPanelAlbums";
-            this.flowLayoutPanelAlbums.Size = new System.Drawing.Size(175, 390);
+            this.flowLayoutPanelAlbums.Size = new System.Drawing.Size(184, 390);
             this.flowLayoutPanelAlbums.TabIndex = 0;
             // 
             // flowLayoutPanelPhotos
@@ -52,7 +52,7 @@
             this.flowLayoutPanelPhotos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flowLayoutPanelPhotos.Location = new System.Drawing.Point(251, 44);
             this.flowLayoutPanelPhotos.Name = "flowLayoutPanelPhotos";
-            this.flowLayoutPanelPhotos.Size = new System.Drawing.Size(260, 390);
+            this.flowLayoutPanelPhotos.Size = new System.Drawing.Size(266, 390);
             this.flowLayoutPanelPhotos.TabIndex = 1;
             // 
             // pictureBoxSelectedPhoto
@@ -60,7 +60,7 @@
             this.pictureBoxSelectedPhoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxSelectedPhoto.Location = new System.Drawing.Point(565, 44);
             this.pictureBoxSelectedPhoto.Name = "pictureBoxSelectedPhoto";
-            this.pictureBoxSelectedPhoto.Size = new System.Drawing.Size(371, 391);
+            this.pictureBoxSelectedPhoto.Size = new System.Drawing.Size(270, 270);
             this.pictureBoxSelectedPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxSelectedPhoto.TabIndex = 2;
             this.pictureBoxSelectedPhoto.TabStop = false;
@@ -95,18 +95,18 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Selected Photo";
             // 
-            // FormPhotos
+            // FormMyAlbums
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 446);
+            this.ClientSize = new System.Drawing.Size(841, 446);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxSelectedPhoto);
             this.Controls.Add(this.flowLayoutPanelPhotos);
             this.Controls.Add(this.flowLayoutPanelAlbums);
-            this.Name = "FormPhotos";
+            this.Name = "FormMyAlbums";
             this.Text = "FormPhotos";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedPhoto)).EndInit();
             this.ResumeLayout(false);

@@ -17,30 +17,18 @@ namespace DesktopFacebook
      {
           private Form m_CurrentChildForm = new Form();
           protected User m_LoggedInUser;
-          private FormSignIn m_SignInForm;
+          private Dictionary<string, User> FriendsObjectNameMapper { get; set; } = new Dictionary<string, User>();
           bool m_IsAskingToRememberLoginDets;
-          readonly string logoutSuccessfulMessage = "Logging out successfully!";
+          readonly string logoutSuccessfulMessage = "Logged out successfully!";
           
           public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)
           {
                m_LoggedInUser = i_LoggedInUser;
-               m_SignInForm = i_SignInForm;
                InitializeComponent();
                m_IsAskingToRememberLoginDets = i_IsAskingToRememberLoginDets;
                customizePanelsDesign();
                fetchUserDetails();
                (LoginManager.Instance).LogoutSuccessful += LoginManager_LogoutSuccessful;
-          }
-
-          private void FormMainPage_DirectedToSignInForm(object sender, EventArgs e)
-          {
-               DirectToSignInForm((sender as FormMainPage).m_SignInForm);
-          }
-
-          public void DirectToSignInForm(FormSignIn i_SignInForm)
-          {
-               i_SignInForm.Visible = true;
-               i_SignInForm.ShowDialog();
           }
 
           private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
@@ -50,6 +38,8 @@ namespace DesktopFacebook
                     "Logout",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.None);
+              //Application.Exit();
+              Environment.Exit(0);
           }
 
           private void fetchUserDetails()
@@ -88,9 +78,16 @@ namespace DesktopFacebook
           {
                FormFriends formFriends = m_CurrentChildForm as FormFriends;
                formFriends.listBoxFriends.Items.Clear();
-               foreach (User friend in m_LoggedInUser.Friends)
+               FriendsObjectNameMapper.Clear();
+
+              EventHandler friendSelectionChangedEventHandler = new EventHandler(this.listBoxFriends_SelectedIndexChanged);
+              formFriends.listBoxFriends.SelectedIndexChanged += friendSelectionChangedEventHandler;
+
+            foreach (User friend in m_LoggedInUser.Friends)
                {
-                    formFriends.listBoxFriends.Items.Add(friend);
+                    string friendsNameFormatted = string.Format("{0} {1}", friend.FirstName, friend.LastName);
+                    formFriends.listBoxFriends.Items.Add(friendsNameFormatted);
+                    FriendsObjectNameMapper.Add(friendsNameFormatted, friend);
                }
           }
 
@@ -104,20 +101,20 @@ namespace DesktopFacebook
                FormFriends formFriends = m_CurrentChildForm as FormFriends;
                if (formFriends.listBoxFriends.SelectedItems.Count == 1)
                {
-                    User selectedFriend = formFriends.listBoxFriends.SelectedItem as User;
+                    User selectedFriend = FriendsObjectNameMapper[formFriends.listBoxFriends.SelectedItem.ToString()];
                     if (selectedFriend.PictureNormalURL != null)
                     {
                          formFriends.pictureBoxFriend.LoadAsync(selectedFriend.PictureNormalURL);
                     }
 
-                    formFriends.labelFriendsName.Text = String.Format("{0} {1}", selectedFriend.FirstName, selectedFriend.LastName);
-                    formFriends.labelFriendsBirthday.Text = selectedFriend.Birthday;
-                    formFriends.labelFriendsGender.Text = selectedFriend.Gender.ToString();
-                    formFriends.labelFriendsLocation.Text = selectedFriend.Location.ToString();
-                    formFriends.labelFriendsHometown.Text = selectedFriend.Hometown.ToString();
-                    formFriends.labelFriendsRelationship.Text = selectedFriend.RelationshipStatus.ToString();
-                    formFriends.labelFriendsStatus.Text = selectedFriend.Statuses[0].Message;
-               }
+                    formFriends.labelFriendsNameData.Text = String.Format("{0} {1}", selectedFriend.FirstName, selectedFriend.LastName);
+                    formFriends.labelFriendsBirthdayData.Text = selectedFriend.Birthday != null ? selectedFriend.Birthday.ToString() : "N/A";
+                    formFriends.labelFriendsGenderData.Text = selectedFriend.Gender != null ? selectedFriend.Gender.ToString() : "N/A";
+                    formFriends.labelFriendsLocationData.Text = selectedFriend.Location != null ? selectedFriend.Location.ToString() : "N/A";
+                    formFriends.labelFriendsHometownData.Text = selectedFriend.Hometown != null ? selectedFriend.Hometown.ToString() : "N/A";
+                    formFriends.labelFriendsRelationshipData.Text = selectedFriend.RelationshipStatus != null ? selectedFriend.RelationshipStatus.ToString() : "N/A";
+                    formFriends.labelFriendsStatusData.Text = selectedFriend.Statuses[0].Message != null ? selectedFriend.Statuses[0].Message : "N/A";
+            }
           }
 
           private void fetchUserAlbums()
@@ -213,13 +210,27 @@ namespace DesktopFacebook
                    
           private void buttonPost_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = (sender as Button).Text;
-               hideSubMenu();
-               showSubMenu(panelPosts);
-          }
+            //ButtonChosenMenu.Text = (sender as Button).Text;
+            //hideSubMenu();
+            //showSubMenu(panelPosts);
+            if (!string.IsNullOrEmpty(this.textboxWritePost.Text))
+            {
+                try
+                {
+                    m_LoggedInUser.PostStatus(this.textboxWritePost.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(
+                        string.Format("Unable to publish new post.{0}Please try again at a later time.", Environment.NewLine)
+                        );
+                }
+            }
+        }
 
           private void button_Photos_Click(object sender, EventArgs e)
           {
+               ButtonChosenMenu.Text = "Photos";
                hideSubMenu();
                showSubMenu(PanelPhotos);
                openChildForm(new Form());
@@ -227,6 +238,7 @@ namespace DesktopFacebook
 
           private void ButtonFriends_Click(object sender, EventArgs e)
           {
+               ButtonChosenMenu.Text = "Friends";
                hideSubMenu();
                showSubMenu(PanelFriends);
                openChildForm(new Form());
@@ -254,6 +266,7 @@ namespace DesktopFacebook
 
           private void buttonNewFeatures_Click(object sender, EventArgs e)
           {
+               ButtonChosenMenu.Text = "Special Feature";
                hideSubMenu();
                showSubMenu(PanelNewFeatures);
                openChildForm(new Form());
@@ -261,13 +274,13 @@ namespace DesktopFacebook
 
           private void buttonMatchMaker_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = "MatchMaker";
+               ButtonChosenMenu.Text = "Match Maker";
                openChildForm(new FormMatchMakerByParameters(m_LoggedInUser));
           }
 
         private void buttonEventsByParam_Click(object sender, EventArgs e)
           {
-               ButtonChosenMenu.Text = "EventByFilter";
+               ButtonChosenMenu.Text = "Events Finder";
                openChildForm(new FormEventByParameters(m_LoggedInUser));
 
           }
@@ -283,6 +296,7 @@ namespace DesktopFacebook
 
           private void buttonPosts_Click(object sender, EventArgs e)
           {
+               ButtonChosenMenu.Text = "News Feed";
                hideSubMenu();
                showSubMenu(panelPosts);
                openChildForm(new Form());
@@ -308,5 +322,10 @@ namespace DesktopFacebook
                openChildForm(new FormPosts());
                fetchPosts();
           }
-     }
+
+        private void textboxWritePost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

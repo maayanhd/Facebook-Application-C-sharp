@@ -37,14 +37,14 @@
             this.flowLayoutPanelNewsFeed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelNewsFeed.Location = new System.Drawing.Point(1, 1);
             this.flowLayoutPanelNewsFeed.Name = "flowLayoutPanelNewsFeed";
-            this.flowLayoutPanelNewsFeed.Size = new System.Drawing.Size(640, 470);
+            this.flowLayoutPanelNewsFeed.Size = new System.Drawing.Size(650, 467);
             this.flowLayoutPanelNewsFeed.TabIndex = 0;
             // 
             // FormNewsFeed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 474);
+            this.ClientSize = new System.Drawing.Size(655, 471);
             this.Controls.Add(this.flowLayoutPanelNewsFeed);
             this.Name = "FormNewsFeed";
             this.Text = "FormNewsFeed";
