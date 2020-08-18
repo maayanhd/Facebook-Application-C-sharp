@@ -1,13 +1,13 @@
-﻿using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FacebookWrapper;
+using FacebookWrapper.ObjectModel;
 using FacebookLogic;
 
 namespace DesktopFacebook
@@ -65,7 +65,6 @@ namespace DesktopFacebook
 
           private void panel2_Paint(object sender, PaintEventArgs e)
           {
-
           }
      }
 }

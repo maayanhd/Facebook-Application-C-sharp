@@ -6,20 +6,15 @@ using System.Text;
 
 namespace FacebookLogic
 {
-    public sealed class AppSettings
-    {
-        private static AppSettings s_Instance = null;
-        private static readonly string sr_AppSettingsPath = AppDomain.CurrentDomain.BaseDirectory +  @"\AppSettings.xml";
-        private readonly int r_MaxPostsAvailableToSee = 8;
-        private readonly string r_AppID = "3267288006666062";
-          
-        private readonly string[] r_UserPermissions =
-        //{
-        //    "public_profile", "user_gender", "user_birthday", "user_hometown", "user_age_range", "user_likes",
-        //    "user_photos", "user_posts", "user_friends", "user_location", "user_tagged_places", "publish_to_groups",
-        //    "groups_access_member_info", "publish_pages"
-        //};
-        {
+     public sealed class AppSettings
+     {
+          private static readonly string sr_AppSettingsPath = AppDomain.CurrentDomain.BaseDirectory + @"\AppSettings.xml";
+          private static AppSettings s_Instance = null;
+          private readonly int r_MaxPostsAvailableToSee = 8;
+          private readonly string r_AppID = "3267288006666062";
+
+          private readonly string[] r_UserPermissions =
+          {
                "public_profile",
                 "email",
                 "publish_to_groups",
@@ -40,83 +35,85 @@ namespace FacebookLogic
                 "user_hometown"
         };
 
-        private bool m_IsUserAskingToRememberLoginDets;
-        private string m_LastAccessToken;
+          private bool m_IsUserAskingToRememberLoginDets;
+          private string m_LastAccessToken;
 
-        private AppSettings()
-        {
+          private AppSettings()
+          {
                m_IsUserAskingToRememberLoginDets = false;
-            m_LastAccessToken = string.Empty;
-        }
-        public static AppSettings Instance
-        {
-            get
-            {
-                if (s_Instance == null)
-                {
-                    s_Instance = new AppSettings();
-                }
-                else
-                {
+               m_LastAccessToken = string.Empty;
+          }
+
+          public static AppSettings Instance
+          {
+               get
+               {
+                    if (s_Instance == null)
+                    {
+                         s_Instance = new AppSettings();
+                    }
+                    else
+                    {
+                         return s_Instance;
+                    }
+
                     return s_Instance;
-                }
-                return s_Instance;
-            }
-        }
+               }
+          }
 
-        public int MaxPostsShown
-        {
-            get
-            {
-                return r_MaxPostsAvailableToSee;
-            }
-        }
+          public int MaxPostsShown
+          {
+               get
+               {
+                    return r_MaxPostsAvailableToSee;
+               }
+          }
 
-        public string AppID
-        {
-            get
-            {
-                return r_AppID;
-            }
-        }
+          public string AppID
+          {
+               get
+               {
+                    return r_AppID;
+               }
+          }
 
-        public string[] UserPermissions
-        {
-            get
-            {
-                return r_UserPermissions;
-            }
-        }
+          public string[] UserPermissions
+          {
+               get
+               {
+                    return r_UserPermissions;
+               }
+          }
 
-        public bool RememberUser
-        {
-            get
-            {
-                return m_IsUserAskingToRememberLoginDets;
-            }
+          public bool RememberUser
+          {
+               get
+               {
+                    return m_IsUserAskingToRememberLoginDets;
+               }
 
-            set
-            {
+               set
+               {
                     m_IsUserAskingToRememberLoginDets = value;
-            }
-        }
+               }
+          }
 
-        public string LastAccessToken
-        {
-            get
-            {
-                return m_LastAccessToken;
-            }
+          public string LastAccessToken
+          {
+               get
+               {
+                    return m_LastAccessToken;
+               }
 
-            set
-            {
-                m_LastAccessToken = value;
-            }
-        }
+               set
+               {
+                    m_LastAccessToken = value;
+               }
+          }
 
           public void SaveAppSettings()
           {
-               if(m_IsUserAskingToRememberLoginDets)
+               if (m_IsUserAskingToRememberLoginDets)
                {
                     using (Stream stream = new FileStream(sr_AppSettingsPath, FileMode.Create))
                     {

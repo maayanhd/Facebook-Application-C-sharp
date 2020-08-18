@@ -14,8 +14,8 @@ namespace FacebookLogic
           private LoginResult m_LoginResult;
           private User m_LoggedInUser;
 
-
           public event EventHandler LogoutSuccessful;
+
           public event EventHandler DirectedToMainForm;
 
           private LoginManager()
@@ -29,9 +29,11 @@ namespace FacebookLogic
           {
                get
                {
-                    if (s_Instance == null) // Double check for 
+                    // Double check for 
+                    if (s_Instance == null) 
                     {
-                         lock (sr_CreateLock) // Thread safe 
+                         // Thread safe
+                         lock (sr_CreateLock)  
                          {
                               if (s_Instance == null)
                               {
@@ -48,6 +50,7 @@ namespace FacebookLogic
           {
                onLogoutSuccessful(EventArgs.Empty);
           }
+
           private void saveLoginData(LoginResult i_LoginResult)
           {
                m_LoginResult = i_LoginResult;
@@ -59,7 +62,6 @@ namespace FacebookLogic
                try
                {
                     LoginResult loginResult = FacebookService.Connect(i_AccessToken);
-
 
                     if (!string.IsNullOrEmpty(loginResult.AccessToken))
                     {
@@ -122,7 +124,6 @@ namespace FacebookLogic
                {
                     throw new Exception("Error: unsuccessful Logout for unknown reason");
                }
-
           }
 
           private void operateLogoutSuccessful()
@@ -152,7 +153,5 @@ namespace FacebookLogic
                     handler.Invoke(this, e);
                }
           }
-
      }
 }
-

@@ -1,8 +1,8 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 using static FacebookWrapper.ObjectModel.User;
 
 namespace DesktopFacebook.Forms
@@ -10,10 +10,15 @@ namespace DesktopFacebook.Forms
      public partial class FormEventByParameters : Form
      {
           private readonly User m_CurrentLoggedInUser;
+
           public string m_SelectedAgeRange { get; set; } = "24 - 30";
+
           private Point m_AgeRange = new Point(24, 30);
+
           public eReligions m_SelectedReligion { get; set; } = eReligions.Chrisitianity;
+
           public eTimeFrame m_SelectedTimeFrame { get; set; } = eTimeFrame.Morning;
+
           public eGender m_SelectedSexPreference { get; set; } = eGender.male;
 
           public FlowLayoutPanel FlowLayoutPanelCutomedEvents
@@ -26,16 +31,17 @@ namespace DesktopFacebook.Forms
 
           public FlowLayoutPanel flowLayoutPanelCutomedEvents { get; private set; }
 
-          Dictionary<Point, eTimeFrame> m_DurationToTimeframe = new Dictionary<Point, eTimeFrame>()
+          private Dictionary<Point, eTimeFrame> m_DurationToTimeframe = new Dictionary<Point, eTimeFrame>()
                               {
-                                   {new Point(0,0), eTimeFrame.Midnight},
-                                   {new Point(0,3), eTimeFrame.MidnightToDawn},
-                                   {new Point(3,6), eTimeFrame.EarlyMorning},
-                                   {new Point(6,12), eTimeFrame.Morning},
-                                   {new Point(12,16), eTimeFrame.Midday},
-                                   {new Point(16,19), eTimeFrame.Afternoon},
-                                   {new Point(19,23), eTimeFrame.Evening},
+                                   { new Point(0, 0), eTimeFrame.Midnight },
+                                   { new Point(0, 3), eTimeFrame.MidnightToDawn },
+                                   { new Point(3, 6), eTimeFrame.EarlyMorning },
+                                   { new Point(6, 12), eTimeFrame.Morning },
+                                   { new Point(12, 16), eTimeFrame.Midday },
+                                   { new Point(16, 19), eTimeFrame.Afternoon },
+                                   { new Point(19, 23), eTimeFrame.Evening },
                               };
+
           public FormEventByParameters(User i_LoggedInUser)
           {
                InitializeComponent();
@@ -98,6 +104,7 @@ namespace DesktopFacebook.Forms
                Budhism,
                Hinduism
           }
+
           public enum eTimeFrame
           {
                EarlyMorning,
@@ -116,14 +123,12 @@ namespace DesktopFacebook.Forms
           {
                try
                {
-                    //FacebookObjectCollection<User> friendsCollections = m_CurrentLoggedInUser.Friends;
-                    if(m_CurrentLoggedInUser.Friends.Count>=1)
+                    if (m_CurrentLoggedInUser.Friends.Count >= 1) 
                     {
                          foreach (User friend in m_CurrentLoggedInUser.Friends)
                          {
                               FacebookObjectCollection<Event> friendfEvents = friend.Events;
                               int currentFriendAge = calculateAgeByBirth(friend.Birthday);
-                              //int currentFriendAge = 25;
                               eGender currentFriendSex = eGender.male; // Default
                               if (friend.Gender.HasValue)
                               {
@@ -143,23 +148,25 @@ namespace DesktopFacebook.Forms
                                    bool eventIsMatching = false;
                                    foreach (Event friendEvent in friendfEvents)
                                    {
-                                        Point duration = getDurationPointToMap(int.Parse(friendEvent.StartTime.Value.ToString("HH")),
-                                                                     int.Parse(friendEvent.EndTime.Value.ToString("HH")),
-                                                                     friendEvent.StartTime.Value.ToString("tt"));
+                                        Point duration = getDurationPointToMap(
+                                             int.Parse(friendEvent.StartTime.Value.ToString("HH")),
+                                             int.Parse(friendEvent.EndTime.Value.ToString("HH")),
+                                             friendEvent.StartTime.Value.ToString("tt"));
                                         m_DurationToTimeframe.TryGetValue(duration, out eTimeFrame currentEventTimeFrame);
 
                                         string friendAttendence = getFriendAttendence(friend, friendEvent);
 
                                         if (currentEventTimeFrame.Equals(m_SelectedTimeFrame))
                                         {
-
                                              FlowLayoutPanelCutomedEvents.Controls.Add(createEventCustomedItem(friendEvent, friend, currentEventTimeFrame, friendAttendence));
                                              eventIsMatching = true;
                                         }
                                    }
+
                                    if (eventIsMatching == false)
                                    {
-                                        MessageBox.Show("We're Sorry, No matching events were found",
+                                        MessageBox.Show(
+                                             "We're Sorry, No matching events were found",
                                              "Event Filter Result",
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.None);
@@ -167,7 +174,8 @@ namespace DesktopFacebook.Forms
                               }
                               else
                               {
-                                   MessageBox.Show("We're Sorry, no matching events were found ",
+                                   MessageBox.Show(
+                                        "We're Sorry, no matching events were found ",
                                             "Event Filter Result",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.None);
@@ -176,26 +184,24 @@ namespace DesktopFacebook.Forms
                     }
                     else
                     {
-                         MessageBox.Show("We're Sorry, No friends were found",
+                         MessageBox.Show(
+                              "We're Sorry, No friends were found",
                                       "Event Filter Result",
                                       MessageBoxButtons.OK,
                                       MessageBoxIcon.None);
                     }
-
-               }
-               catch (NullReferenceException)
-               {
-                    throw new NullReferenceException("Error: retrieving Friends or friend's events null exception");
                }
                catch (Exception)
                {
-                    throw new Exception("Unknown exception");
+                    MessageBox.Show("Unable to fetch events data");
                }
           }
+
           private string getFriendAttendence(User io_CurrentFriend, Event io_CurrentEvent)
           {
                string friendAttendece = "Participating";
-               //Assuming the events of the user are approved ones, since there isn't approved events field
+
+               // Assuming the events of the user are approved ones, since there isn't approved events field
                foreach (Event maybeEvent in io_CurrentFriend.EventsMaybe)
                {
                     if (maybeEvent.Equals(io_CurrentEvent))
@@ -227,31 +233,33 @@ namespace DesktopFacebook.Forms
 
                if (i_StartTimeNumericHour >= 0 && i_EndTimeNumericHour <= 3)
                {
-                    mappedDuration.X = 0; mappedDuration.Y = 3;
+                    mappedDuration.X = 0;
+                    mappedDuration.Y = 3;
                }
                else if (i_StartTimeNumericHour >= 3 && i_EndTimeNumericHour <= 6)
                {
-                    mappedDuration.X = 3; mappedDuration.Y = 6;
+                    mappedDuration.X = 3;
+                    mappedDuration.Y = 6;
                }
-               else if (i_StartTimeNumericHour >= 6 && i_EndTimeNumericHour <= 12)
+              else if (i_StartTimeNumericHour >= 6 && i_EndTimeNumericHour <= 12)
                {
-
-               }
-               else if (i_StartTimeNumericHour >= 6 && i_EndTimeNumericHour <= 12)
-               {
-                    mappedDuration.X = 6; mappedDuration.Y = 12;
+                    mappedDuration.X = 6;
+                    mappedDuration.Y = 12;
                }
                else if (i_StartTimeNumericHour >= 12 && i_EndTimeNumericHour <= 16)
                {
-                    mappedDuration.X = 12; mappedDuration.Y = 16;
+                    mappedDuration.X = 12;
+                    mappedDuration.Y = 16;
                }
                else if (i_StartTimeNumericHour >= 16 && i_EndTimeNumericHour <= 19)
                {
-                    mappedDuration.X = 16; mappedDuration.Y = 19;
+                    mappedDuration.X = 16;
+                    mappedDuration.Y = 19;
                }
                else if (i_StartTimeNumericHour >= 19 && i_EndTimeNumericHour <= 23)
                {
-                    mappedDuration.X = 19; mappedDuration.Y = 23;
+                    mappedDuration.X = 19;
+                    mappedDuration.Y = 23;
                }
 
                return mappedDuration;
@@ -262,7 +270,6 @@ namespace DesktopFacebook.Forms
                return i_CurrentFriendAge >= m_AgeRange.X &&
                    i_CurrentFriendAge <= m_AgeRange.Y &&
                    i_CurrentFriendSex.Equals(m_SelectedSexPreference);
-
           }
 
           private int calculateAgeByBirth(string birthday)
@@ -285,7 +292,8 @@ namespace DesktopFacebook.Forms
                DateTime currentEventStartTime = i_CriterionizedEvent.StartTime.Value,
                         currentEventEndTime = i_CriterionizedEvent.EndTime.Value;
 
-               eventCustomedItem.LabelDurationTime.Text = string.Format("{0} at {1} - {2} at {3}",
+               eventCustomedItem.LabelDurationTime.Text = string.Format(
+                    "{0} at {1} - {2} at {3}",
                     currentEventStartTime.ToString("dd/MM"),
                     currentEventStartTime.ToString("hh:mm tt"),
                     currentEventEndTime.ToString("hh:mm tt"),
@@ -352,12 +360,10 @@ namespace DesktopFacebook.Forms
 
         private void labelAgeRange_Click(object sender, EventArgs e)
         {
-
         }
 
         private void FormEventByParameters_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

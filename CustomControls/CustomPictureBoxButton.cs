@@ -12,7 +12,9 @@ namespace DesktopFacebook
      public partial class CustomPictureBoxButton : PictureBox
      {
           private Image m_NormalImage { get; set; }
-          private Image m_HoverImage{ get; set; }
+
+          private Image m_HoverImage { get; set; }
+
           public CustomPictureBoxButton()
           {
                InitializeComponent();

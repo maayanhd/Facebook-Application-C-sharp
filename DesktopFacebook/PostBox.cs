@@ -65,15 +65,20 @@ namespace FacebookApp.UI
                 {
                     foreach (User userLiked in m_Post.LikedBy)
                     {
-                        this.richTextBoxLikes.AppendText(string.Format("{0}{1}", userLiked.Name, Environment.NewLine));
+                        this.richTextBoxLikes.AppendText(
+                             string.Format(
+                                  "{0}{1}", 
+                             userLiked.Name,
+                             Environment.NewLine));
                     }
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show(
-                    string.Format("Could not retreive Posts Likes.{0}Please try again at a later time.", Environment.NewLine)
-                    );
+                    MessageBox.Show(
+                        string.Format(
+                             "Could not retreive Posts Likes.{0}Please try again at a later time.",
+                        Environment.NewLine));
             }
             
             this.richTextBoxLikes.Visible = true;
@@ -101,9 +106,8 @@ namespace FacebookApp.UI
             }
             catch (Exception)
             {
-                MessageBox.Show(
-                            string.Format("Unable to retreive post's Comments.{0}Please try again at a later time.", Environment.NewLine)
-                            );
+                    MessageBox.Show(
+                                string.Format("Unable to retreive post's Comments.{0}Please try again at a later time.", Environment.NewLine));
             }
             
             this.richTextBoxLikes.Visible = true;

@@ -15,12 +15,15 @@ namespace DesktopFacebook
 {
      public partial class FormMainPage : Form
      {
+          private readonly string logoutSuccessfulMessage = "Logged out successfully!";
+
           private Form m_CurrentChildForm = new Form();
           protected User m_LoggedInUser;
-          private Dictionary<string, User> FriendsObjectNameMapper { get; set; } = new Dictionary<string, User>();
-          bool m_IsAskingToRememberLoginDets;
-          readonly string logoutSuccessfulMessage = "Logged out successfully!";
-          
+
+          private Dictionary<string, User> m_FriendsObjectNameMapper { get; set; } = new Dictionary<string, User>();
+
+          private bool m_IsAskingToRememberLoginDets;
+
           public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)
           {
                m_LoggedInUser = i_LoggedInUser;
@@ -28,7 +31,7 @@ namespace DesktopFacebook
                m_IsAskingToRememberLoginDets = i_IsAskingToRememberLoginDets;
                customizePanelsDesign();
                fetchUserDetails();
-               (LoginManager.Instance).LogoutSuccessful += LoginManager_LogoutSuccessful;
+               LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;
           }
 
           private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
@@ -38,8 +41,7 @@ namespace DesktopFacebook
                     "Logout",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.None);
-              //Application.Exit();
-              Environment.Exit(0);
+               Environment.Exit(0);
           }
 
           private void fetchUserDetails()
@@ -68,26 +70,24 @@ namespace DesktopFacebook
                     hideSubMenu();
                }
 
-               //Update visability of submenu
+               // Update visability of submenu
                o_SubMenu.Visible = !o_SubMenu.Visible;
-
-
           }
 
           private void fetchUserFriends()
           {
                FormFriends formFriends = m_CurrentChildForm as FormFriends;
                formFriends.listBoxFriends.Items.Clear();
-               FriendsObjectNameMapper.Clear();
+               m_FriendsObjectNameMapper.Clear();
 
-              EventHandler friendSelectionChangedEventHandler = new EventHandler(this.listBoxFriends_SelectedIndexChanged);
-              formFriends.listBoxFriends.SelectedIndexChanged += friendSelectionChangedEventHandler;
+               EventHandler friendSelectionChangedEventHandler = new EventHandler(this.listBoxFriends_SelectedIndexChanged);
+               formFriends.listBoxFriends.SelectedIndexChanged += friendSelectionChangedEventHandler;
 
-            foreach (User friend in m_LoggedInUser.Friends)
+               foreach (User friend in m_LoggedInUser.Friends)
                {
                     string friendsNameFormatted = string.Format("{0} {1}", friend.FirstName, friend.LastName);
                     formFriends.listBoxFriends.Items.Add(friendsNameFormatted);
-                    FriendsObjectNameMapper.Add(friendsNameFormatted, friend);
+                    m_FriendsObjectNameMapper.Add(friendsNameFormatted, friend);
                }
           }
 
@@ -101,20 +101,20 @@ namespace DesktopFacebook
                FormFriends formFriends = m_CurrentChildForm as FormFriends;
                if (formFriends.listBoxFriends.SelectedItems.Count == 1)
                {
-                    User selectedFriend = FriendsObjectNameMapper[formFriends.listBoxFriends.SelectedItem.ToString()];
+                    User selectedFriend = m_FriendsObjectNameMapper[formFriends.listBoxFriends.SelectedItem.ToString()];
                     if (selectedFriend.PictureNormalURL != null)
                     {
                          formFriends.pictureBoxFriend.LoadAsync(selectedFriend.PictureNormalURL);
                     }
 
-                    formFriends.labelFriendsNameData.Text = String.Format("{0} {1}", selectedFriend.FirstName, selectedFriend.LastName);
+                    formFriends.labelFriendsNameData.Text = string.Format("{0} {1}", selectedFriend.FirstName, selectedFriend.LastName);
                     formFriends.labelFriendsBirthdayData.Text = selectedFriend.Birthday != null ? selectedFriend.Birthday.ToString() : "N/A";
                     formFriends.labelFriendsGenderData.Text = selectedFriend.Gender != null ? selectedFriend.Gender.ToString() : "N/A";
                     formFriends.labelFriendsLocationData.Text = selectedFriend.Location != null ? selectedFriend.Location.ToString() : "N/A";
                     formFriends.labelFriendsHometownData.Text = selectedFriend.Hometown != null ? selectedFriend.Hometown.ToString() : "N/A";
                     formFriends.labelFriendsRelationshipData.Text = selectedFriend.RelationshipStatus != null ? selectedFriend.RelationshipStatus.ToString() : "N/A";
                     formFriends.labelFriendsStatusData.Text = selectedFriend.Statuses[0].Message != null ? selectedFriend.Statuses[0].Message : "N/A";
-            }
+               }
           }
 
           private void fetchUserAlbums()
@@ -135,24 +135,30 @@ namespace DesktopFacebook
                }
           }
 
-
           private void album_Clicked(object sender, EventArgs e)
           {
                PictureBox clickedAlbumBox = sender as PictureBox;
                Album selectedAlbum = clickedAlbumBox.Tag as Album;
-               foreach (Photo photo in selectedAlbum.Photos)
+               try
                {
-                    PictureBox picBoxPhoto = new PictureBox();
-                    picBoxPhoto.Name = photo.Name;
-                    picBoxPhoto.Size = new System.Drawing.Size(75, 75);
-                    picBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                    picBoxPhoto.Visible = true;
-                    picBoxPhoto.Tag = photo;
-                    picBoxPhoto.LoadAsync(photo.PictureNormalURL);
-                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Add(picBoxPhoto);
+                    foreach (Photo photo in selectedAlbum.Photos)
+                    {
+                         PictureBox picBoxPhoto = new PictureBox();
+                         picBoxPhoto.Name = photo.Name;
+                         picBoxPhoto.Size = new System.Drawing.Size(75, 75);
+                         picBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                         picBoxPhoto.Visible = true;
+                         picBoxPhoto.Tag = photo;
+                         picBoxPhoto.LoadAsync(photo.PictureNormalURL);
+                         (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Add(picBoxPhoto);
 
-                    EventHandler photoClickedEvent = new EventHandler(this.photo_Clicked);
-                    picBoxPhoto.Click += photoClickedEvent;
+                         EventHandler photoClickedEvent = new EventHandler(this.photo_Clicked);
+                         picBoxPhoto.Click += photoClickedEvent;
+                    }
+               }
+               catch (Exception)
+               {
+                    MessageBox.Show("Unable to fetch album photos", "Error", MessageBoxButtons.OK, MessageBoxIcon.None);
                }
           }
 
@@ -207,26 +213,24 @@ namespace DesktopFacebook
           {
                o_PostTextBox.Text = o_PostTextBox.Text.Equals("What\'s on your mind?") ? string.Empty : o_PostTextBox.Text;
           }
-                   
+
           private void buttonPost_Click(object sender, EventArgs e)
           {
-            //ButtonChosenMenu.Text = (sender as Button).Text;
-            //hideSubMenu();
-            //showSubMenu(panelPosts);
-            if (!string.IsNullOrEmpty(this.textboxWritePost.Text))
-            {
-                try
-                {
-                    m_LoggedInUser.PostStatus(this.textboxWritePost.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(
-                        string.Format("Unable to publish new post.{0}Please try again at a later time.", Environment.NewLine)
-                        );
-                }
-            }
-        }
+               if (!string.IsNullOrEmpty(this.textboxWritePost.Text))
+               {
+                    try
+                    {
+                         m_LoggedInUser.PostStatus(this.textboxWritePost.Text);
+                    }
+                    catch (Exception)
+                    {
+                         MessageBox.Show(
+                             string.Format(
+                                  "Unable to publish new post.{0}Please try again at a later time.",
+                                        Environment.NewLine));
+                    }
+               }
+          }
 
           private void button_Photos_Click(object sender, EventArgs e)
           {
@@ -244,10 +248,8 @@ namespace DesktopFacebook
                openChildForm(new Form());
           }
 
-
           private void FormMainPage_Load(object sender, EventArgs e)
           {
-
           }
 
           private void buttonMyFriendsList_Click(object sender, EventArgs e)
@@ -278,20 +280,17 @@ namespace DesktopFacebook
                openChildForm(new FormMatchMakerByParameters(m_LoggedInUser));
           }
 
-        private void buttonEventsByParam_Click(object sender, EventArgs e)
+          private void buttonEventsByParam_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "Events Finder";
                openChildForm(new FormEventByParameters(m_LoggedInUser));
-
           }
-
-
+          
           private void buttonNewsFeed_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "News Feed";
                openChildForm(new FormNewsFeed());
                fetchNewsFeed();
-
           }
 
           private void buttonPosts_Click(object sender, EventArgs e)
@@ -323,9 +322,8 @@ namespace DesktopFacebook
                fetchPosts();
           }
 
-        private void textboxWritePost_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-    }
+          private void textboxWritePost_TextChanged(object sender, EventArgs e)
+          {
+          }
+     }
 }

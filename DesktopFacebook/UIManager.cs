@@ -5,7 +5,7 @@ namespace DesktopFacebook
 {
      public class UIManager
      {
-          FormSignIn m_SigningInForm = null;
+          private FormSignIn m_SigningInForm = null;
           
           public UIManager()
           {

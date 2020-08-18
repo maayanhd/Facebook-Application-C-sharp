@@ -40,6 +40,7 @@ namespace DesktopFacebook
                     return labelDurationTime;
                }
           }
+
           public Label LabelFriendName
           {
                get
@@ -54,7 +55,6 @@ namespace DesktopFacebook
                {
                     return labelVenue;
                }
-
           }
 
           public Label LabelPlace
@@ -88,6 +88,7 @@ namespace DesktopFacebook
                     return labelAttendence;
                }
           }
+
           public Label LabelVenueName
           {
                get
@@ -106,6 +107,4 @@ namespace DesktopFacebook
 
           #endregion
      }
-
 }
-

@@ -16,25 +16,20 @@ namespace DesktopFacebook.Forms
                InitializeComponent();
           }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
+          private void label3_Click(object sender, EventArgs e)
+          {
+          }
 
-        }
+          private void pictureBoxFriend_Click(object sender, EventArgs e)
+          {               
+          }
 
-        private void pictureBoxFriend_Click(object sender, EventArgs e)
-        {
+          private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
+          {
+          }
 
-        }
-
-        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBoxFriends_ValueMemberChanged(object sender, EventArgs e)
-        {
-
-        }
-    }
-
+          private void listBoxFriends_ValueMemberChanged(object sender, EventArgs e)
+          {
+          }
+     }
 }

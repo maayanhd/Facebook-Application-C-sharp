@@ -22,6 +22,4 @@ namespace FacebookLogic
                return result;
           }
      }
-
 }
-
