@@ -70,40 +70,40 @@
     <Compile Include="FormMainPage.Designer.cs">
       <DependentUpon>FormMainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormViews\FormEventByParameters.cs">
+    <Compile Include="Forms\FormEventByParameters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViews\FormEventByParameters.designer.cs">
+    <Compile Include="Forms\FormEventByParameters.designer.cs">
       <DependentUpon>FormEventByParameters.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormViews\FormFriends.cs">
+    <Compile Include="Forms\FormFriends.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViews\FormFriends.Designer.cs">
+    <Compile Include="Forms\FormFriends.Designer.cs">
       <DependentUpon>FormFriends.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormViews\FormMatchMakerByParameters.cs">
+    <Compile Include="Forms\FormMatchMakerByParameters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViews\FormMatchMakerByParameters.Designer.cs">
+    <Compile Include="Forms\FormMatchMakerByParameters.Designer.cs">
       <DependentUpon>FormMatchMakerByParameters.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormViews\FormNewsFeed.cs">
+    <Compile Include="Forms\FormNewsFeed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViews\FormNewsFeed.Designer.cs">
+    <Compile Include="Forms\FormNewsFeed.Designer.cs">
       <DependentUpon>FormNewsFeed.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormViews\FormMyAlbums.cs">
+    <Compile Include="Forms\FormMyAlbums.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViews\FormMyAlbums.Designer.cs">
+    <Compile Include="Forms\FormMyAlbums.Designer.cs">
       <DependentUpon>FormMyAlbums.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormViews\FormPosts.cs">
+    <Compile Include="Forms\FormPosts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViews\FormPosts.Designer.cs">
+    <Compile Include="Forms\FormPosts.Designer.cs">
       <DependentUpon>FormPosts.cs</DependentUpon>
     </Compile>
     <Compile Include="PostBox.cs">
@@ -133,22 +133,22 @@
     <EmbeddedResource Include="FormMainPage.resx">
       <DependentUpon>FormMainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormViews\FormEventByParameters.resx">
+    <EmbeddedResource Include="Forms\FormEventByParameters.resx">
       <DependentUpon>FormEventByParameters.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormViews\FormFriends.resx">
+    <EmbeddedResource Include="Forms\FormFriends.resx">
       <DependentUpon>FormFriends.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormViews\FormMatchMakerByParameters.resx">
+    <EmbeddedResource Include="Forms\FormMatchMakerByParameters.resx">
       <DependentUpon>FormMatchMakerByParameters.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormViews\FormMyAlbums.resx">
+    <EmbeddedResource Include="Forms\FormMyAlbums.resx">
       <DependentUpon>FormMyAlbums.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormViews\FormNewsFeed.resx">
+    <EmbeddedResource Include="Forms\FormNewsFeed.resx">
       <DependentUpon>FormNewsFeed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormViews\FormPosts.resx">
+    <EmbeddedResource Include="Forms\FormPosts.resx">
       <DependentUpon>FormPosts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostBox.resx">
