@@ -76,7 +76,6 @@
             this.labelFriendsGender.Size = new System.Drawing.Size(52, 15);
             this.labelFriendsGender.TabIndex = 1;
             this.labelFriendsGender.Text = "Gender:";
-            this.labelFriendsGender.Click += new System.EventHandler(this.label3_Click);
             // 
             // labelFriendsLocation
             // 
@@ -125,8 +124,6 @@
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(258, 381);
             this.listBoxFriends.TabIndex = 2;
-            this.listBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
-            this.listBoxFriends.ValueMemberChanged += new System.EventHandler(this.listBoxFriends_ValueMemberChanged);
             // 
             // pictureBoxFriend
             // 
@@ -138,7 +135,6 @@
             this.pictureBoxFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFriend.TabIndex = 0;
             this.pictureBoxFriend.TabStop = false;
-            this.pictureBoxFriend.Click += new System.EventHandler(this.pictureBoxFriend_Click);
             // 
             // labelFriendsNameData
             // 
@@ -169,7 +165,6 @@
             this.labelFriendsGenderData.Size = new System.Drawing.Size(29, 15);
             this.labelFriendsGenderData.TabIndex = 1;
             this.labelFriendsGenderData.Text = "N/A";
-            this.labelFriendsGenderData.Click += new System.EventHandler(this.label3_Click);
             // 
             // labelFriendsLocationData
             // 

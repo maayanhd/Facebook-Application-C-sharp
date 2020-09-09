@@ -35,7 +35,7 @@
                this.labelTime = new System.Windows.Forms.Label();
                this.labelFriendName = new System.Windows.Forms.Label();
                this.panel2 = new System.Windows.Forms.Panel();
-               this.labelAttendence = new System.Windows.Forms.Label();
+               this.labelAttendance = new System.Windows.Forms.Label();
                this.labelVenueName = new System.Windows.Forms.Label();
                this.labelPlaceName = new System.Windows.Forms.Label();
                this.label3 = new System.Windows.Forms.Label();
@@ -127,7 +127,7 @@
                // panel2
                // 
                this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-               this.panel2.Controls.Add(this.labelAttendence);
+               this.panel2.Controls.Add(this.labelAttendance);
                this.panel2.Controls.Add(this.labelVenueName);
                this.panel2.Controls.Add(this.labelPlaceName);
                this.panel2.Controls.Add(this.label3);
@@ -139,17 +139,17 @@
                this.panel2.Size = new System.Drawing.Size(189, 101);
                this.panel2.TabIndex = 1;
                // 
-               // labelAttendence
+               // labelAttendance
                // 
-               this.labelAttendence.AutoSize = true;
-               this.labelAttendence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.labelAttendence.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.labelAttendence.ForeColor = System.Drawing.SystemColors.ButtonFace;
-               this.labelAttendence.Location = new System.Drawing.Point(35, 79);
-               this.labelAttendence.Name = "labelAttendence";
-               this.labelAttendence.Size = new System.Drawing.Size(93, 19);
-               this.labelAttendence.TabIndex = 5;
-               this.labelAttendence.Text = "attendence";
+               this.labelAttendance.AutoSize = true;
+               this.labelAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.labelAttendance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.labelAttendance.ForeColor = System.Drawing.SystemColors.ButtonFace;
+               this.labelAttendance.Location = new System.Drawing.Point(35, 79);
+               this.labelAttendance.Name = "labelAttendance";
+               this.labelAttendance.Size = new System.Drawing.Size(93, 19);
+               this.labelAttendance.TabIndex = 5;
+               this.labelAttendance.Text = "Attendance";
                // 
                // labelVenueName
                // 
@@ -174,6 +174,7 @@
                this.labelPlaceName.Size = new System.Drawing.Size(105, 19);
                this.labelPlaceName.TabIndex = 3;
                this.labelPlaceName.Text = "nameOfPlace";
+               this.labelPlaceName.Click += new System.EventHandler(this.labelPlaceName_Click);
                // 
                // label3
                // 
@@ -183,9 +184,9 @@
                this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
                this.label3.Location = new System.Drawing.Point(15, 62);
                this.label3.Name = "label3";
-               this.label3.Size = new System.Drawing.Size(131, 17);
+               this.label3.Size = new System.Drawing.Size(132, 17);
                this.label3.TabIndex = 2;
-               this.label3.Text = "status attendence:";
+               this.label3.Text = "status Attendance:";
                // 
                // labelVenue
                // 
@@ -259,7 +260,7 @@
           private System.Windows.Forms.Label labelLocation;
           private System.Windows.Forms.PictureBox pictureBox1;
           private System.Windows.Forms.PictureBox pictureBoxFriendProfile;
-          private System.Windows.Forms.Label labelAttendence;
+          private System.Windows.Forms.Label labelAttendance;
           private System.Windows.Forms.Label labelVenueName;
           private System.Windows.Forms.Label labelPlaceName;
           private System.Windows.Forms.Label labelTimeFrame;

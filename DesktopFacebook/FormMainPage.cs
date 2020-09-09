@@ -325,5 +325,10 @@ namespace DesktopFacebook
           private void textboxWritePost_TextChanged(object sender, EventArgs e)
           {
           }
+
+          private void PanelSelectedMenu_Paint(object sender, PaintEventArgs e)
+          {
+
+          }
      }
 }

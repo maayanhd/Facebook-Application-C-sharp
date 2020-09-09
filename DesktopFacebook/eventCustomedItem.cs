@@ -25,14 +25,6 @@ namespace DesktopFacebook
                }
           }
 
-          public Label LabelDescriptionContent
-          {
-               get
-               {
-                    return LabelDescriptionContent;
-               }
-          }
-
           public Label LabelDurationTime
           {
                get
@@ -48,7 +40,7 @@ namespace DesktopFacebook
                     return labelFriendName;
                }
           }
-
+          
           public Label LabelVenue
           {
                get
@@ -81,11 +73,11 @@ namespace DesktopFacebook
                }
           }
 
-          public Label LabelAttendence
+          public Label LabelAttendance
           {
                get
                {
-                    return labelAttendence;
+                    return labelAttendance;
                }
           }
 
@@ -106,5 +98,10 @@ namespace DesktopFacebook
           }
 
           #endregion
+
+          private void labelPlaceName_Click(object sender, EventArgs e)
+          {
+
+          }
      }
 }
