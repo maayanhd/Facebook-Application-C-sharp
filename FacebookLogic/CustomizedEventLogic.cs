@@ -20,6 +20,13 @@ namespace FacebookLogic
           public string m_TimeFrame { get; internal set; } = null;
           public string m_EventDescription { get; internal set; } = null;
           public string m_EventName { get; internal set; } = null;
+          public int m_Key { get; }
+          private static int m_Counter = 0;
+
+          internal CustomizedEventLogic()
+          {
+               m_Key = m_Counter++;
+          }
 
           public event EventHandler EventDescriptionFetchingErrorOccured;
           public event EventHandler EventLocationFetchingErrorOccured;
@@ -67,6 +74,5 @@ namespace FacebookLogic
                }
           }
           #endregion
-
      }
 }

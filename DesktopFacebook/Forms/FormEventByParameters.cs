@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using FacebookLogic;
 using FacebookLogic.Controllers;
@@ -33,6 +34,12 @@ namespace DesktopFacebook.Forms
                m_FilteredEventLogic.EventsFetchedErrorOccured += EventByParametersLogic_EventsFetchedErrorOccured;
                m_FilteredEventLogic.FriendsFetchedErrorOccured += EventByParametersLogic_FriendsFetchedErrorOccured;
                m_FilteredEventLogic.GenderFieldFetchedErrorOccured += EventByParametersLogic_GenderFieldFetchedErrorOccured;
+               m_FilteredEventLogic.FilteredMatchingEventFound += EventByParametersLogic_FilteredMatchingEventFound;
+          }
+
+          private void EventByParametersLogic_FilteredMatchingEventFound(object sender, EventArgs e)
+          {
+               FlowLayoutPanelCutomedEvents.Controls.Add(new EventCustomedItem(sender as CustomizedEventLogic));
           }
 
           private void EventByParametersLogic_GenderFieldFetchedErrorOccured(object sender, EventArgs e)
@@ -131,7 +138,6 @@ namespace DesktopFacebook.Forms
           private void customPictureBoxButtonFilterEvent_MouseLeave(object sender, EventArgs e)
           {
                (sender as CustomPictureBoxButton).Image = (sender as CustomPictureBoxButton).m_NormalImage;
-          }
-               
+          }               
      }
 }

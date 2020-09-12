@@ -57,6 +57,7 @@
     <Compile Include="EventByParametersLogic.cs" />
     <Compile Include="Controllers\FriendController.cs" />
     <Compile Include="Controllers\newsFeedController.cs" />
+    <Compile Include="FriendsLogic.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="LoginManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

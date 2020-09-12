@@ -172,6 +172,7 @@
     <EmbeddedResource Include="CustomPictureBoxButton.resx">
       <DependentUpon>CustomPictureBoxButton.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FacebookLogic.CustomizedEventLogic.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

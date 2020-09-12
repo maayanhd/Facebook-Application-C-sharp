@@ -63,7 +63,6 @@ namespace FacebookLogic
                {
                     m_CustomizedEventLogicItem.OnEventTimeRelatedDetailsErrorOccured(EventArgs.Empty);
                }
-
           }
           
           public void BuildFriendDetailsPart()
@@ -102,10 +101,13 @@ namespace FacebookLogic
 
                return friendAttendece;
           }
-     
-          public CustomizedEventLogic GetCustomizedEvent()
+          
+          public CustomizedEventLogic CustomizedEvent
           {
-               return m_CustomizedEventLogicItem;
+               get
+               {
+                    return m_CustomizedEventLogicItem;
+               }
           }
      }
 }

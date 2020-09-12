@@ -19,7 +19,18 @@ namespace FacebookLogic
           public eTimeFrame m_SelectedTimeFrame { get; set; } = eTimeFrame.Morning;
 
           public eGender m_SelectedSexPreference { get; set; } = eGender.male;
+
           public User CurrentLoggedInUser { get; set; }
+
+          private readonly Dictionary<int, CustomizedEventLogic> m_KeyToCustomizedEventLogicMap= new Dictionary<int, CustomizedEventLogic>();
+
+          public Dictionary<int, CustomizedEventLogic> KeyToCustomizedEventLogicMap
+          {
+               get
+               {
+                    return m_KeyToCustomizedEventLogicMap;
+               }
+          }
 
           private Dictionary<Point, eTimeFrame> m_DurationToTimeframe = new Dictionary<Point, eTimeFrame>()
                               {
@@ -43,7 +54,6 @@ namespace FacebookLogic
           {
                m_LoggedInUser = i_LoggedInUser;
           }
-
 
           internal void OnFilteredMatchingEventFound(EventArgs e, Object sender)
           {
@@ -112,9 +122,10 @@ namespace FacebookLogic
                                         Director customizedEventDirector = new Director();
                                         CustomizedEventBuilder customizedEventBuilder = new CustomizedEventBuilder(friendEvent, friend, currentEventTimeFrame.Value);
                                         customizedEventDirector.ConstructCustomizedEvent(customizedEventBuilder);
-
-                                        OnFilteredMatchingEventFound(EventArgs.Empty, customizedEventBuilder.GetCustomizedEvent());
+                                        OnFilteredMatchingEventFound(EventArgs.Empty, customizedEventBuilder.CustomizedEvent);
                                         eventIsMatching = true;
+                                        // Adding to logic storage
+                                        m_KeyToCustomizedEventLogicMap.Add(customizedEventBuilder.CustomizedEvent.m_Key, customizedEventBuilder.CustomizedEvent);
                                    }
                               }
 
@@ -212,8 +223,7 @@ namespace FacebookLogic
           }
 
           #endregion
-
-          
+                    
           private bool IsFriendListEmpty(FacebookObjectCollection<User> i_Friends)
           {
                return i_Friends.Count >= 1;
