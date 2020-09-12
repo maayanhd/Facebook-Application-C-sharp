@@ -204,5 +204,8 @@
   <ItemGroup>
     <None Include="Resources\appSignIn2.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
