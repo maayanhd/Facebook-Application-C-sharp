@@ -12,6 +12,6 @@ namespace FacebookLogic
 
           void BuildEventDiscriptionPart();
 
-          CustomizedEventLogic CustomizedEvent { get;}
+          CustomizedEventModel CustomizedEvent { get;}
      }
 }

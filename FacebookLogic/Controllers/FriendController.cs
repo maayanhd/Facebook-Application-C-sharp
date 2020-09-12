@@ -9,6 +9,6 @@ namespace FacebookLogic.Controllers
      public class FriendController
      {
           Boolean isViewVisible;
-          private EventByParametersLogic m_EventByParametersLogic;
+          private EventByParametersModel m_EventByParametersLogic;
      }
 }

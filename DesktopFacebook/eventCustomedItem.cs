@@ -16,7 +16,7 @@ namespace DesktopFacebook
           {
                InitializeComponent();
           }
-          public EventCustomedItem(CustomizedEventLogic i_CustomizedEventLogic)
+          public EventCustomedItem(CustomizedEventModel i_CustomizedEventLogic)
           {
                InitializeComponent();
                labelFriendName.Text = i_CustomizedEventLogic.m_FriendName;

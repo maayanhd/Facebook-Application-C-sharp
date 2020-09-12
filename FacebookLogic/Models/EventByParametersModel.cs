@@ -1,4 +1,5 @@
-﻿using FacebookWrapper.ObjectModel;
+﻿using FacebookLogic.Models;
+using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +9,7 @@ using static FacebookWrapper.ObjectModel.User;
 
 namespace FacebookLogic
 {
-     public class EventByParametersLogic
+     public class EventByParametersModel: UserModel
      {
           public string m_SelectedAgeRange { get; set; } = "24 - 30";
 
@@ -20,11 +21,9 @@ namespace FacebookLogic
 
           public eGender m_SelectedSexPreference { get; set; } = eGender.male;
 
-          public User CurrentLoggedInUser { get; set; }
+          private readonly Dictionary<int, CustomizedEventModel> m_KeyToCustomizedEventLogicMap= new Dictionary<int, CustomizedEventModel>();
 
-          private readonly Dictionary<int, CustomizedEventLogic> m_KeyToCustomizedEventLogicMap= new Dictionary<int, CustomizedEventLogic>();
-
-          public Dictionary<int, CustomizedEventLogic> KeyToCustomizedEventLogicMap
+          public Dictionary<int, CustomizedEventModel> KeyToCustomizedEventLogicMap
           {
                get
                {
@@ -50,7 +49,7 @@ namespace FacebookLogic
 
           private User m_LoggedInUser { get; }
 
-          public EventByParametersLogic(User i_LoggedInUser)
+          public EventByParametersModel(User i_LoggedInUser)
           {
                m_LoggedInUser = i_LoggedInUser;
           }
@@ -60,7 +59,7 @@ namespace FacebookLogic
                EventHandler handler = FilteredMatchingEventFound;
                if (handler != null)
                {
-                    handler.Invoke(sender as CustomizedEventLogic, e);
+                    handler.Invoke(sender as CustomizedEventModel, e);
                }
           }
           
@@ -94,7 +93,7 @@ namespace FacebookLogic
 
           internal void GenerateListOfFilteredEvents()
           {
-               if (!IsFriendListEmpty(CurrentLoggedInUser.Friends))
+               if (!IsFriendListEmpty(User.Friends))
                {
                     foreach (User friend in LoginManager.Instance.LoggedInUser.Friends)
                     {

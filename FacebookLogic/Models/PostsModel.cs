@@ -5,8 +5,8 @@
 
 //namespace FacebookLogic.Models
 //{
-//    public class PostsModel
-//    {
-//        public List<PostBox> Posts { get; set; } = new List<PictureBox>();
-//    }
+//     public class PostsModel
+//     {
+//          public List<PostBox> Posts { get; set; } = new List<PictureBox>();
+//     }
 //}

@@ -8,9 +8,9 @@ namespace FacebookLogic.Controllers
 {
      public class EventByParametersController
      {
-          private EventByParametersLogic m_EventByParametersLogic;
+          private EventByParametersModel m_EventByParametersLogic;
 
-          public EventByParametersController(Form i_FormEventByParameters, EventByParametersLogic i_EventByParametersLogic)  
+          public EventByParametersController(Form i_FormEventByParameters, EventByParametersModel i_EventByParametersLogic)  
           {
               m_EventByParametersLogic = i_EventByParametersLogic;
           }
@@ -37,14 +37,14 @@ namespace FacebookLogic.Controllers
           public void HandleTimeFramePickChanged(object sender)
           {
                // fix with data binding
-               m_EventByParametersLogic.m_SelectedTimeFrame = (EventByParametersLogic.eTimeFrame)Enum.Parse(typeof(EventByParametersLogic.eTimeFrame), (sender as ComboBox).SelectedItem.ToString());
+               m_EventByParametersLogic.m_SelectedTimeFrame = (EventByParametersModel.eTimeFrame)Enum.Parse(typeof(EventByParametersModel.eTimeFrame), (sender as ComboBox).SelectedItem.ToString());
 
           }
 
           public void HandleReligionPickChanged(object sender)
           {
                // fix with data binding
-               m_EventByParametersLogic.m_SelectedReligion= (EventByParametersLogic.eReligions)Enum.Parse(typeof(EventByParametersLogic.eReligions), (sender as ComboBox).SelectedIndex.ToString());
+               m_EventByParametersLogic.m_SelectedReligion= (EventByParametersModel.eReligions)Enum.Parse(typeof(EventByParametersModel.eReligions), (sender as ComboBox).SelectedIndex.ToString());
           }
      }
 }

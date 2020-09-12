@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FacebookLogic
 {
-     public class CustomizedEventLogic
+     public class CustomizedEventModel
      {
           public DateTime? m_StartingTime { get; internal set; } = null;
           public DateTime? m_EndingTime { get; internal set; } = null;
@@ -23,7 +23,7 @@ namespace FacebookLogic
           public int m_Key { get; }
           private static int m_Counter = 0;
 
-          internal CustomizedEventLogic()
+          internal CustomizedEventModel()
           {
                m_Key = m_Counter++;
           }

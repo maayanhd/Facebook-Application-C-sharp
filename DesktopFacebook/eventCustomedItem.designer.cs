@@ -81,7 +81,7 @@
                // 
                // customizedEventLogicBindingSource
                // 
-               this.customizedEventLogicBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventLogic);
+               this.customizedEventLogicBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
                // 
                // labelDuration
                // 
