@@ -15,6 +15,10 @@ namespace DesktopFacebook
           public EventCustomedItem()
           {
                InitializeComponent();
+               // 
+               // customizedEventLogicBindingSource
+               // 
+               this.customizedEventLogicBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
           }
           public EventCustomedItem(CustomizedEventModel i_CustomizedEventLogic)
           {
@@ -27,6 +31,10 @@ namespace DesktopFacebook
                labelTimeFrame.Text = i_CustomizedEventLogic.m_TimeFrame;
                labelDurationTime.Text = i_CustomizedEventLogic.m_DurationTime;
                Tag = i_CustomizedEventLogic.m_Key;
+               // 
+               // customizedEventLogicBindingSource
+               // 
+               this.customizedEventLogicBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
           }
           #region
           public Label LabelTimeFrame
@@ -111,9 +119,5 @@ namespace DesktopFacebook
 
           #endregion
 
-          private void labelPlaceName_Click(object sender, EventArgs e)
-          {
-
-          }
      }
 }

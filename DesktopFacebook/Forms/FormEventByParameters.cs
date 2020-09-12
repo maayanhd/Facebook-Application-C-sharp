@@ -30,16 +30,21 @@ namespace DesktopFacebook.Forms
                InitializeComponent();
                this.FormBorderStyle = FormBorderStyle.FixedDialog;
                m_FilteredEventLogic = new EventByParametersModel(i_LoggedInUser);
-               m_FilteredEventController = new EventByParametersController(this, m_FilteredEventLogic);
-               m_FilteredEventLogic.EventsFetchedErrorOccured += EventByParametersLogic_EventsFetchedErrorOccured;
-               m_FilteredEventLogic.FriendsFetchedErrorOccured += EventByParametersLogic_FriendsFetchedErrorOccured;
-               m_FilteredEventLogic.GenderFieldFetchedErrorOccured += EventByParametersLogic_GenderFieldFetchedErrorOccured;
-               m_FilteredEventLogic.FilteredMatchingEventFound += EventByParametersLogic_FilteredMatchingEventFound;
+               m_FilteredEventController = new EventByParametersController(m_FilteredEventLogic, EventByParametersLogic_EventsFetchedErrorOccured
+                    , EventByParametersLogic_FriendsFetchedErrorOccured, EventByParametersLogic_GenderFieldFetchedErrorOccured , EventByParametersLogic_FilteredMatchingEventFound);
           }
 
           private void EventByParametersLogic_FilteredMatchingEventFound(object sender, EventArgs e)
           {
-               FlowLayoutPanelCutomedEvents.Controls.Add(new EventCustomedItem(sender as CustomizedEventModel));
+               EventCustomedItem EventCustomedIemToJoin = new EventCustomedItem(sender as CustomizedEventModel);
+               EventCustomedIemToJoin.Tag = (sender as CustomizedEventModel).m_Key;
+               FlowLayoutPanelCutomedEvents.Controls.Add(EventCustomedIemToJoin);
+               EventCustomedIemToJoin.Click += EventCustomedItem_Click;
+          }
+
+          private void EventCustomedItem_Click(object sender, EventArgs e)
+          {
+               m_FilteredEventController.HandleEventCustomedItemClickedByTag((sender as EventCustomedItem).Tag);
           }
 
           private void EventByParametersLogic_GenderFieldFetchedErrorOccured(object sender, EventArgs e)

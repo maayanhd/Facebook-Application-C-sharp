@@ -172,7 +172,17 @@
     <EmbeddedResource Include="CustomPictureBoxButton.resx">
       <DependentUpon>CustomPictureBoxButton.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FacebookLogic.AppSettings.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.Controllers.EventByParametersController.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.Controllers.FriendController.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.Controllers.newsFeedController.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.CustomizedEventBuilder.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.CustomizedEventLogic.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.Director.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.EventByParametersLogic+eReligions1.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.EventByParametersLogic+eTimeFrame1.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.IBuilder.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.LoginManager.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -205,8 +215,6 @@
   <ItemGroup>
     <None Include="Resources\appSignIn2.jpeg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
