@@ -50,16 +50,21 @@
   <ItemGroup>
     <Compile Include="ApplicationSettingsParser.cs" />
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\EventByParametersController.cs" />
     <Compile Include="CustomizedEventBuilder.cs" />
     <Compile Include="CustomizedEventLogic.cs" />
     <Compile Include="Director.cs" />
+    <Compile Include="Entities\Photo.cs" />
     <Compile Include="EventByParametersLogic.cs" />
     <Compile Include="Controllers\FriendController.cs" />
     <Compile Include="Controllers\newsFeedController.cs" />
     <Compile Include="FriendsLogic.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="LoginManager.cs" />
+    <Compile Include="Models\PostsModel.cs" />
+    <Compile Include="Models\AlbumsModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

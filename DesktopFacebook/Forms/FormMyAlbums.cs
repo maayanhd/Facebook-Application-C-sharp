@@ -15,5 +15,10 @@ namespace DesktopFacebook.Forms
           {
                InitializeComponent();
           }
-     }
+
+        private void flowLayoutPanelAlbums_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

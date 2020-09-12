@@ -10,6 +10,8 @@ using FacebookWrapper.ObjectModel;
 using FacebookLogic;
 using DesktopFacebook.Forms;
 using FacebookApp.UI;
+using FacebookLogic.Models;
+using FacebookLogic.Controllers;
 
 namespace DesktopFacebook
 {
@@ -19,12 +21,12 @@ namespace DesktopFacebook
 
           private Form m_CurrentChildForm = new Form();
           protected User m_LoggedInUser;
-
           private Dictionary<string, User> m_FriendsObjectNameMapper { get; set; } = new Dictionary<string, User>();
-
           private bool m_IsAskingToRememberLoginDets;
 
-          public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)
+          private AlbumsController AlbumsController { get; set; }
+
+        public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)
           {
                m_LoggedInUser = i_LoggedInUser;
                InitializeComponent();
@@ -32,6 +34,8 @@ namespace DesktopFacebook
                customizePanelsDesign();
                fetchUserDetails();
                LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;
+
+               AlbumsController = new AlbumsController(m_LoggedInUser, this.album_Clicked, this.photo_Clicked);
           }
 
           private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
@@ -119,57 +123,36 @@ namespace DesktopFacebook
 
           private void fetchUserAlbums()
           {
-               foreach (Album album in m_LoggedInUser.Albums)
-               {
-                    PictureBox picBoxAlbum = new PictureBox();
-                    picBoxAlbum.Name = album.Name;
-                    picBoxAlbum.Size = new System.Drawing.Size(75, 75);
-                    picBoxAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                    picBoxAlbum.Visible = true;
-                    picBoxAlbum.Tag = album;
-                    picBoxAlbum.LoadAsync(album.PictureAlbumURL);
-                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Add(picBoxAlbum);
+            AlbumsController.FetchUserAlbums();
 
-                    EventHandler albumClickedEventHandler = new EventHandler(this.album_Clicked);
-                    picBoxAlbum.Click += albumClickedEventHandler;
-               }
-          }
+            if (AlbumsController.UserAlbumsData.Albums.Count > 0)
+            {
+                (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Clear();
+                foreach (PictureBox albumPicBox in AlbumsController.UserAlbumsData.Albums)
+                {
+                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Add(albumPicBox);
+                }
+            }
+        }
 
-          private void album_Clicked(object sender, EventArgs e)
-          {
-               PictureBox clickedAlbumBox = sender as PictureBox;
-               Album selectedAlbum = clickedAlbumBox.Tag as Album;
-               try
-               {
-                    foreach (Photo photo in selectedAlbum.Photos)
-                    {
-                         PictureBox picBoxPhoto = new PictureBox();
-                         picBoxPhoto.Name = photo.Name;
-                         picBoxPhoto.Size = new System.Drawing.Size(75, 75);
-                         picBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                         picBoxPhoto.Visible = true;
-                         picBoxPhoto.Tag = photo;
-                         picBoxPhoto.LoadAsync(photo.PictureNormalURL);
-                         (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Add(picBoxPhoto);
+        private void album_Clicked(object sender, EventArgs e)
+        {
+            if (AlbumsController.UserAlbumsData.Photos?.Count > 0)
+            {
+                (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Clear();
+                foreach (PictureBox photoPicBox in AlbumsController.UserAlbumsData.Photos)
+                {
+                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Add(photoPicBox);
+                }
+            }
+        }
 
-                         EventHandler photoClickedEvent = new EventHandler(this.photo_Clicked);
-                         picBoxPhoto.Click += photoClickedEvent;
-                    }
-               }
-               catch (Exception)
-               {
-                    MessageBox.Show("Unable to fetch album photos", "Error", MessageBoxButtons.OK, MessageBoxIcon.None);
-               }
-          }
+        private void photo_Clicked(object sender, EventArgs e)
+        {
+            (m_CurrentChildForm as FormMyAlbums).pictureBoxSelectedPhoto.Load(AlbumsController.UserAlbumsData.SelectedPhoto.PictureNormalURL);
+        }
 
-          private void photo_Clicked(object sender, EventArgs e)
-          {
-               PictureBox clickedPhotoBox = sender as PictureBox;
-               Photo selectedPhoto = clickedPhotoBox.Tag as Photo;
-               (m_CurrentChildForm as FormMyAlbums).pictureBoxSelectedPhoto.Load(selectedPhoto.PictureNormalURL);
-          }
-
-          private void fetchNewsFeed()
+        private void fetchNewsFeed()
           {
                int postIndex = 0;
                foreach (Post post in m_LoggedInUser.NewsFeed)
