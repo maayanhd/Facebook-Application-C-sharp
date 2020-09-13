@@ -1,18 +1,15 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace FacebookLogic.Controllers
 {
     public class ApplicationController
     {
         private readonly User m_LoggedInUser;
+        public EventByParametersController EventsFinderService { get; set; }
+        public MatchMakerController MatchMakerService { get; set; }
         private AlbumsController AlbumsController { get; set; }
-        private EventByParametersController FindEventsController { get; set; }
         private FriendController FriendsController { get; set; }
-        private MatchMakerController MatchMakerController { get; set; }
         private NewsFeedController NewsFeedController { get; set; }
         private PostsController PostsController { get; set; }
 
@@ -34,6 +31,47 @@ namespace FacebookLogic.Controllers
         public void FetchAlbumPhotos(Album i_Album)
         {
             AlbumsController.FetchAlbumPhotos(i_Album);
+        }
+
+        public void InitializeEventsController(EventHandler i_EventsFetchedErrorOccured, EventHandler i_FriendsFetchedErrorOccured,
+               EventHandler i_GenderFieldFetchedErrorOccured, EventHandler i_FilteredMatchingEventFound)
+        {
+            EventsFinderService = new EventByParametersController(m_LoggedInUser, i_EventsFetchedErrorOccured, i_FriendsFetchedErrorOccured, i_GenderFieldFetchedErrorOccured, i_FilteredMatchingEventFound);
+        }
+
+        public void InitializeFriendsController(EventHandler i_FriendItemRetriviedEvent, EventHandler i_SelectedIndexChanged)
+        {
+            FriendsController = new FriendController(m_LoggedInUser, i_FriendItemRetriviedEvent, i_SelectedIndexChanged);
+        }
+
+        public void FetchUserFriends()
+        {
+            FriendsController.FetchUserFriends();
+        }
+
+        public void InitializeMatchMakerController(EventHandler i_MatchedFriendFoundEvent, EventHandler i_MatchedFriendNotFoundEvent, EventHandler i_ErrorMessageNotifier)
+        {
+            MatchMakerService = new MatchMakerController(m_LoggedInUser, i_MatchedFriendFoundEvent, i_MatchedFriendNotFoundEvent, i_ErrorMessageNotifier);
+        }
+
+        public void InitializeNewsFeedController(EventHandler i_FeedItemCreatedEvent, EventHandler i_ErrorMessageNotifier)
+        {
+            NewsFeedController = new NewsFeedController(m_LoggedInUser, i_FeedItemCreatedEvent, i_ErrorMessageNotifier);
+        }
+
+        public void FetchNewsFeed()
+        {
+            NewsFeedController.FetchNewsFeed();
+        }
+
+        public void InitializePostsController(EventHandler i_PostCreatedEvent, EventHandler i_ErrorMessageNotifier)
+        {
+            PostsController = new PostsController(m_LoggedInUser, i_PostCreatedEvent, i_ErrorMessageNotifier);
+        }
+
+        public void FetchUserPosts()
+        {
+            PostsController.FetchUserPosts();
         }
     }
 }

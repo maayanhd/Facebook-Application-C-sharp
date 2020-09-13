@@ -17,16 +17,16 @@ namespace FacebookLogic.Controllers
           public event EventHandler GenderFieldFetchedErrorOccured;
           public event EventHandler FilteredMatchingEventFound;
 
-          public EventByParametersController(User i_LoggedInUser, EventHandler EventByParametersController_EventsFetchedErrorOccured, EventHandler EventByParametersController_FriendsFetchedErrorOccured,
-               EventHandler EventByParametersController_GenderFieldFetchedErrorOccured, EventHandler EventByParametersController_FilteredMatchingEventFound)
+          public EventByParametersController(User i_LoggedInUser, EventHandler i_EventsFetchedErrorOccured, EventHandler i_FriendsFetchedErrorOccured,
+               EventHandler i_GenderFieldFetchedErrorOccured, EventHandler i_FilteredMatchingEventFound)
           {
                EventsData = new EventByParametersModel();
                EventsData.User = i_LoggedInUser;
                this.EventsData = EventsData;
-               EventsFetchedErrorOccured += EventByParametersController_EventsFetchedErrorOccured;
-               FilteredMatchingEventFound += EventByParametersController_FilteredMatchingEventFound;
-               FriendsFetchedErrorOccured += EventByParametersController_FriendsFetchedErrorOccured;
-               GenderFieldFetchedErrorOccured += EventByParametersController_GenderFieldFetchedErrorOccured;
+               EventsFetchedErrorOccured += i_EventsFetchedErrorOccured;
+               FilteredMatchingEventFound += i_FilteredMatchingEventFound;
+               FriendsFetchedErrorOccured += i_FriendsFetchedErrorOccured;
+               GenderFieldFetchedErrorOccured += i_GenderFieldFetchedErrorOccured;
           }
 
           public void HandleAgeRangeChanged(object sender)

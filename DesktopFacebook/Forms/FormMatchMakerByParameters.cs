@@ -38,6 +38,7 @@ namespace DesktopFacebook.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            eGender selectedGender = (eGender)Enum.Parse(typeof(eGender), (sender as RadioButton).Tag.ToString(), true);
             MatchMakerController.FindMatch();
         }
 
