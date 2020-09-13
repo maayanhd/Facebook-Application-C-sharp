@@ -13,6 +13,7 @@ namespace DesktopFacebook.Forms
 {
      public partial class FormEventByParameters : Form
      {
+        //test
           private EventByParametersModel m_FilteredEventLogic;
           private EventByParametersController m_FilteredEventController;
 
