@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FacebookLogic;
 
 namespace DesktopFacebook
 {
@@ -14,8 +15,27 @@ namespace DesktopFacebook
           public EventCustomedItem()
           {
                InitializeComponent();
+               // 
+               // customizedEventLogicBindingSource
+               // 
+               this.customizedEventModelBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
           }
-
+          public EventCustomedItem(CustomizedEventModel i_CustomizedEventLogic)
+          {
+               InitializeComponent();
+               labelFriendName.Text = i_CustomizedEventLogic.m_FriendName;
+               pictureBoxFriendProfile.LoadAsync(i_CustomizedEventLogic.m_FriendPictureUrl); 
+               labelAttendance.Text = i_CustomizedEventLogic.m_Attendance;
+               labelVenueName.Text = i_CustomizedEventLogic.m_VenueName;
+               labelPlaceName.Text = i_CustomizedEventLogic.m_PlaceName;
+               labelTimeFrame.Text = i_CustomizedEventLogic.m_TimeFrame;
+               labelDurationTime.Text = i_CustomizedEventLogic.m_DurationTime;
+               Tag = i_CustomizedEventLogic.m_Key;
+               // 
+               // customizedEventLogicBindingSource
+               // 
+               this.customizedEventModelBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
+          }
           #region
           public Label LabelTimeFrame
           {
@@ -99,9 +119,5 @@ namespace DesktopFacebook
 
           #endregion
 
-          private void labelPlaceName_Click(object sender, EventArgs e)
-          {
-
-          }
      }
 }

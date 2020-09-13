@@ -172,6 +172,17 @@
     <EmbeddedResource Include="CustomPictureBoxButton.resx">
       <DependentUpon>CustomPictureBoxButton.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FacebookLogic.AppSettings.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.Controllers.EventByParametersController.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.Controllers.FriendController.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.Controllers.newsFeedController.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.CustomizedEventBuilder.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.CustomizedEventLogic.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.Director.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.EventByParametersLogic+eReligions1.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.EventByParametersLogic+eTimeFrame1.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.IBuilder.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.LoginManager.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -184,7 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CustomControls\CustomControls.csproj">
-      <Project>{23F0618B-5587-41C5-AEE9-53CA34982CA3}</Project>
+      <Project>{23f0618b-5587-41c5-aee9-53ca34982ca3}</Project>
       <Name>CustomControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\FacebookLogic\FacebookLogic.csproj">
@@ -204,8 +215,6 @@
   <ItemGroup>
     <None Include="Resources\appSignIn2.jpeg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

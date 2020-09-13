@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FacebookLogic.Controllers
+namespace FacebookLogic.Modelsה טע
 {
-     public class newsFeedController
+     public class NewsFeedModel: UserModel
      {
-          
+
+
      }
 }

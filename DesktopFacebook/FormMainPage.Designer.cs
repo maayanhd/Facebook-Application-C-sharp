@@ -231,7 +231,7 @@ namespace DesktopFacebook
                this.buttonMatchMaker.Click += new System.EventHandler(this.buttonMatchMaker_Click);
                // 
                // buttonNewFeatures
-               // 
+               //
                this.buttonNewFeatures.Dock = System.Windows.Forms.DockStyle.Top;
                this.buttonNewFeatures.FlatAppearance.BorderSize = 0;
                this.buttonNewFeatures.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;

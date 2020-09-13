@@ -28,8 +28,10 @@
           /// </summary>
           private void InitializeComponent()
           {
+               this.components = new System.ComponentModel.Container();
                this.panel1 = new System.Windows.Forms.Panel();
                this.labelDurationTime = new System.Windows.Forms.Label();
+               this.customizedEventModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
                this.labelDuration = new System.Windows.Forms.Label();
                this.labelTimeFrame = new System.Windows.Forms.Label();
                this.labelTime = new System.Windows.Forms.Label();
@@ -41,11 +43,12 @@
                this.label3 = new System.Windows.Forms.Label();
                this.labelVenue = new System.Windows.Forms.Label();
                this.labelLocation = new System.Windows.Forms.Label();
-               this.pictureBox1 = new System.Windows.Forms.PictureBox();
+               this.pictureBoxCurrentEvent = new System.Windows.Forms.PictureBox();
                this.pictureBoxFriendProfile = new System.Windows.Forms.PictureBox();
                this.panel1.SuspendLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.customizedEventModelBindingSource)).BeginInit();
                this.panel2.SuspendLayout();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrentEvent)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendProfile)).BeginInit();
                this.SuspendLayout();
                // 
@@ -66,6 +69,7 @@
                // labelDurationTime
                // 
                this.labelDurationTime.AutoSize = true;
+               this.labelDurationTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customizedEventModelBindingSource, "m_DurationTime", true));
                this.labelDurationTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.labelDurationTime.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelDurationTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -90,6 +94,7 @@
                // labelTimeFrame
                // 
                this.labelTimeFrame.AutoSize = true;
+               this.labelTimeFrame.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customizedEventModelBindingSource, "m_TimeFrame", true));
                this.labelTimeFrame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.labelTimeFrame.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelTimeFrame.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -114,6 +119,7 @@
                // labelFriendName
                // 
                this.labelFriendName.AutoSize = true;
+               this.labelFriendName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customizedEventModelBindingSource, "m_FriendName", true));
                this.labelFriendName.Dock = System.Windows.Forms.DockStyle.Top;
                this.labelFriendName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.labelFriendName.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -142,6 +148,7 @@
                // labelAttendance
                // 
                this.labelAttendance.AutoSize = true;
+               this.labelAttendance.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customizedEventModelBindingSource, "m_Attendance", true));
                this.labelAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.labelAttendance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelAttendance.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -154,6 +161,7 @@
                // labelVenueName
                // 
                this.labelVenueName.AutoSize = true;
+               this.labelVenueName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customizedEventModelBindingSource, "m_PlaceName", true));
                this.labelVenueName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.labelVenueName.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelVenueName.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -166,6 +174,7 @@
                // labelPlaceName
                // 
                this.labelPlaceName.AutoSize = true;
+               this.labelPlaceName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customizedEventModelBindingSource, "m_PlaceName", true));
                this.labelPlaceName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.labelPlaceName.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelPlaceName.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -174,7 +183,6 @@
                this.labelPlaceName.Size = new System.Drawing.Size(105, 19);
                this.labelPlaceName.TabIndex = 3;
                this.labelPlaceName.Text = "nameOfPlace";
-               this.labelPlaceName.Click += new System.EventHandler(this.labelPlaceName_Click);
                // 
                // label3
                // 
@@ -212,14 +220,14 @@
                this.labelLocation.TabIndex = 0;
                this.labelLocation.Text = "Location:";
                // 
-               // pictureBox1
+               // pictureBoxCurrentEvent
                // 
-               this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-               this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-               this.pictureBox1.Name = "pictureBox1";
-               this.pictureBox1.Size = new System.Drawing.Size(82, 101);
-               this.pictureBox1.TabIndex = 2;
-               this.pictureBox1.TabStop = false;
+               this.pictureBoxCurrentEvent.Dock = System.Windows.Forms.DockStyle.Left;
+               this.pictureBoxCurrentEvent.Location = new System.Drawing.Point(0, 0);
+               this.pictureBoxCurrentEvent.Name = "pictureBoxCurrentEvent";
+               this.pictureBoxCurrentEvent.Size = new System.Drawing.Size(82, 101);
+               this.pictureBoxCurrentEvent.TabIndex = 2;
+               this.pictureBoxCurrentEvent.TabStop = false;
                // 
                // pictureBoxFriendProfile
                // 
@@ -234,16 +242,17 @@
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.Controls.Add(this.pictureBoxFriendProfile);
-               this.Controls.Add(this.pictureBox1);
+               this.Controls.Add(this.pictureBoxCurrentEvent);
                this.Controls.Add(this.panel2);
                this.Controls.Add(this.panel1);
                this.Name = "EventCustomedItem";
                this.Size = new System.Drawing.Size(270, 166);
                this.panel1.ResumeLayout(false);
                this.panel1.PerformLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.customizedEventModelBindingSource)).EndInit();
                this.panel2.ResumeLayout(false);
                this.panel2.PerformLayout();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrentEvent)).EndInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendProfile)).EndInit();
                this.ResumeLayout(false);
 
@@ -258,7 +267,7 @@
           private System.Windows.Forms.Label label3;
           private System.Windows.Forms.Label labelVenue;
           private System.Windows.Forms.Label labelLocation;
-          private System.Windows.Forms.PictureBox pictureBox1;
+          private System.Windows.Forms.PictureBox pictureBoxCurrentEvent;
           private System.Windows.Forms.PictureBox pictureBoxFriendProfile;
           private System.Windows.Forms.Label labelAttendance;
           private System.Windows.Forms.Label labelVenueName;
@@ -266,5 +275,6 @@
           private System.Windows.Forms.Label labelTimeFrame;
           private System.Windows.Forms.Label labelDuration;
           private System.Windows.Forms.Label labelDurationTime;
+          private System.Windows.Forms.BindingSource customizedEventModelBindingSource;
      }
 }

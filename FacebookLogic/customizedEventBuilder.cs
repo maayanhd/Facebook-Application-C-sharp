@@ -8,14 +8,14 @@ namespace FacebookLogic
 {
      public class CustomizedEventBuilder : IBuilder
      {
-          private CustomizedEventLogic m_CustomizedEventLogicItem = new CustomizedEventLogic();
+          private CustomizedEventModel m_CustomizedEventLogicItem = new CustomizedEventModel();
           
           // Basic details of a customized event
           private Event m_CriterionizedEvent;
           private User m_CriterionizedFriend;
-          private EventByParametersLogic.eTimeFrame m_EventTimeFrame;
+          private EventByParametersModel.eTimeFrame m_EventTimeFrame;
 
-          public CustomizedEventBuilder(Event i_CritirionizedFriendEvent, User i_CritirionizedFriend, EventByParametersLogic.eTimeFrame i_TimeFrame)
+          public CustomizedEventBuilder(Event i_CritirionizedFriendEvent, User i_CritirionizedFriend, EventByParametersModel.eTimeFrame i_TimeFrame)
           {
                m_CriterionizedEvent = i_CritirionizedFriendEvent;
                m_CriterionizedFriend = i_CritirionizedFriend;
@@ -63,7 +63,6 @@ namespace FacebookLogic
                {
                     m_CustomizedEventLogicItem.OnEventTimeRelatedDetailsErrorOccured(EventArgs.Empty);
                }
-
           }
           
           public void BuildFriendDetailsPart()
@@ -102,10 +101,13 @@ namespace FacebookLogic
 
                return friendAttendece;
           }
-     
-          public CustomizedEventLogic GetCustomizedEvent()
+          
+          public CustomizedEventModel CustomizedEvent
           {
-               return m_CustomizedEventLogicItem;
+               get
+               {
+                    return m_CustomizedEventLogicItem;
+               }
           }
      }
 }

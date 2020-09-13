@@ -14,6 +14,5 @@ namespace FacebookLogic
                i_EventBuilder.BuildEventTimeRelatedDetailsPart();
                i_EventBuilder.BuildFriendDetailsPart();
           }
-
      }
 }

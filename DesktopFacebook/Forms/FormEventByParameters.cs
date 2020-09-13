@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using FacebookLogic;
 using FacebookLogic.Controllers;
@@ -11,7 +12,7 @@ namespace DesktopFacebook.Forms
 {
      public partial class FormEventByParameters : Form
      {
-          private EventByParametersLogic m_FilteredEventLogic;
+          private EventByParametersModel m_FilteredEventLogic;
           private EventByParametersController m_FilteredEventController;
 
           public FlowLayoutPanel flowLayoutPanelCutomedEvents { get; private set; }
@@ -28,11 +29,22 @@ namespace DesktopFacebook.Forms
           {
                InitializeComponent();
                this.FormBorderStyle = FormBorderStyle.FixedDialog;
-               m_FilteredEventLogic = new EventByParametersLogic(i_LoggedInUser);
-               m_FilteredEventController = new EventByParametersController(this, m_FilteredEventLogic);
-               m_FilteredEventLogic.EventsFetchedErrorOccured += EventByParametersLogic_EventsFetchedErrorOccured;
-               m_FilteredEventLogic.FriendsFetchedErrorOccured += EventByParametersLogic_FriendsFetchedErrorOccured;
-               m_FilteredEventLogic.GenderFieldFetchedErrorOccured += EventByParametersLogic_GenderFieldFetchedErrorOccured;
+               m_FilteredEventLogic = new EventByParametersModel(i_LoggedInUser);
+               m_FilteredEventController = new EventByParametersController(m_FilteredEventLogic, EventByParametersLogic_EventsFetchedErrorOccured
+                    , EventByParametersLogic_FriendsFetchedErrorOccured, EventByParametersLogic_GenderFieldFetchedErrorOccured , EventByParametersLogic_FilteredMatchingEventFound);
+          }
+
+          private void EventByParametersLogic_FilteredMatchingEventFound(object sender, EventArgs e)
+          {
+               EventCustomedItem EventCustomedIemToJoin = new EventCustomedItem(sender as CustomizedEventModel);
+               EventCustomedIemToJoin.Tag = (sender as CustomizedEventModel).m_Key;
+               FlowLayoutPanelCutomedEvents.Controls.Add(EventCustomedIemToJoin);
+               EventCustomedIemToJoin.Click += EventCustomedItem_Click;
+          }
+
+          private void EventCustomedItem_Click(object sender, EventArgs e)
+          {
+               m_FilteredEventController.HandleEventCustomedItemClickedByTag((sender as EventCustomedItem).Tag);
           }
 
           private void EventByParametersLogic_GenderFieldFetchedErrorOccured(object sender, EventArgs e)
@@ -95,7 +107,7 @@ namespace DesktopFacebook.Forms
                }
                catch (Exception)
                {
-                    throw new Exception(string.Format("Error: parsing to {0} failed", typeof(EventByParametersLogic.eTimeFrame)));
+                    throw new Exception(string.Format("Error: parsing to {0} failed", typeof(EventByParametersModel.eTimeFrame)));
                }
           }
 
@@ -107,7 +119,7 @@ namespace DesktopFacebook.Forms
                }
                catch (Exception)
                {
-                    throw new Exception(string.Format("Error: parsing to {0} failed", typeof(EventByParametersLogic.eReligions)));
+                    throw new Exception(string.Format("Error: parsing to {0} failed", typeof(EventByParametersModel.eReligions)));
                }
           }
 
@@ -131,7 +143,6 @@ namespace DesktopFacebook.Forms
           private void customPictureBoxButtonFilterEvent_MouseLeave(object sender, EventArgs e)
           {
                (sender as CustomPictureBoxButton).Image = (sender as CustomPictureBoxButton).m_NormalImage;
-          }
-               
+          }               
      }
 }

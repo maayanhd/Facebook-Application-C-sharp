@@ -8,22 +8,22 @@ namespace FacebookLogic.Controllers
 {
      public class EventByParametersController
      {
-          private Form m_FormEventByParameters;
-          private EventByParametersLogic m_EventByParametersLogic;
-
-          public EventByParametersController(Form i_FormEventByParameters, EventByParametersLogic i_EventByParametersLogic)  
+          private EventByParametersModel m_EventByParametersLogic;
+          private EventByParametersModel m_FilteredEventLogic;
+    
+          public EventByParametersController(EventByParametersModel i_EventByParametersLogic)  
           {
-               m_FormEventByParameters = i_FormEventByParameters;
-               m_EventByParametersLogic = i_EventByParametersLogic;
-               m_EventByParametersLogic.FilteredMatchingEventFound += EventByParametersLogic_FilteredMatchingEventFound;
+              m_EventByParametersLogic = i_EventByParametersLogic;
           }
 
-          private void EventByParametersLogic_FilteredMatchingEventFound(object sender, EventArgs e)
+          public EventByParametersController(EventByParametersModel m_FilteredEventLogic, EventHandler EventByParametersLogic_EventsFetchedErrorOccured, EventHandler EventByParametersLogic_FriendsFetchedErrorOccured,
+               EventHandler EventByParametersLogic_GenderFieldFetchedErrorOccured, EventHandler EventByParametersLogic_FilteredMatchingEventFound)
           {
-               // Find a way to update UI - creating customized event logic item in sender and  
-               
-               //FlowLayoutPanelCutomedEvents.Controls.Add(createEventCustomedItem(friendEvent, friend, currentEventTimeFrame, friendAttendance));
-
+               this.m_FilteredEventLogic = m_FilteredEventLogic;
+               this.m_FilteredEventLogic.EventsFetchedErrorOccured += EventByParametersLogic_EventsFetchedErrorOccured;
+               this.m_FilteredEventLogic.FilteredMatchingEventFound += EventByParametersLogic_FilteredMatchingEventFound;
+               this.m_FilteredEventLogic.FriendsFetchedErrorOccured += EventByParametersLogic_FriendsFetchedErrorOccured;
+               this.m_FilteredEventLogic.GenderFieldFetchedErrorOccured += EventByParametersLogic_GenderFieldFetchedErrorOccured;
           }
 
           public void HandleAgeRangeChanged(object sender)
@@ -33,59 +33,33 @@ namespace FacebookLogic.Controllers
                m_EventByParametersLogic.MapAndExtractPointByStr(selectedAgeRangeStr);
           }
 
-          //private EventCustomedItem createCustomizedEventItem(Event i_CriterionizedEvent, User i_CriterionizedFriend, eTimeFrame i_CurrentEventTimeFrame, string i_FriendEventAttendance)
-          //{
-          //     EventCustomedItem eventCustomedItem = new EventCustomedItem();
-          //     const string Format = "{1} {2}";
-
-          //     eventCustomedItem.PictureBoxFriendProfile.LoadAsync(i_CriterionizedFriend.PictureNormalURL);
-          //     eventCustomedItem.LabelFriendName.Text = string.Format(Format, i_CriterionizedFriend.FirstName, i_CriterionizedFriend.LastName);
-          //     eventCustomedItem.LabelAttendance.Text = i_FriendEventAttendance;
-
-          //     eventCustomedItem.LabelPlaceName.Text = i_CriterionizedEvent.Place.ToString();
-          //     DateTime currentEventStartTime = i_CriterionizedEvent.StartTime.Value,
-          //              currentEventEndTime = i_CriterionizedEvent.EndTime.Value;
-
-          //     eventCustomedItem.LabelDurationTime.Text = string.Format(
-          //          "{0} at {1} - {2} at {3}",
-          //          currentEventStartTime.ToString("dd/MM"),
-          //          currentEventStartTime.ToString("hh:mm tt"),
-          //          currentEventEndTime.ToString("hh:mm tt"),
-          //          currentEventEndTime.ToString("dd/MM"));
-          //     eventCustomedItem.LabelVenueName.Text = i_CriterionizedEvent.Venue.ToString();
-          //     eventCustomedItem.LabelTimeFrame.Text = i_CurrentEventTimeFrame.ToString();
-          //     labelEventDescription.Visible = true;
-          //     // Make it by 2-way data binding
-          //     labelDescriptionContent.Visible = true;
-          //     labelDescriptionContent.Text = i_CriterionizedEvent.Description;
-
-          //     return eventCustomedItem;
-          //}
-
-
           public void GenerateListOfEventsByParameters()
           {
                m_EventByParametersLogic.GenerateListOfFilteredEvents();
           }
 
+          public CustomizedEventModel HandleEventCustomedItemClickedByTag(Object tag)
+          {
+               m_FilteredEventLogic.KeyToCustomizedEventLogicMap.TryGetValue((int)tag, out CustomizedEventModel ClickedCustomizedEvent);
+
+               return ClickedCustomizedEvent;
+          }
+
           public void HandleSexPreferencePickChanged(object sender)
           {
-               // fix with data binding
                m_EventByParametersLogic.m_SelectedSexPreference = (eGender)Enum.Parse(typeof(eGender), (sender as ComboBox).SelectedItem.ToString());
 
           }
 
           public void HandleTimeFramePickChanged(object sender)
           {
-               // fix with data binding
-               m_EventByParametersLogic.m_SelectedTimeFrame = (EventByParametersLogic.eTimeFrame)Enum.Parse(typeof(EventByParametersLogic.eTimeFrame), (sender as ComboBox).SelectedItem.ToString());
+               m_EventByParametersLogic.m_SelectedTimeFrame = (EventByParametersModel.eTimeFrame)Enum.Parse(typeof(EventByParametersModel.eTimeFrame), (sender as ComboBox).SelectedItem.ToString());
 
           }
 
           public void HandleReligionPickChanged(object sender)
           {
-               // fix with data binding
-               m_EventByParametersLogic.m_SelectedReligion= (EventByParametersLogic.eReligions)Enum.Parse(typeof(EventByParametersLogic.eReligions), (sender as ComboBox).SelectedIndex.ToString());
+               m_EventByParametersLogic.m_SelectedReligion= (EventByParametersModel.eReligions)Enum.Parse(typeof(EventByParametersModel.eReligions), (sender as ComboBox).SelectedIndex.ToString());
           }
      }
 }

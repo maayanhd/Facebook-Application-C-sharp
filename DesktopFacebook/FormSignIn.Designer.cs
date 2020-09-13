@@ -30,71 +30,73 @@ namespace DesktopFacebook
           /// </summary>
           private void InitializeComponent()
           {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSignIn));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.m_CheckBoxRememberMe = new System.Windows.Forms.CheckBox();
-            this.customPictureBoxbutton = new DesktopFacebook.CustomPictureBoxButton();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxbutton)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::DesktopFacebook.Properties.Resources.appSignIn2;
-            this.panel1.Controls.Add(this.m_CheckBoxRememberMe);
-            this.panel1.Controls.Add(this.customPictureBoxbutton);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(860, 477);
-            this.panel1.TabIndex = 2;
-            // 
-            // m_CheckBoxRememberMe
-            // 
-            this.m_CheckBoxRememberMe.AutoSize = true;
-            this.m_CheckBoxRememberMe.BackColor = System.Drawing.Color.Transparent;
-            this.m_CheckBoxRememberMe.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_CheckBoxRememberMe.ForeColor = System.Drawing.Color.Navy;
-            this.m_CheckBoxRememberMe.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.m_CheckBoxRememberMe.Location = new System.Drawing.Point(356, 407);
-            this.m_CheckBoxRememberMe.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.m_CheckBoxRememberMe.Name = "m_CheckBoxRememberMe";
-            this.m_CheckBoxRememberMe.Size = new System.Drawing.Size(137, 22);
-            this.m_CheckBoxRememberMe.TabIndex = 0;
-            this.m_CheckBoxRememberMe.Text = "Remember Me";
-            this.m_CheckBoxRememberMe.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.m_CheckBoxRememberMe.UseVisualStyleBackColor = false;
-            this.m_CheckBoxRememberMe.CheckedChanged += new System.EventHandler(this.m_CheckBoxRememberMe_CheckedChanged);
-            // 
-            // customPictureBoxbutton
-            // 
-            this.customPictureBoxbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.customPictureBoxbutton.Image = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.Image")));
-            this.customPictureBoxbutton.Location = new System.Drawing.Point(332, 345);
-            this.customPictureBoxbutton.m_HoverImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.m_HoverImage")));
-            this.customPictureBoxbutton.m_NormalImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.m_NormalImage")));
-            this.customPictureBoxbutton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.customPictureBoxbutton.Name = "customPictureBoxbutton";
-            this.customPictureBoxbutton.Size = new System.Drawing.Size(180, 45);
-            this.customPictureBoxbutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.customPictureBoxbutton.TabIndex = 1;
-            this.customPictureBoxbutton.TabStop = false;
-            this.customPictureBoxbutton.Click += new System.EventHandler(this.customPictureBoxbutton_Click);
-            this.customPictureBoxbutton.MouseLeave += new System.EventHandler(this.CustomPictureBoxbutton_MouseLeave);
-            this.customPictureBoxbutton.MouseHover += new System.EventHandler(this.customPictureBoxbutton_MouseHover);
-            // 
-            // FormSignIn
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 478);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.Name = "FormSignIn";
-            this.Text = "signInForm";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxbutton)).EndInit();
-            this.ResumeLayout(false);
+               System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSignIn));
+               this.panel1 = new System.Windows.Forms.Panel();
+               this.m_CheckBoxRememberMe = new System.Windows.Forms.CheckBox();
+               this.customPictureBoxbutton = new DesktopFacebook.CustomPictureBoxButton();
+               this.panel1.SuspendLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxbutton)).BeginInit();
+               this.SuspendLayout();
+               // 
+               // panel1
+               // 
+               this.panel1.BackgroundImage = global::DesktopFacebook.Properties.Resources.appSignIn2;
+               this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.panel1.Controls.Add(this.m_CheckBoxRememberMe);
+               this.panel1.Controls.Add(this.customPictureBoxbutton);
+               this.panel1.Location = new System.Drawing.Point(0, 0);
+               this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+               this.panel1.Name = "panel1";
+               this.panel1.Size = new System.Drawing.Size(1147, 587);
+               this.panel1.TabIndex = 2;
+               // 
+               // m_CheckBoxRememberMe
+               // 
+               this.m_CheckBoxRememberMe.AutoSize = true;
+               this.m_CheckBoxRememberMe.BackColor = System.Drawing.Color.Transparent;
+               this.m_CheckBoxRememberMe.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.m_CheckBoxRememberMe.ForeColor = System.Drawing.Color.Navy;
+               this.m_CheckBoxRememberMe.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+               this.m_CheckBoxRememberMe.Location = new System.Drawing.Point(475, 501);
+               this.m_CheckBoxRememberMe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+               this.m_CheckBoxRememberMe.Name = "m_CheckBoxRememberMe";
+               this.m_CheckBoxRememberMe.Size = new System.Drawing.Size(168, 27);
+               this.m_CheckBoxRememberMe.TabIndex = 0;
+               this.m_CheckBoxRememberMe.Text = "Remember Me";
+               this.m_CheckBoxRememberMe.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+               this.m_CheckBoxRememberMe.UseVisualStyleBackColor = false;
+               this.m_CheckBoxRememberMe.CheckedChanged += new System.EventHandler(this.m_CheckBoxRememberMe_CheckedChanged);
+               // 
+               // customPictureBoxbutton
+               // 
+               this.customPictureBoxbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.customPictureBoxbutton.Image = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.Image")));
+               this.customPictureBoxbutton.Location = new System.Drawing.Point(443, 425);
+               this.customPictureBoxbutton.m_HoverImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.m_HoverImage")));
+               this.customPictureBoxbutton.m_NormalImage = ((System.Drawing.Image)(resources.GetObject("customPictureBoxbutton.m_NormalImage")));
+               this.customPictureBoxbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+               this.customPictureBoxbutton.Name = "customPictureBoxbutton";
+               this.customPictureBoxbutton.Size = new System.Drawing.Size(240, 55);
+               this.customPictureBoxbutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+               this.customPictureBoxbutton.TabIndex = 1;
+               this.customPictureBoxbutton.TabStop = false;
+               this.customPictureBoxbutton.Click += new System.EventHandler(this.customPictureBoxbutton_Click);
+               this.customPictureBoxbutton.MouseLeave += new System.EventHandler(this.CustomPictureBoxbutton_MouseLeave);
+               this.customPictureBoxbutton.MouseHover += new System.EventHandler(this.customPictureBoxbutton_MouseHover);
+               // 
+               // FormSignIn
+               // 
+               this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+               this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+               this.ClientSize = new System.Drawing.Size(1145, 588);
+               this.Controls.Add(this.panel1);
+               this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+               this.Name = "FormSignIn";
+               this.Text = "signInForm";
+               this.panel1.ResumeLayout(false);
+               this.panel1.PerformLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.customPictureBoxbutton)).EndInit();
+               this.ResumeLayout(false);
 
           }
 

@@ -1,4 +1,5 @@
-﻿using FacebookWrapper.ObjectModel;
+﻿using FacebookLogic.Models;
+using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +9,7 @@ using static FacebookWrapper.ObjectModel.User;
 
 namespace FacebookLogic
 {
-     public class EventByParametersLogic
+     public class EventByParametersModel: UserModel
      {
           public string m_SelectedAgeRange { get; set; } = "24 - 30";
 
@@ -19,7 +20,16 @@ namespace FacebookLogic
           public eTimeFrame m_SelectedTimeFrame { get; set; } = eTimeFrame.Morning;
 
           public eGender m_SelectedSexPreference { get; set; } = eGender.male;
-          public User CurrentLoggedInUser { get; set; }
+
+          private readonly Dictionary<int, CustomizedEventModel> m_KeyToCustomizedEventLogicMap= new Dictionary<int, CustomizedEventModel>();
+
+          public Dictionary<int, CustomizedEventModel> KeyToCustomizedEventLogicMap
+          {
+               get
+               {
+                    return m_KeyToCustomizedEventLogicMap;
+               }
+          }
 
           private Dictionary<Point, eTimeFrame> m_DurationToTimeframe = new Dictionary<Point, eTimeFrame>()
                               {
@@ -39,18 +49,16 @@ namespace FacebookLogic
 
           private User m_LoggedInUser { get; }
 
-          public EventByParametersLogic(User i_LoggedInUser)
+          public EventByParametersModel(User i_LoggedInUser): base(i_LoggedInUser)
           {
-               m_LoggedInUser = i_LoggedInUser;
           }
-
 
           internal void OnFilteredMatchingEventFound(EventArgs e, Object sender)
           {
                EventHandler handler = FilteredMatchingEventFound;
                if (handler != null)
                {
-                    handler.Invoke(sender as CustomizedEventLogic, e);
+                    handler.Invoke(sender as CustomizedEventModel, e);
                }
           }
           
@@ -84,7 +92,7 @@ namespace FacebookLogic
 
           internal void GenerateListOfFilteredEvents()
           {
-               if (!IsFriendListEmpty(CurrentLoggedInUser.Friends))
+               if (!IsFriendListEmpty(User.Friends))
                {
                     foreach (User friend in LoginManager.Instance.LoggedInUser.Friends)
                     {
@@ -112,9 +120,10 @@ namespace FacebookLogic
                                         Director customizedEventDirector = new Director();
                                         CustomizedEventBuilder customizedEventBuilder = new CustomizedEventBuilder(friendEvent, friend, currentEventTimeFrame.Value);
                                         customizedEventDirector.ConstructCustomizedEvent(customizedEventBuilder);
-
-                                        OnFilteredMatchingEventFound(EventArgs.Empty, customizedEventBuilder.GetCustomizedEvent());
+                                        OnFilteredMatchingEventFound(EventArgs.Empty, customizedEventBuilder.CustomizedEvent);
                                         eventIsMatching = true;
+                                        // Adding to logic storage
+                                        m_KeyToCustomizedEventLogicMap.Add(customizedEventBuilder.CustomizedEvent.m_Key, customizedEventBuilder.CustomizedEvent);
                                    }
                               }
 
@@ -212,8 +221,7 @@ namespace FacebookLogic
           }
 
           #endregion
-
-          
+                    
           private bool IsFriendListEmpty(FacebookObjectCollection<User> i_Friends)
           {
                return i_Friends.Count >= 1;
