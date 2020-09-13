@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacebookLogic.Models;
+using System;
 
 namespace FacebookLogic
 {
