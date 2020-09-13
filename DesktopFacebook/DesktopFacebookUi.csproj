@@ -178,6 +178,7 @@
     <None Include="Properties\DataSources\FacebookLogic.Controllers.newsFeedController.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.CustomizedEventBuilder.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.CustomizedEventLogic.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.CustomizedEventModel.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.Director.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.EventByParametersLogic+eReligions1.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.EventByParametersLogic+eTimeFrame1.datasource" />

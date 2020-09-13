@@ -5,7 +5,7 @@ using FacebookWrapper.ObjectModel;
 namespace FacebookLogic
 {
      public sealed class LoginManager
-     {
+     {    
           private static readonly string sr_ErrorLoginMassage = "Error: login failed. Please try again";
           private static readonly string sr_ErrorInvalidAccessTokenMassage = "Error: Invalid access token. Please try again with a different token";
           private static readonly object sr_CreateLock = new object();

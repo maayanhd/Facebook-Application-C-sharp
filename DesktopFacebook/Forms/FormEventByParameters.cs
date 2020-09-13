@@ -30,14 +30,14 @@ namespace DesktopFacebook.Forms
                InitializeComponent();
                this.FormBorderStyle = FormBorderStyle.FixedDialog;
                m_FilteredEventLogic = new EventByParametersModel();
-               m_FilteredEventController = new EventByParametersController(i_LoggedInUser, EventByParametersLogic_EventsFetchedErrorOccured
-                    , EventByParametersLogic_FriendsFetchedErrorOccured, EventByParametersLogic_GenderFieldFetchedErrorOccured , EventByParametersLogic_FilteredMatchingEventFound);
+               m_FilteredEventController = new EventByParametersController(i_LoggedInUser, EventByParametersController_EventsFetchedErrorOccured, EventByParametersController_FriendsFetchedErrorOccured,
+                    EventByParametersController_GenderFieldFetchedErrorOccured, EventByParametersController_FilteredMatchingEventFound);
           }
 
-          private void EventByParametersLogic_FilteredMatchingEventFound(object sender, EventArgs e)
+          private void EventByParametersController_FilteredMatchingEventFound(object sender, EventArgs e)
           {
                EventCustomedItem EventCustomedIemToJoin = new EventCustomedItem(sender as CustomizedEventModel);
-               EventCustomedIemToJoin.Tag = (sender as CustomizedEventModel).m_Key;
+               EventCustomedIemToJoin.Tag = (sender as CustomizedEventModel).Key;
                FlowLayoutPanelCutomedEvents.Controls.Add(EventCustomedIemToJoin);
                EventCustomedIemToJoin.Click += EventCustomedItem_Click;
           }
@@ -47,7 +47,7 @@ namespace DesktopFacebook.Forms
                m_FilteredEventController.HandleEventCustomedItemClickedByTag((sender as EventCustomedItem).Tag);
           }
 
-          private void EventByParametersLogic_GenderFieldFetchedErrorOccured(object sender, EventArgs e)
+          private void EventByParametersController_GenderFieldFetchedErrorOccured(object sender, EventArgs e)
           {
                notifyGenderFetchingErrorOccured();
           }
@@ -60,7 +60,7 @@ namespace DesktopFacebook.Forms
                            MessageBoxIcon.None);
           }
 
-          private void EventByParametersLogic_FriendsFetchedErrorOccured(object sender, EventArgs e)
+          private void EventByParametersController_FriendsFetchedErrorOccured(object sender, EventArgs e)
           {
                notifyFriendsFetchingErrorOccured();
           }
@@ -74,7 +74,7 @@ namespace DesktopFacebook.Forms
                                 MessageBoxIcon.None);
           }
 
-          private void EventByParametersLogic_EventsFetchedErrorOccured(object sender, EventArgs e)
+          private void EventByParametersController_EventsFetchedErrorOccured(object sender, EventArgs e)
           {
                notifyEventsFetchingErrorOccured();
           }
