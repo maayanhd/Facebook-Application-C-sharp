@@ -29,8 +29,8 @@ namespace DesktopFacebook.Forms
           {
                InitializeComponent();
                this.FormBorderStyle = FormBorderStyle.FixedDialog;
-               m_FilteredEventLogic = new EventByParametersModel(i_LoggedInUser);
-               m_FilteredEventController = new EventByParametersController(m_FilteredEventLogic, EventByParametersLogic_EventsFetchedErrorOccured
+               m_FilteredEventLogic = new EventByParametersModel();
+               m_FilteredEventController = new EventByParametersController(i_LoggedInUser, EventByParametersLogic_EventsFetchedErrorOccured
                     , EventByParametersLogic_FriendsFetchedErrorOccured, EventByParametersLogic_GenderFieldFetchedErrorOccured , EventByParametersLogic_FilteredMatchingEventFound);
           }
 

@@ -8,12 +8,6 @@ namespace FacebookLogic.Models
 {
     public class UserModel
     {
-          public UserModel(User i_LoggedInUser)
-          {
-               User = i_LoggedInUser;
-          }
-
           public User User { get; set; }
-         
     }
 }

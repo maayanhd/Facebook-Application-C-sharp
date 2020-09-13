@@ -20,9 +20,9 @@ namespace DesktopFacebook.Forms
           {
                InitializeComponent();
                defineListBoxBehaviour();
-               m_FriendsController = new FriendController(new FriendsModel(i_LoggedInUser));
-               m_FriendsController.fetchUserFriends();
-               m_FriendsController.FriendItemRetrivied += FormFriends_FriendItemRetrivied;
+               m_FriendsController = new FriendController(i_LoggedInUser, this.FormFriends_FriendItemRetrivied);
+               m_FriendsController.FetchUserFriends();
+               //m_FriendsController.FriendItemRetrivied += FormFriends_FriendItemRetrivied;
           }
 
           private void defineListBoxBehaviour()

@@ -75,49 +75,6 @@ namespace DesktopFacebook
                o_SubMenu.Visible = !o_SubMenu.Visible;
           }
 
-          private void fetchUserFriends()
-          {
-               FormFriends formFriends = m_CurrentChildForm as FormFriends;
-               formFriends.listBoxFriends.Items.Clear();
-               m_FriendsObjectNameMapper.Clear();
-
-               EventHandler friendSelectionChangedEventHandler = new EventHandler(this.listBoxFriends_SelectedIndexChanged);
-               formFriends.listBoxFriends.SelectedIndexChanged += friendSelectionChangedEventHandler;
-
-               foreach (User friend in m_LoggedInUser.Friends)
-               {
-                    string friendsNameFormatted = string.Format("{0} {1}", friend.FirstName, friend.LastName);
-                    formFriends.listBoxFriends.Items.Add(friendsNameFormatted);
-                    m_FriendsObjectNameMapper.Add(friendsNameFormatted, friend);
-               }
-          }
-
-          private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
-          {
-               displaySelectedFriend();
-          }
-
-          private void displaySelectedFriend()
-          {
-               FormFriends formFriends = m_CurrentChildForm as FormFriends;
-               if (formFriends.listBoxFriends.SelectedItems.Count == 1)
-               {
-                    User selectedFriend = m_FriendsObjectNameMapper[formFriends.listBoxFriends.SelectedItem.ToString()];
-                    if (selectedFriend.PictureNormalURL != null)
-                    {
-                         formFriends.pictureBoxFriend.LoadAsync(selectedFriend.PictureNormalURL);
-                    }
-
-                    formFriends.labelFriendsNameData.Text = string.Format("{0} {1}", selectedFriend.FirstName, selectedFriend.LastName);
-                    formFriends.labelFriendsBirthdayData.Text = selectedFriend.Birthday != null ? selectedFriend.Birthday.ToString() : "N/A";
-                    formFriends.labelFriendsGenderData.Text = selectedFriend.Gender != null ? selectedFriend.Gender.ToString() : "N/A";
-                    formFriends.labelFriendsLocationData.Text = selectedFriend.Location != null ? selectedFriend.Location.ToString() : "N/A";
-                    formFriends.labelFriendsHometownData.Text = selectedFriend.Hometown != null ? selectedFriend.Hometown.ToString() : "N/A";
-                    formFriends.labelFriendsRelationshipData.Text = selectedFriend.RelationshipStatus != null ? selectedFriend.RelationshipStatus.ToString() : "N/A";
-                    formFriends.labelFriendsStatusData.Text = selectedFriend.Statuses[0].Message != null ? selectedFriend.Statuses[0].Message : "N/A";
-               }
-          }
-
         private void fetchNewsFeed()
           {
                int postIndex = 0;
@@ -184,8 +141,7 @@ namespace DesktopFacebook
           private void buttonMyFriendsList_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "My Friends List";
-               openChildForm(new FormFriends());
-               fetchUserFriends();
+               openChildForm(new FormFriends(m_LoggedInUser));
           }
 
           private void buttonMyAlbums_Click(object sender, EventArgs e)
