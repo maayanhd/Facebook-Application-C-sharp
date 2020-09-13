@@ -52,6 +52,5 @@ namespace FacebookLogic.Controllers
             return o_Friend;
 
         }
-
     }
 }
