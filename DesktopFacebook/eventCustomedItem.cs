@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FacebookLogic;
+using FacebookLogic.Models;
 
 namespace DesktopFacebook
 {
@@ -15,10 +16,6 @@ namespace DesktopFacebook
           public EventCustomedItem()
           {
                InitializeComponent();
-               // 
-               // customizedEventLogicBindingSource
-               // 
-               this.customizedEventModelBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
           }
           public EventCustomedItem(CustomizedEventModel i_CustomizedEventLogic)
           {
@@ -31,10 +28,6 @@ namespace DesktopFacebook
                labelTimeFrame.Text = i_CustomizedEventLogic.TimeFrame;
                labelDurationTime.Text = i_CustomizedEventLogic.DurationTime;
                Tag = i_CustomizedEventLogic.Key;
-               // 
-               // customizedEventLogicBindingSource
-               // 
-               this.customizedEventModelBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
           }
           #region
           public Label LabelTimeFrame

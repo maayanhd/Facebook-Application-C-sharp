@@ -7,6 +7,7 @@ using FacebookLogic;
 using FacebookLogic.Controllers;
 using FacebookWrapper.ObjectModel;
 using static FacebookWrapper.ObjectModel.User;
+using FacebookLogic.Models;
 
 namespace DesktopFacebook.Forms
 {
