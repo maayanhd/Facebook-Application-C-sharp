@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using FacebookLogic.Models;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookLogic.Controllers
@@ -11,6 +12,7 @@ namespace FacebookLogic.Controllers
           private FriendsModel FriendsData;
           private EventHandler FriendItemRetrivied;
           private EventHandler ListBoxFriendsSelectedIndexChanged;
+          private EventHandler ListBoxFriendsIndexSelected;
 
           public FriendController(User i_LoggedInUser, EventHandler i_FriendItemRetriviedEvent, EventHandler i_SelectedIndexChanged)
           {
@@ -18,6 +20,7 @@ namespace FacebookLogic.Controllers
                FriendsData.User = i_LoggedInUser;
                FriendItemRetrivied += i_FriendItemRetriviedEvent;
                ListBoxFriendsSelectedIndexChanged += i_SelectedIndexChanged;
+               ListBoxFriendsIndexSelected += i_SelectedIndexChanged;
           }
 
           private void onFriendItemRetrivied(User i_FriendUser)

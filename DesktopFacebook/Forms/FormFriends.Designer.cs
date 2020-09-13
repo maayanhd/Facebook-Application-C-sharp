@@ -28,6 +28,7 @@
           /// </summary>
           private void InitializeComponent()
           {
+               this.components = new System.ComponentModel.Container();
                this.labelFriendsName = new System.Windows.Forms.Label();
                this.labelFriendsBirthday = new System.Windows.Forms.Label();
                this.labelFriendsGender = new System.Windows.Forms.Label();
@@ -148,6 +149,7 @@
                // 
                // labelFriendsNameData
                // 
+               this.labelFriendsNameData.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
                this.labelFriendsNameData.AutoSize = true;
                this.labelFriendsNameData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelFriendsNameData.Location = new System.Drawing.Point(649, 268);
@@ -272,5 +274,5 @@
         internal System.Windows.Forms.Label labelFriendsHometownData;
         internal System.Windows.Forms.Label labelFriendsRelationshipData;
         internal System.Windows.Forms.Label labelFriendsStatusData;
-    }
+     }
 }

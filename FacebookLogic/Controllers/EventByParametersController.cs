@@ -1,9 +1,10 @@
-﻿using FacebookWrapper.ObjectModel;
+﻿using FacebookLogic.Models;
+using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using static FacebookLogic.EventByParametersModel;
+using static FacebookLogic.Models.EventByParametersModel;
 using static FacebookWrapper.ObjectModel.User;
 
 namespace FacebookLogic.Controllers

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using static FacebookWrapper.ObjectModel.User;
 
-namespace FacebookLogic
+namespace FacebookLogic.Models
 {
      public class EventByParametersModel: UserModel
      {

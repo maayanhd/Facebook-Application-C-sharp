@@ -15,7 +15,6 @@ namespace DesktopFacebook.Forms
      public partial class FormFriends : Form
      {
           public FriendController m_FriendsController { get; private set; }
-          
           public FormFriends(User i_LoggedInUser)
           {
                InitializeComponent();
