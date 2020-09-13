@@ -146,19 +146,19 @@ namespace DesktopFacebook
           private void buttonMatchMaker_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "Match Maker";
-               openChildForm(new FormMatchMakerByParameters(m_LoggedInUser));
+               openChildForm(new FormMatchMakerByParameters(ApplicationController));
           }
 
           private void buttonEventsByParam_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "Events Finder";
-               openChildForm(new FormEventByParameters(m_LoggedInUser));
+               openChildForm(new FormEventByParameters(ApplicationController));
           }
           
           private void buttonNewsFeed_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "News Feed";
-               openChildForm(new FormNewsFeed(m_LoggedInUser));
+               openChildForm(new FormNewsFeed(ApplicationController));
           }
 
           private void buttonPosts_Click(object sender, EventArgs e)
@@ -186,7 +186,7 @@ namespace DesktopFacebook
           private void ButtonMyPosts_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "My Posts";
-               openChildForm(new FormPosts(m_LoggedInUser));
+               openChildForm(new FormPosts(ApplicationController));
                //new Thread(() => openChildForm(new FormPosts(m_LoggedInUser))).Start();
           }
 

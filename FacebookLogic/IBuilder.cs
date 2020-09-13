@@ -1,5 +1,5 @@
-﻿using FacebookLogic.Models;
-using System;
+﻿using System;
+using FacebookLogic.Models;
 
 namespace FacebookLogic
 {
@@ -13,6 +13,6 @@ namespace FacebookLogic
 
           void BuildEventDiscriptionPart();
 
-          CustomizedEventModel CustomizedEvent { get;}
+          CustomizedEventModel CustomizedEvent { get; }
      }
 }

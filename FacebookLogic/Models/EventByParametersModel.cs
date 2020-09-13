@@ -1,15 +1,11 @@
-﻿using FacebookLogic.Models;
-using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using FacebookWrapper.ObjectModel;
 using static FacebookWrapper.ObjectModel.User;
 
 namespace FacebookLogic.Models
 {
-     public class EventByParametersModel: UserModel
+     public class EventByParametersModel : UserModel
      {
           public string SelectedAgeRange { get; set; } = "24 - 30";
 
@@ -21,7 +17,7 @@ namespace FacebookLogic.Models
 
           public eGender SelectedSexPreference { get; set; } = eGender.male;
 
-          private readonly Dictionary<int, CustomizedEventModel> m_KeyToCustomizedEventLogicMap= new Dictionary<int, CustomizedEventModel>();
+          private readonly Dictionary<int, CustomizedEventModel> m_KeyToCustomizedEventLogicMap = new Dictionary<int, CustomizedEventModel>();
 
           public Dictionary<int, CustomizedEventModel> KeyToCustomizedEventLogicMap
           {
@@ -64,8 +60,6 @@ namespace FacebookLogic.Models
                Midnight,
                MidnightToDawn
           }
-
           #endregion                  
-         
      }
 }

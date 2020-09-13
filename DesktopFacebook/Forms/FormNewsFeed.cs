@@ -15,11 +15,13 @@ namespace DesktopFacebook.Forms
 {
      public partial class FormNewsFeed : Form
      {
-        private NewsFeedController PostsController { get; set; }
+        //private NewsFeedController PostsController { get; set; }
+        private ApplicationController ApplicationController { get; set; }
 
-        public FormNewsFeed(User i_LoggedInUser)
+        public FormNewsFeed(ApplicationController i_AppController)
         {
-            PostsController = new NewsFeedController(i_LoggedInUser, this.NewsFeedController_FeedItemCreatedEvent, this.NewsFeedController_ErrorMessageEvent);
+            ApplicationController = i_AppController;
+            ApplicationController.InitializeNewsFeedService(this.NewsFeedController_FeedItemCreatedEvent, this.NewsFeedController_ErrorMessageEvent);
             InitializeComponent();
             initializePostsForm();
         }
@@ -27,7 +29,7 @@ namespace DesktopFacebook.Forms
         private void initializePostsForm()
         {
             //PostsController.FetchNewsFeed();
-            new Thread(PostsController.FetchNewsFeed).Start();
+            new Thread(ApplicationController.FetchNewsFeed).Start();
         }
 
         private void NewsFeedController_FeedItemCreatedEvent(object sender, EventArgs e)

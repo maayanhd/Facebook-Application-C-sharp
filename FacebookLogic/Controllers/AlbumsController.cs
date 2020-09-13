@@ -1,13 +1,15 @@
-﻿using FacebookLogic.Models;
+﻿using System;
+using FacebookLogic.Models;
 using FacebookWrapper.ObjectModel;
-using System;
 
 namespace FacebookLogic.Controllers
 {
     public class AlbumsController
     {
         public event EventHandler AlbumCreatedEvent;
+
         public event EventHandler PhotoCreatedEvent;
+
         public event EventHandler ErrorMessageNotifier;
 
         public AlbumsModel UserAlbumsData { get; private set; }
@@ -52,10 +54,9 @@ namespace FacebookLogic.Controllers
             }
             catch (Exception)
             {
-                string errorMessage = String.Format("Unable to fetch album photos {0]", Environment.NewLine);
+                string errorMessage = string.Format("Unable to fetch album photos {0]", Environment.NewLine);
                 onErrorMessage(errorMessage);
             }
-
         }
 
         private void onCreatedPhoto(Photo i_Photo)

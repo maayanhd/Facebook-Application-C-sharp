@@ -1,25 +1,33 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 
 namespace FacebookLogic.Models
 {
      public class CustomizedEventModel
      {
           public DateTime? StartingTime { get; internal set; } = null;
+
           public DateTime? EndingTime { get; internal set; } = null;
+
           public string nameFormat { get; } = "{1} {2}";
+
           public string FriendPictureUrl { get; internal set; } = null;
+
           public string FriendName { get; internal set; } = null;
+
           public string Attendance { get; internal set; } = null;
+
           public string PlaceName { get; internal set; } = null;
+
           public string DurationTime { get; internal set; } = null;
+
           public string VenueName { get; internal set; } = null;
+
           public string TimeFrame { get; internal set; } = null;
+
           public string EventDescription { get; internal set; } = null;
+
           public string EventName { get; internal set; } = null;
+
           public int Key { get; }
 
           private static int m_Counter = 0;
@@ -30,8 +38,11 @@ namespace FacebookLogic.Models
           }
 
           public event EventHandler EventDescriptionFetchingErrorOccured;
+
           public event EventHandler EventLocationFetchingErrorOccured;
+
           public event EventHandler EventTimeRelatedDetailsErrorOccured;
+
           public event EventHandler EventFriendsDetailErrorOccured;
        
           #region "On" methods for eventHandlers

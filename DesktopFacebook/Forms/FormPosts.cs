@@ -9,11 +9,13 @@ namespace DesktopFacebook.Forms
 {
     public partial class FormPosts : Form
     {
-        private PostsController PostsController { get; set; }
+        //private PostsController PostsController { get; set; }
+        private ApplicationController ApplicationController { get; set; }
 
-        public FormPosts(User i_LoggedInUser)
+        public FormPosts(ApplicationController i_AppController)
         {
-            PostsController = new PostsController(i_LoggedInUser, this.PostsController_PostCreatedEvent, this.PostsController_ErrorMessageEvent);
+            ApplicationController = i_AppController;
+            ApplicationController.InitializePostsService(this.PostsController_PostCreatedEvent, this.PostsController_ErrorMessageEvent);
             InitializeComponent();
             initializePostsForm();
         }
@@ -21,7 +23,7 @@ namespace DesktopFacebook.Forms
         private void initializePostsForm()
         {
             //PostsController.FetchUserPosts();
-            new Thread(PostsController.FetchUserPosts).Start();
+            new Thread(ApplicationController.FetchUserPosts).Start();
         }
 
         private void PostsController_PostCreatedEvent(object sender, EventArgs e)

@@ -1,8 +1,5 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookLogic.Models
 {

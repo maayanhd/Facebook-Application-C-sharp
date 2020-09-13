@@ -8,13 +8,14 @@ namespace DesktopFacebook.Forms
 {
     public partial class FormMatchMakerByParameters : Form
     {
-        public MatchMakerController MatchMakerController { get; private set; }
+        //public MatchMakerController MatchMakerController { get; private set; }
+        private ApplicationController ApplicationController { get; set; }
 
-        public FormMatchMakerByParameters(User i_LoggedInUser)
+        public FormMatchMakerByParameters(ApplicationController i_AppController)
         {
             InitializeComponent();
-            MatchMakerController = new MatchMakerController(i_LoggedInUser, this.MatchMakerController_MatchedFriendFoundEvent, this.MatchMakerController_MatchedFriendNotFoundEvent, this.MatchMakerController_ErrorMessageEvent);
-            MatchMakerController.MatchMakerData.User = i_LoggedInUser;
+            ApplicationController = i_AppController;
+            ApplicationController.InitializeMatchMakerService(this.MatchMakerController_MatchedFriendFoundEvent, this.MatchMakerController_MatchedFriendNotFoundEvent, this.MatchMakerController_ErrorMessageEvent);
         }
 
         private void MatchMakerController_MatchedFriendFoundEvent(object sender, EventArgs e)
@@ -33,18 +34,17 @@ namespace DesktopFacebook.Forms
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            MatchMakerController.MatchMakerData.FilterParameters.Gender = (eGender)Enum.Parse(typeof(eGender), (sender as RadioButton).Tag.ToString(), true);
+            ApplicationController.MatchMakerService.MatchMakerData.FilterParameters.Gender = (eGender)Enum.Parse(typeof(eGender), (sender as RadioButton).Tag.ToString(), true);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            eGender selectedGender = (eGender)Enum.Parse(typeof(eGender), (sender as RadioButton).Tag.ToString(), true);
-            MatchMakerController.FindMatch();
+            ApplicationController.MatchMakerService.FindMatch();
         }
 
         private void comboBoxAgeRangeSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MatchMakerController.SetAgeRangeParameter((sender as ComboBox).SelectedItem.ToString());
+            ApplicationController.MatchMakerService.SetAgeRangeParameter((sender as ComboBox).SelectedItem.ToString());
         }
 
         private void MatchMakerController_ErrorMessageEvent(object sender, EventArgs e)

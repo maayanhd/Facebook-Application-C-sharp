@@ -1,15 +1,17 @@
-﻿using FacebookLogic.Models;
+﻿using System;
+using FacebookLogic.Models;
 using FacebookWrapper.ObjectModel;
-using System;
-using System.Threading;
 
 namespace FacebookLogic.Controllers
 {
     public class PostsController
     {
         public PostsModel UserPostsData { get; private set; }
+
         public event EventHandler PostCreatedEvent;
+
         public event EventHandler ErrorMessageEvent;
+
         public int m_MaxPostsLimit;
 
         public PostsController(User i_LoggedInUser, EventHandler i_PostCreatedEvent, EventHandler i_ErrorMessageNotifier)
@@ -40,7 +42,7 @@ namespace FacebookLogic.Controllers
             }
             else
             {
-                string errorMessage = String.Format("No posts to retrieve!{0]", Environment.NewLine);
+                string errorMessage = string.Format("No posts to retrieve!{0]", Environment.NewLine);
                 onErrorMessageEvent(errorMessage);
             }
         }

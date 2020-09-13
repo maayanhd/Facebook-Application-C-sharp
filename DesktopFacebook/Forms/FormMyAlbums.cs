@@ -15,7 +15,7 @@ namespace DesktopFacebook.Forms
         public FormMyAlbums(ApplicationController i_AppControler)
         {
             ApplicationController = i_AppControler;
-            ApplicationController.InitizalizeAlbumsController(this.AlbumsController_AlbumCreatedEvent, this.AlbumsController_PhotoCreatedEvent, this.AlbumsController_ErrorMessage);
+            ApplicationController.InitizalizeAlbumsService(this.AlbumsController_AlbumCreatedEvent, this.AlbumsController_PhotoCreatedEvent, this.AlbumsController_ErrorMessage);
             InitializeComponent();
             //this.flowLayoutPanelAlbums.Controls.Clear();
             new Thread(() => ApplicationController.FetchUserAlbums()).Start();

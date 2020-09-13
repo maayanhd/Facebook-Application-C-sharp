@@ -1,19 +1,20 @@
 ﻿using System;
-using System.Linq;
-using System.Threading;
-using System.Windows.Forms;
+using System.Collections.Generic;
 using FacebookLogic.Models;
 using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
 
 namespace FacebookLogic.Controllers
 {
     public class FriendController
     {
         private FriendsModel FriendsData;
+
         private EventHandler FriendItemRetrivied;
+
         private EventHandler ListBoxFriendsSelectedIndexChanged;
+
         private EventHandler ListBoxFriendsIndexSelected;
+
         public Dictionary<string, User> NameToFriendUser { get; set; } = new Dictionary<string, User>();
 
         public FriendController(User i_LoggedInUser, EventHandler i_FriendItemRetriviedEvent, EventHandler i_SelectedIndexChanged)
@@ -50,7 +51,6 @@ namespace FacebookLogic.Controllers
             NameToFriendUser.TryGetValue(selectedItemFriendName, out User o_Friend);
 
             return o_Friend;
-
         }
     }
 }

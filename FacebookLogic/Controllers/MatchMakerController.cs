@@ -1,9 +1,9 @@
-﻿using FacebookLogic.Models;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using FacebookLogic.Models;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookLogic.Controllers
 {
@@ -14,7 +14,9 @@ namespace FacebookLogic.Controllers
         private Dictionary<User, int> FriendsLikesCountMapper { get; set; } = new Dictionary<User, int>();
 
         public event EventHandler MatchedFriendNotFoundEvent;
+
         public event EventHandler MatchedFriendFoundEvent;
+
         public event EventHandler ErrorMessageEvent;
 
         public MatchMakerController(User i_LoggedInUser, EventHandler i_MatchedFriendFoundEvent, EventHandler i_MatchedFriendNotFoundEvent, EventHandler i_ErrorMessageNotifier)
@@ -54,7 +56,7 @@ namespace FacebookLogic.Controllers
                 }
                 catch (Exception)
                 {
-                    string errorMessage = String.Format("Could not retreive your Posts Likes.{0}Please try again at a later time.", Environment.NewLine);
+                    string errorMessage = string.Format("Could not retreive your Posts Likes.{0}Please try again at a later time.", Environment.NewLine);
                     onErrorMessage(errorMessage);
                     break;
                 }

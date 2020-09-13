@@ -1,9 +1,8 @@
-﻿using FacebookLogic.Models;
-using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using FacebookLogic.Models;
+using FacebookWrapper.ObjectModel;
 using static FacebookLogic.Models.EventByParametersModel;
 using static FacebookWrapper.ObjectModel.User;
 
@@ -12,13 +11,21 @@ namespace FacebookLogic.Controllers
      public class EventByParametersController
      {
           public EventByParametersModel EventsData { get; set; }
+
           public event EventHandler EventsFetchedErrorOccured;
+
           public event EventHandler FriendsFetchedErrorOccured;
+
           public event EventHandler GenderFieldFetchedErrorOccured;
+
           public event EventHandler FilteredMatchingEventFound;
 
-          public EventByParametersController(User i_LoggedInUser, EventHandler i_EventsFetchedErrorOccured, EventHandler i_FriendsFetchedErrorOccured,
-               EventHandler i_GenderFieldFetchedErrorOccured, EventHandler i_FilteredMatchingEventFound)
+          public EventByParametersController(
+                        User i_LoggedInUser, 
+                    EventHandler i_EventsFetchedErrorOccured, 
+                    EventHandler i_FriendsFetchedErrorOccured,                                                                                       
+                    EventHandler i_GenderFieldFetchedErrorOccured, 
+                    EventHandler i_FilteredMatchingEventFound)
           {
                EventsData = new EventByParametersModel();
                EventsData.User = i_LoggedInUser;
@@ -40,7 +47,7 @@ namespace FacebookLogic.Controllers
                generateListOfFilteredEvents();
           }
 
-          public CustomizedEventModel HandleEventCustomedItemClickedByTag(Object tag)
+          public CustomizedEventModel HandleEventCustomedItemClickedByTag(object tag)
           {
                EventsData.KeyToCustomizedEventLogicMap.TryGetValue((int)tag, out CustomizedEventModel ClickedCustomizedEvent);
                
@@ -50,13 +57,11 @@ namespace FacebookLogic.Controllers
           public void HandleSexPreferencePickChanged(object sender)
           {
                EventsData.SelectedSexPreference = (eGender)Enum.Parse(typeof(eGender), (sender as ComboBox).SelectedItem.ToString());
-
           }
 
           public void HandleTimeFramePickChanged(object sender)
           {
                EventsData.SelectedTimeFrame = (EventByParametersModel.eTimeFrame)Enum.Parse(typeof(EventByParametersModel.eTimeFrame), (sender as ComboBox).SelectedItem.ToString());
-
           }
 
           public void HandleReligionPickChanged(object sender)
@@ -64,7 +69,7 @@ namespace FacebookLogic.Controllers
                EventsData.SelectedReligion = (EventByParametersModel.eReligions)Enum.Parse(typeof(EventByParametersModel.eReligions), (sender as ComboBox).SelectedIndex.ToString());
           }
 
-          internal void OnFilteredMatchingEventFound(EventArgs e, Object sender)
+          internal void OnFilteredMatchingEventFound(EventArgs e, object sender)
           {
                if (FilteredMatchingEventFound != null)
                {
@@ -132,6 +137,7 @@ namespace FacebookLogic.Controllers
                                         customizedEventDirector.ConstructCustomizedEvent(customizedEventBuilder);
                                         OnFilteredMatchingEventFound(EventArgs.Empty, customizedEventBuilder.CustomizedEvent);
                                         eventIsMatching = true;
+
                                         // Adding to logic storage
                                         EventsData.KeyToCustomizedEventLogicMap.Add(customizedEventBuilder.CustomizedEvent.Key, customizedEventBuilder.CustomizedEvent);
                                    }
@@ -170,7 +176,7 @@ namespace FacebookLogic.Controllers
                switch (EventsData.SelectedAgeRange)
                {
                     case "under 18":
-                         EventsData.AgeRange = new Point(1,17);
+                         EventsData.AgeRange = new Point(1, 17);
                          break;
 
                     case "18 - 24":

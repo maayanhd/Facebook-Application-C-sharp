@@ -1,14 +1,17 @@
-﻿using FacebookLogic.Models;
+﻿using System;
+using FacebookLogic.Models;
 using FacebookWrapper.ObjectModel;
-using System;
 
 namespace FacebookLogic.Controllers
 {
     public class NewsFeedController
     {
         public PostsModel NewsFeedData { get; private set; }
+
         public event EventHandler FeedItemCreatedEvent;
+
         public event EventHandler ErrorMessageEvent;
+
         public int m_MaxPostsLimit;
 
         public NewsFeedController(User i_LoggedInUser, EventHandler i_FeedItemCreatedEvent, EventHandler i_ErrorMessageNotifier)
@@ -39,7 +42,7 @@ namespace FacebookLogic.Controllers
             }
             else
             {
-                string errorMessage = String.Format("No news feed items to retrieve!{0]", Environment.NewLine);
+                string errorMessage = string.Format("No news feed items to retrieve!{0]", Environment.NewLine);
                 onErrorMessageEvent(errorMessage);
             }
         }
