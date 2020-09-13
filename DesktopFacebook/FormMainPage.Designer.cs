@@ -29,6 +29,7 @@ namespace DesktopFacebook
           {
                if (ChildForm != null) // Check whether the form exists 
                {
+                    //m_CurrentChildForm.Visible = false;
                     m_CurrentChildForm.Close();
                }
 

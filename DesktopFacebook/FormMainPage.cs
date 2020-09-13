@@ -12,6 +12,7 @@ using DesktopFacebook.Forms;
 using FacebookApp.UI;
 using FacebookLogic.Models;
 using FacebookLogic.Controllers;
+using System.Threading;
 
 namespace DesktopFacebook
 {
@@ -24,8 +25,6 @@ namespace DesktopFacebook
           private Dictionary<string, User> m_FriendsObjectNameMapper { get; set; } = new Dictionary<string, User>();
           private bool m_IsAskingToRememberLoginDets;
 
-          private AlbumsController AlbumsController { get; set; }
-
         public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)
           {
                m_LoggedInUser = i_LoggedInUser;
@@ -34,11 +33,9 @@ namespace DesktopFacebook
                customizePanelsDesign();
                fetchUserDetails();
                LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;
+        }
 
-               AlbumsController = new AlbumsController(m_LoggedInUser, this.album_Clicked, this.photo_Clicked);
-          }
-
-          private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
+        private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
           {
                MessageBox.Show(
                     logoutSuccessfulMessage,
@@ -121,37 +118,6 @@ namespace DesktopFacebook
                }
           }
 
-          private void fetchUserAlbums()
-          {
-            AlbumsController.FetchUserAlbums();
-
-            if (AlbumsController.UserAlbumsData.Albums.Count > 0)
-            {
-                (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Clear();
-                foreach (PictureBox albumPicBox in AlbumsController.UserAlbumsData.Albums)
-                {
-                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Add(albumPicBox);
-                }
-            }
-        }
-
-        private void album_Clicked(object sender, EventArgs e)
-        {
-            if (AlbumsController.UserAlbumsData.Photos?.Count > 0)
-            {
-                (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Clear();
-                foreach (PictureBox photoPicBox in AlbumsController.UserAlbumsData.Photos)
-                {
-                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Add(photoPicBox);
-                }
-            }
-        }
-
-        private void photo_Clicked(object sender, EventArgs e)
-        {
-            (m_CurrentChildForm as FormMyAlbums).pictureBoxSelectedPhoto.Load(AlbumsController.UserAlbumsData.SelectedPhoto.PictureNormalURL);
-        }
-
         private void fetchNewsFeed()
           {
                int postIndex = 0;
@@ -159,26 +125,6 @@ namespace DesktopFacebook
                {
                     PostBox postBox = new PostBox(post);
                     (m_CurrentChildForm as FormNewsFeed).flowLayoutPanelNewsFeed.Controls.Add(postBox);
-                    postIndex++;
-                    if (postIndex == AppSettings.Instance.MaxPostsShown)
-                    {
-                         break;
-                    }
-               }
-
-               if (m_LoggedInUser.Posts.Count == 0)
-               {
-                    MessageBox.Show("No posts to retrieve!");
-               }
-          }
-
-          private void fetchPosts()
-          {
-               int postIndex = 0;
-               foreach (Post post in m_LoggedInUser.Posts)
-               {
-                    PostBox postBox = new PostBox(post);
-                    (m_CurrentChildForm as FormPosts).flowLayoutPanelPosts.Controls.Add(postBox);
                     postIndex++;
                     if (postIndex == AppSettings.Instance.MaxPostsShown)
                     {
@@ -245,8 +191,7 @@ namespace DesktopFacebook
           private void buttonMyAlbums_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "My Albums";
-               openChildForm(new FormMyAlbums());
-               fetchUserAlbums();
+               openChildForm(new FormMyAlbums(m_LoggedInUser));
           }
 
           private void buttonNewFeatures_Click(object sender, EventArgs e)
@@ -301,8 +246,8 @@ namespace DesktopFacebook
           private void ButtonMyPosts_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "My Posts";
-               openChildForm(new FormPosts());
-               fetchPosts();
+               openChildForm(new FormPosts(m_LoggedInUser));
+               //new Thread(() => openChildForm(new FormPosts(m_LoggedInUser))).Start();
           }
 
           private void textboxWritePost_TextChanged(object sender, EventArgs e)

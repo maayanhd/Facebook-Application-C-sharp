@@ -1,81 +1,77 @@
 ﻿using FacebookLogic.Models;
 using FacebookWrapper.ObjectModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 
 namespace FacebookLogic.Controllers
 {
     public class AlbumsController
     {
-        private readonly User m_LoggedInUser;
-        private readonly EventHandler m_AlbumSelectedNotifier;
-        private readonly EventHandler m_PhotoSelectedNotifier;
+        public event EventHandler AlbumCreatedEvent;
+        public event EventHandler PhotoCreatedEvent;
+        public event EventHandler ErrorMessageNotifier;
+
         public AlbumsModel UserAlbumsData { get; private set; }
 
-        public AlbumsController(User i_LoggedInUser, EventHandler i_AlbumSelectedNotifier, EventHandler i_PhotoSelectedNotifier)
+        public AlbumsController(User i_LoggedInUser, EventHandler i_AlbumCreatedEvent, EventHandler i_PhotoCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {
-            m_LoggedInUser = i_LoggedInUser;
-            m_AlbumSelectedNotifier = i_AlbumSelectedNotifier;
-            m_PhotoSelectedNotifier = i_PhotoSelectedNotifier;
             UserAlbumsData = new AlbumsModel();
+            UserAlbumsData.User = i_LoggedInUser;
+            AlbumCreatedEvent += i_AlbumCreatedEvent;
+            PhotoCreatedEvent += i_PhotoCreatedEvent;
+            ErrorMessageNotifier += i_ErrorMessageNotifier;
         }
 
         public void FetchUserAlbums()
         {
             UserAlbumsData.Albums.Clear();
-            foreach (Album album in m_LoggedInUser.Albums)
+            foreach (Album album in UserAlbumsData.User.Albums)
             {
-                PictureBox picBoxAlbum = new PictureBox();
-                picBoxAlbum.Name = album.Name;
-                picBoxAlbum.Size = new System.Drawing.Size(75, 75);
-                picBoxAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                picBoxAlbum.Visible = true;
-                picBoxAlbum.Tag = album;
-                picBoxAlbum.LoadAsync(album.PictureAlbumURL);
-
-                //EventHandler albumClickedEventHandler = new EventHandler(this.onAlbumSelected);
-                picBoxAlbum.Click += this.onAlbumSelected;
-                picBoxAlbum.Click += m_AlbumSelectedNotifier;
-                UserAlbumsData.Albums.Add(picBoxAlbum);
+                UserAlbumsData.Albums.Add(album);
+                onCreatedAlbum(album);
             }
         }
 
-        private void onAlbumSelected(object sender, EventArgs e)
+        private void onCreatedAlbum(Album i_Album)
+        {
+            if (AlbumCreatedEvent != null)
+            {
+                AlbumCreatedEvent.Invoke(i_Album, EventArgs.Empty);
+            }
+        }
+
+        public void FetchAlbumPhotos(Album i_Album)
         {
             UserAlbumsData.Photos.Clear();
-            PictureBox clickedAlbumBox = sender as PictureBox;
-            Album selectedAlbum = clickedAlbumBox.Tag as Album;
             try
             {
-                foreach (Photo photo in selectedAlbum.Photos)
+                foreach (Photo photo in i_Album.Photos)
                 {
-                    PictureBox picBoxPhoto = new PictureBox();
-                    picBoxPhoto.Name = photo.Name;
-                    picBoxPhoto.Size = new System.Drawing.Size(75, 75);
-                    picBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                    picBoxPhoto.Visible = true;
-                    picBoxPhoto.Tag = photo;
-                    picBoxPhoto.LoadAsync(photo.PictureNormalURL);
-
-                    //EventHandler photoClickedEvent = new EventHandler(this.onPhotoSelected);
-                    picBoxPhoto.Click += this.onPhotoSelected;
-                    picBoxPhoto.Click += m_PhotoSelectedNotifier;
-                    UserAlbumsData.Photos.Add(picBoxPhoto);
+                    UserAlbumsData.Photos.Add(photo);
+                    onCreatedPhoto(photo);
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Unable to fetch album photos", "Error", MessageBoxButtons.OK, MessageBoxIcon.None);
+                string errorMessage = String.Format("Unable to fetch album photos {0]", Environment.NewLine);
+                onErrorMessage(errorMessage);
+            }
+
+        }
+
+        private void onCreatedPhoto(Photo i_Photo)
+        {
+            if (PhotoCreatedEvent != null)
+            {
+                PhotoCreatedEvent.Invoke(i_Photo, EventArgs.Empty);
             }
         }
 
-        private void onPhotoSelected(object sender, EventArgs e)
+        private void onErrorMessage(string i_ErrorMessage)
         {
-            PictureBox clickedPhotoBox = sender as PictureBox;
-            UserAlbumsData.SelectedPhoto = clickedPhotoBox.Tag as Photo;
+            if (ErrorMessageNotifier != null)
+            {
+                ErrorMessageNotifier.Invoke(i_ErrorMessage, EventArgs.Empty);
+            }
         }
     }
 }
