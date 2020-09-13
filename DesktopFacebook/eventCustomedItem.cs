@@ -23,14 +23,14 @@ namespace DesktopFacebook
           public EventCustomedItem(CustomizedEventModel i_CustomizedEventLogic)
           {
                InitializeComponent();
-               labelFriendName.Text = i_CustomizedEventLogic.m_FriendName;
-               pictureBoxFriendProfile.LoadAsync(i_CustomizedEventLogic.m_FriendPictureUrl); 
-               labelAttendance.Text = i_CustomizedEventLogic.m_Attendance;
-               labelVenueName.Text = i_CustomizedEventLogic.m_VenueName;
-               labelPlaceName.Text = i_CustomizedEventLogic.m_PlaceName;
-               labelTimeFrame.Text = i_CustomizedEventLogic.m_TimeFrame;
-               labelDurationTime.Text = i_CustomizedEventLogic.m_DurationTime;
-               Tag = i_CustomizedEventLogic.m_Key;
+               labelFriendName.Text = i_CustomizedEventLogic.FriendName;
+               pictureBoxFriendProfile.LoadAsync(i_CustomizedEventLogic.FriendPictureUrl); 
+               labelAttendance.Text = i_CustomizedEventLogic.Attendance;
+               labelVenueName.Text = i_CustomizedEventLogic.VenueName;
+               labelPlaceName.Text = i_CustomizedEventLogic.PlaceName;
+               labelTimeFrame.Text = i_CustomizedEventLogic.TimeFrame;
+               labelDurationTime.Text = i_CustomizedEventLogic.DurationTime;
+               Tag = i_CustomizedEventLogic.Key;
                // 
                // customizedEventLogicBindingSource
                // 

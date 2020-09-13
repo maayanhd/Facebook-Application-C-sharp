@@ -15,14 +15,12 @@ namespace DesktopFacebook.Forms
      public partial class FormFriends : Form
      {
           public FriendController m_FriendsController { get; private set; }
-          
           public FormFriends(User i_LoggedInUser)
           {
                InitializeComponent();
                defineListBoxBehaviour();
-               m_FriendsController = new FriendController(i_LoggedInUser, this.FormFriends_FriendItemRetrivied);
+               m_FriendsController = new FriendController(i_LoggedInUser, this.FormFriends_FriendItemRetrivied, this.listBoxFriends_SelectedIndexChanged);
                m_FriendsController.FetchUserFriends();
-               //m_FriendsController.FriendItemRetrivied += FormFriends_FriendItemRetrivied;
           }
 
           private void defineListBoxBehaviour()
@@ -44,7 +42,6 @@ namespace DesktopFacebook.Forms
           {
                if (isThereASelectetdFriendItem())
                {
-                    //User selectedFriend = m_FriendsObjectNameMapper[formFriends.listBoxFriends.SelectedItem.ToString()];
                     if (i_SelectedFriend.PictureNormalURL != null)
                     {
                          this.pictureBoxFriend.LoadAsync(i_SelectedFriend.PictureNormalURL);

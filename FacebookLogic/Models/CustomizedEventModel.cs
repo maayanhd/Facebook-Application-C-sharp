@@ -4,28 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FacebookLogic
+namespace FacebookLogic.Models
 {
      public class CustomizedEventModel
      {
-          public DateTime? m_StartingTime { get; internal set; } = null;
-          public DateTime? m_EndingTime { get; internal set; } = null;
-          public string m_nameFormat { get; } = "{1} {2}";
-          public string m_FriendPictureUrl { get; internal set; } = null;
-          public string m_FriendName { get; internal set; } = null;
-          public string m_Attendance { get; internal set; } = null;
-          public string m_PlaceName { get; internal set; } = null;
-          public string m_DurationTime { get; internal set; } = null;
-          public string m_VenueName { get; internal set; } = null;
-          public string m_TimeFrame { get; internal set; } = null;
-          public string m_EventDescription { get; internal set; } = null;
-          public string m_EventName { get; internal set; } = null;
-          public int m_Key { get; }
+          public DateTime? StartingTime { get; internal set; } = null;
+          public DateTime? EndingTime { get; internal set; } = null;
+          public string nameFormat { get; } = "{1} {2}";
+          public string FriendPictureUrl { get; internal set; } = null;
+          public string FriendName { get; internal set; } = null;
+          public string Attendance { get; internal set; } = null;
+          public string PlaceName { get; internal set; } = null;
+          public string DurationTime { get; internal set; } = null;
+          public string VenueName { get; internal set; } = null;
+          public string TimeFrame { get; internal set; } = null;
+          public string EventDescription { get; internal set; } = null;
+          public string EventName { get; internal set; } = null;
+          public int Key { get; }
+
           private static int m_Counter = 0;
 
           internal CustomizedEventModel()
           {
-               m_Key = m_Counter++;
+               Key = m_Counter++;
           }
 
           public event EventHandler EventDescriptionFetchingErrorOccured;
