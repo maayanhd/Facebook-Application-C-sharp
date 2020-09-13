@@ -45,7 +45,6 @@
             this.flowLayoutPanelAlbums.Name = "flowLayoutPanelAlbums";
             this.flowLayoutPanelAlbums.Size = new System.Drawing.Size(184, 390);
             this.flowLayoutPanelAlbums.TabIndex = 0;
-            this.flowLayoutPanelAlbums.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelAlbums_Paint);
             // 
             // flowLayoutPanelPhotos
             // 

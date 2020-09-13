@@ -9,9 +9,13 @@ namespace FacebookLogic
 {
      public class FriendsModel : UserModel
      {
-          public Dictionary<string, User> m_FriendsObjectNameMapper { get; private set; } = new Dictionary<string, User>();
-          public FacebookObjectCollection<User> m_Friends { get; private set; }
+          private User i_LoggedInUser;
 
+          public FriendsModel(User i_LoggedInUser): base(i_LoggedInUser)
+          {
+          }
+
+          public List<User> m_FriendsList { get; private set; } = new List<User>();
 
      }
 }

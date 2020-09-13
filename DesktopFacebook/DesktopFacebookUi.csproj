@@ -195,7 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CustomControls\CustomControls.csproj">
-      <Project>{23F0618B-5587-41C5-AEE9-53CA34982CA3}</Project>
+      <Project>{23f0618b-5587-41c5-aee9-53ca34982ca3}</Project>
       <Name>CustomControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\FacebookLogic\FacebookLogic.csproj">

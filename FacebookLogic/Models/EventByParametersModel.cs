@@ -49,9 +49,8 @@ namespace FacebookLogic
 
           private User m_LoggedInUser { get; }
 
-          public EventByParametersModel(User i_LoggedInUser)
+          public EventByParametersModel(User i_LoggedInUser): base(i_LoggedInUser)
           {
-               m_LoggedInUser = i_LoggedInUser;
           }
 
           internal void OnFilteredMatchingEventFound(EventArgs e, Object sender)

@@ -24,7 +24,6 @@ namespace DesktopFacebook
           private Dictionary<string, User> m_FriendsObjectNameMapper { get; set; } = new Dictionary<string, User>();
           private bool m_IsAskingToRememberLoginDets;
 
-          private AlbumsController AlbumsController { get; set; }
 
         public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)
           {
@@ -33,9 +32,7 @@ namespace DesktopFacebook
                m_IsAskingToRememberLoginDets = i_IsAskingToRememberLoginDets;
                customizePanelsDesign();
                fetchUserDetails();
-               LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;
-
-               AlbumsController = new AlbumsController(m_LoggedInUser, this.album_Clicked, this.photo_Clicked);
+               LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;              
           }
 
           private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
@@ -77,82 +74,22 @@ namespace DesktopFacebook
                // Update visability of submenu
                o_SubMenu.Visible = !o_SubMenu.Visible;
           }
-
-          private void fetchUserFriends()
-          {
-               FormFriends formFriends = m_CurrentChildForm as FormFriends;
-               formFriends.listBoxFriends.Items.Clear();
-               m_FriendsObjectNameMapper.Clear();
-
-               EventHandler friendSelectionChangedEventHandler = new EventHandler(this.listBoxFriends_SelectedIndexChanged);
-               formFriends.listBoxFriends.SelectedIndexChanged += friendSelectionChangedEventHandler;
-
-               foreach (User friend in m_LoggedInUser.Friends)
-               {
-                    string friendsNameFormatted = string.Format("{0} {1}", friend.FirstName, friend.LastName);
-                    formFriends.listBoxFriends.Items.Add(friendsNameFormatted);
-                    m_FriendsObjectNameMapper.Add(friendsNameFormatted, friend);
-               }
-          }
-
-          private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
-          {
-               displaySelectedFriend();
-          }
-
-          private void displaySelectedFriend()
-          {
-               FormFriends formFriends = m_CurrentChildForm as FormFriends;
-               if (formFriends.listBoxFriends.SelectedItems.Count == 1)
-               {
-                    User selectedFriend = m_FriendsObjectNameMapper[formFriends.listBoxFriends.SelectedItem.ToString()];
-                    if (selectedFriend.PictureNormalURL != null)
-                    {
-                         formFriends.pictureBoxFriend.LoadAsync(selectedFriend.PictureNormalURL);
-                    }
-
-                    formFriends.labelFriendsNameData.Text = string.Format("{0} {1}", selectedFriend.FirstName, selectedFriend.LastName);
-                    formFriends.labelFriendsBirthdayData.Text = selectedFriend.Birthday != null ? selectedFriend.Birthday.ToString() : "N/A";
-                    formFriends.labelFriendsGenderData.Text = selectedFriend.Gender != null ? selectedFriend.Gender.ToString() : "N/A";
-                    formFriends.labelFriendsLocationData.Text = selectedFriend.Location != null ? selectedFriend.Location.ToString() : "N/A";
-                    formFriends.labelFriendsHometownData.Text = selectedFriend.Hometown != null ? selectedFriend.Hometown.ToString() : "N/A";
-                    formFriends.labelFriendsRelationshipData.Text = selectedFriend.RelationshipStatus != null ? selectedFriend.RelationshipStatus.ToString() : "N/A";
-                    formFriends.labelFriendsStatusData.Text = selectedFriend.Statuses[0].Message != null ? selectedFriend.Statuses[0].Message : "N/A";
-               }
-          }
-
+          
           private void fetchUserAlbums()
           {
-            AlbumsController.FetchUserAlbums();
+               AlbumsController.FetchUserAlbums();
 
-            if (AlbumsController.UserAlbumsData.Albums.Count > 0)
-            {
-                (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Clear();
-                foreach (PictureBox albumPicBox in AlbumsController.UserAlbumsData.Albums)
-                {
-                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Add(albumPicBox);
-                }
-            }
-        }
+               if (AlbumsController.UserAlbumsData.Albums.Count > 0)
+               {
+                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Clear();
+                    foreach (PictureBox albumPicBox in AlbumsController.UserAlbumsData.Albums)
+                    {
+                         (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelAlbums.Controls.Add(albumPicBox);
+                    }
+               }
+          }
 
-        private void album_Clicked(object sender, EventArgs e)
-        {
-            if (AlbumsController.UserAlbumsData.Photos?.Count > 0)
-            {
-                (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Clear();
-                foreach (PictureBox photoPicBox in AlbumsController.UserAlbumsData.Photos)
-                {
-                    (m_CurrentChildForm as FormMyAlbums).flowLayoutPanelPhotos.Controls.Add(photoPicBox);
-                }
-            }
-        }
-
-        private void photo_Clicked(object sender, EventArgs e)
-        {
-            (m_CurrentChildForm as FormMyAlbums).pictureBoxSelectedPhoto.Load(AlbumsController.UserAlbumsData.SelectedPhoto.PictureNormalURL);
-        }
-
-        private void fetchNewsFeed()
+          private void fetchNewsFeed()
           {
                int postIndex = 0;
                foreach (Post post in m_LoggedInUser.NewsFeed)

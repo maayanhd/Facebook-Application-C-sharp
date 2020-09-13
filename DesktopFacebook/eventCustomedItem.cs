@@ -18,7 +18,7 @@ namespace DesktopFacebook
                // 
                // customizedEventLogicBindingSource
                // 
-               this.customizedEventLogicBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
+               this.customizedEventModelBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
           }
           public EventCustomedItem(CustomizedEventModel i_CustomizedEventLogic)
           {
@@ -34,7 +34,7 @@ namespace DesktopFacebook
                // 
                // customizedEventLogicBindingSource
                // 
-               this.customizedEventLogicBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
+               this.customizedEventModelBindingSource.DataSource = typeof(FacebookLogic.CustomizedEventModel);
           }
           #region
           public Label LabelTimeFrame

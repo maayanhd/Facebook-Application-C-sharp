@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacebookLogic.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,14 +12,14 @@ namespace DesktopFacebook.Forms
 {
      public partial class FormMyAlbums : Form
      {
+          private AlbumsController AlbumsController { get; set; }
+          
           public FormMyAlbums()
           {
                InitializeComponent();
+               AlbumsController = new AlbumsController(m_LoggedInUser, this.album_Clicked, this.photo_Clicked);
           }
 
-        private void flowLayoutPanelAlbums_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-    }
+      
+     }
 }

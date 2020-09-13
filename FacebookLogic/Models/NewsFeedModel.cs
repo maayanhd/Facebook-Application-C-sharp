@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FacebookLogic.Models
+namespace FacebookLogic.Modelsה טע
 {
      public class NewsFeedModel: UserModel
      {
