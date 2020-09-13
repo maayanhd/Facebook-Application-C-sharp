@@ -22,8 +22,9 @@ namespace DesktopFacebook
 
           private Form m_CurrentChildForm = new Form();
           protected User m_LoggedInUser;
-          private Dictionary<string, User> m_FriendsObjectNameMapper { get; set; } = new Dictionary<string, User>();
           private bool m_IsAskingToRememberLoginDets;
+
+          internal ApplicationController ApplicationController { get; private set; }
 
         public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)
           {
@@ -33,6 +34,8 @@ namespace DesktopFacebook
                customizePanelsDesign();
                fetchUserDetails();
                LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;
+
+            ApplicationController = new ApplicationController(m_LoggedInUser);
         }
 
         private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
@@ -73,26 +76,6 @@ namespace DesktopFacebook
 
                // Update visability of submenu
                o_SubMenu.Visible = !o_SubMenu.Visible;
-          }
-
-        private void fetchNewsFeed()
-          {
-               int postIndex = 0;
-               foreach (Post post in m_LoggedInUser.NewsFeed)
-               {
-                    PostBox postBox = new PostBox(post);
-                    (m_CurrentChildForm as FormNewsFeed).flowLayoutPanelNewsFeed.Controls.Add(postBox);
-                    postIndex++;
-                    if (postIndex == AppSettings.Instance.MaxPostsShown)
-                    {
-                         break;
-                    }
-               }
-
-               if (m_LoggedInUser.Posts.Count == 0)
-               {
-                    MessageBox.Show("No posts to retrieve!");
-               }
           }
 
           private void activateTextbox(TextBox o_PostTextBox)
@@ -147,7 +130,9 @@ namespace DesktopFacebook
           private void buttonMyAlbums_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "My Albums";
-               openChildForm(new FormMyAlbums(m_LoggedInUser));
+               //openChildForm(new FormMyAlbums(m_LoggedInUser));
+               openChildForm(new FormMyAlbums(ApplicationController));
+                
           }
 
           private void buttonNewFeatures_Click(object sender, EventArgs e)
@@ -173,8 +158,7 @@ namespace DesktopFacebook
           private void buttonNewsFeed_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "News Feed";
-               openChildForm(new FormNewsFeed());
-               fetchNewsFeed();
+               openChildForm(new FormNewsFeed(m_LoggedInUser));
           }
 
           private void buttonPosts_Click(object sender, EventArgs e)

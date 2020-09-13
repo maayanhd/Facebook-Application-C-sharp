@@ -17,7 +17,7 @@ namespace FacebookLogic.Controllers
         public event EventHandler MatchedFriendFoundEvent;
         public event EventHandler ErrorMessageEvent;
 
-        public MatchMakerController(User i_LoggedInUser, EventHandler i_ErrorMessageNotifier, EventHandler i_MatchedFriendFoundEvent, EventHandler i_MatchedFriendNotFoundEvent)
+        public MatchMakerController(User i_LoggedInUser, EventHandler i_MatchedFriendFoundEvent, EventHandler i_MatchedFriendNotFoundEvent, EventHandler i_ErrorMessageNotifier)
         {
             MatchMakerData = new MatchMakerModel();
             MatchMakerData.FilterParameters = new MatchMakerModel.Parameters();
@@ -64,7 +64,6 @@ namespace FacebookLogic.Controllers
             if (FriendsLikesCountMapper.Count > 0 && FriendsLikesCountMapper.Values.Max() > 0)
             {
                 User maxLikesFriend = FriendsLikesCountMapper.FirstOrDefault(x => x.Value == FriendsLikesCountMapper.Values.Max()).Key;
-                //presentMatchedUser(maxLikesFriend);
                 onMatchedFriendFound(maxLikesFriend);
             }
             else

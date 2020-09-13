@@ -9,12 +9,17 @@ namespace DesktopFacebook.Forms
 {
     public partial class FormMyAlbums : Form
     {
-        private AlbumsController AlbumsController { get; set; }
-        public FormMyAlbums(User i_LoggedInUser)
+        //private AlbumsController AlbumsController { get; set; }
+        private ApplicationController ApplicationController { get; set; }
+
+        public FormMyAlbums(ApplicationController i_AppControler)
         {
-            AlbumsController = new AlbumsController(i_LoggedInUser, this.AlbumsController_AlbumCreatedEvent, this.AlbumsController_PhotoCreatedEvent, this.AlbumsController_ErrorMessage);
+            ApplicationController = i_AppControler;
+            ApplicationController.InitizalizeAlbumsController(this.AlbumsController_AlbumCreatedEvent, this.AlbumsController_PhotoCreatedEvent, this.AlbumsController_ErrorMessage);
             InitializeComponent();
-            fetchUserAlbums();
+            //this.flowLayoutPanelAlbums.Controls.Clear();
+            new Thread(() => ApplicationController.FetchUserAlbums()).Start();
+            //fetchUserAlbums();
         }
 
         private void AlbumsController_PhotoCreatedEvent(object sender, EventArgs e)
@@ -55,17 +60,11 @@ namespace DesktopFacebook.Forms
             //this.flowLayoutPanelAlbums.Controls.Add(picBoxAlbum);
         }
 
-        private void fetchUserAlbums()
-        {
-            //this.flowLayoutPanelAlbums.Controls.Clear();
-            new Thread(() => AlbumsController.FetchUserAlbums()).Start();
-        }
-
         private void album_Clicked(object sender, EventArgs e)
         {
             this.flowLayoutPanelPhotos.Controls.Clear();
             Album selectedAlbum = (sender as PictureBox).Tag as Album;
-            AlbumsController.FetchAlbumPhotos(selectedAlbum);
+            ApplicationController.FetchAlbumPhotos(selectedAlbum);
         }
 
 

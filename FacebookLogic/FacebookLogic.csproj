@@ -51,6 +51,7 @@
     <Compile Include="ApplicationSettingsParser.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="Controllers\AlbumsController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\EventByParametersController.cs" />
     <Compile Include="Controllers\MatchMakerController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="Director.cs" />
     <Compile Include="Models\EventByParametersModel.cs" />
     <Compile Include="Controllers\FriendController.cs" />
-    <Compile Include="Controllers\newsFeedController.cs" />
+    <Compile Include="Controllers\NewsFeedController.cs" />
     <Compile Include="Models\FriendsModel.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="LoginManager.cs" />

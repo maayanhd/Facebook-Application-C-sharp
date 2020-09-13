@@ -124,6 +124,7 @@
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(258, 381);
             this.listBoxFriends.TabIndex = 2;
+            this.listBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
             // 
             // pictureBoxFriend
             // 
