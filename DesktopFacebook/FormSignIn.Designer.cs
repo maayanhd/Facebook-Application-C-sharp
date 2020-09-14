@@ -92,6 +92,7 @@ namespace DesktopFacebook
                this.Controls.Add(this.panel1);
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
                this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+               this.MaximizeBox = false;
                this.Name = "FormSignIn";
                this.Text = "signInForm";
                this.panel1.ResumeLayout(false);
