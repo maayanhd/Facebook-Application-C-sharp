@@ -231,7 +231,7 @@ namespace DesktopFacebook
                this.buttonMatchMaker.Click += new System.EventHandler(this.buttonMatchMaker_Click);
                // 
                // buttonNewFeatures
-               //
+               // 
                this.buttonNewFeatures.Dock = System.Windows.Forms.DockStyle.Top;
                this.buttonNewFeatures.FlatAppearance.BorderSize = 0;
                this.buttonNewFeatures.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
@@ -510,7 +510,9 @@ namespace DesktopFacebook
                this.Controls.Add(this.panel1);
                this.Controls.Add(this.panel_TopMainForm);
                this.Cursor = System.Windows.Forms.Cursors.Arrow;
+               this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
                this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+               this.MaximizeBox = false;
                this.MinimumSize = new System.Drawing.Size(1198, 472);
                this.Name = "FormMainPage";
                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

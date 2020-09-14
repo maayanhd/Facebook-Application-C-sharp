@@ -184,7 +184,9 @@
     <None Include="Properties\DataSources\FacebookLogic.EventByParametersLogic+eTimeFrame1.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.IBuilder.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.LoginManager.datasource" />
+    <None Include="Properties\DataSources\FacebookLogic.Models.FriendsModel.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.Models.PostsModel.datasource" />
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -31,11 +31,11 @@
                this.components = new System.ComponentModel.Container();
                this.panel1 = new System.Windows.Forms.Panel();
                this.labelDurationTime = new System.Windows.Forms.Label();
-               this.customizedEventModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
                this.labelDuration = new System.Windows.Forms.Label();
                this.labelTimeFrame = new System.Windows.Forms.Label();
                this.labelTime = new System.Windows.Forms.Label();
                this.labelFriendName = new System.Windows.Forms.Label();
+               this.customizedEventModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
                this.panel2 = new System.Windows.Forms.Panel();
                this.labelAttendance = new System.Windows.Forms.Label();
                this.labelVenueName = new System.Windows.Forms.Label();

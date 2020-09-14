@@ -45,7 +45,9 @@
                this.labelFriendsHometownData = new System.Windows.Forms.Label();
                this.labelFriendsRelationshipData = new System.Windows.Forms.Label();
                this.labelFriendsStatusData = new System.Windows.Forms.Label();
+               this.friendsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
+               ((System.ComponentModel.ISupportInitialize)(this.friendsModelBindingSource)).BeginInit();
                this.SuspendLayout();
                // 
                // labelFriendsName
@@ -130,17 +132,18 @@
                this.listBoxFriends.FormattingEnabled = true;
                this.listBoxFriends.ItemHeight = 16;
                this.listBoxFriends.Location = new System.Drawing.Point(31, 21);
-               this.listBoxFriends.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+               this.listBoxFriends.Margin = new System.Windows.Forms.Padding(4);
                this.listBoxFriends.Name = "listBoxFriends";
                this.listBoxFriends.Size = new System.Drawing.Size(343, 468);
                this.listBoxFriends.TabIndex = 2;
+               this.listBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
                // 
                // pictureBoxFriend
                // 
                this.pictureBoxFriend.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                this.pictureBoxFriend.Image = global::DesktopFacebook.Properties.Resources.annonymousProfile;
                this.pictureBoxFriend.Location = new System.Drawing.Point(503, 21);
-               this.pictureBoxFriend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+               this.pictureBoxFriend.Margin = new System.Windows.Forms.Padding(4);
                this.pictureBoxFriend.Name = "pictureBoxFriend";
                this.pictureBoxFriend.Size = new System.Drawing.Size(239, 221);
                this.pictureBoxFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -151,6 +154,7 @@
                // 
                this.labelFriendsNameData.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
                this.labelFriendsNameData.AutoSize = true;
+               this.labelFriendsNameData.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.friendsModelBindingSource, "FullName", true));
                this.labelFriendsNameData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelFriendsNameData.Location = new System.Drawing.Point(649, 268);
                this.labelFriendsNameData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -162,6 +166,7 @@
                // labelFriendsBirthdayData
                // 
                this.labelFriendsBirthdayData.AutoSize = true;
+               this.labelFriendsBirthdayData.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.friendsModelBindingSource, "Birthday", true));
                this.labelFriendsBirthdayData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelFriendsBirthdayData.Location = new System.Drawing.Point(649, 299);
                this.labelFriendsBirthdayData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -173,6 +178,7 @@
                // labelFriendsGenderData
                // 
                this.labelFriendsGenderData.AutoSize = true;
+               this.labelFriendsGenderData.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.friendsModelBindingSource, "GenderStr", true));
                this.labelFriendsGenderData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelFriendsGenderData.Location = new System.Drawing.Point(649, 330);
                this.labelFriendsGenderData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -184,6 +190,7 @@
                // labelFriendsLocationData
                // 
                this.labelFriendsLocationData.AutoSize = true;
+               this.labelFriendsLocationData.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.friendsModelBindingSource, "LocationStr", true));
                this.labelFriendsLocationData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelFriendsLocationData.Location = new System.Drawing.Point(649, 364);
                this.labelFriendsLocationData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -195,6 +202,7 @@
                // labelFriendsHometownData
                // 
                this.labelFriendsHometownData.AutoSize = true;
+               this.labelFriendsHometownData.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.friendsModelBindingSource, "HometownStr", true));
                this.labelFriendsHometownData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelFriendsHometownData.Location = new System.Drawing.Point(649, 398);
                this.labelFriendsHometownData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -206,6 +214,7 @@
                // labelFriendsRelationshipData
                // 
                this.labelFriendsRelationshipData.AutoSize = true;
+               this.labelFriendsRelationshipData.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.friendsModelBindingSource, "RelationshipStatusStr", true));
                this.labelFriendsRelationshipData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelFriendsRelationshipData.Location = new System.Drawing.Point(649, 436);
                this.labelFriendsRelationshipData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -217,6 +226,7 @@
                // labelFriendsStatusData
                // 
                this.labelFriendsStatusData.AutoSize = true;
+               this.labelFriendsStatusData.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.friendsModelBindingSource, "Status", true));
                this.labelFriendsStatusData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.labelFriendsStatusData.Location = new System.Drawing.Point(649, 471);
                this.labelFriendsStatusData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -224,6 +234,10 @@
                this.labelFriendsStatusData.Size = new System.Drawing.Size(37, 21);
                this.labelFriendsStatusData.TabIndex = 1;
                this.labelFriendsStatusData.Text = "N/A";
+               // 
+               // friendsModelBindingSource
+               // 
+               this.friendsModelBindingSource.DataSource = typeof(FacebookLogic.Models.FriendsModel);
                // 
                // FormFriends
                // 
@@ -247,10 +261,11 @@
                this.Controls.Add(this.labelFriendsName);
                this.Controls.Add(this.pictureBoxFriend);
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-               this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+               this.Margin = new System.Windows.Forms.Padding(4);
                this.Name = "FormFriends";
                this.Text = "FormFriends";
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).EndInit();
+               ((System.ComponentModel.ISupportInitialize)(this.friendsModelBindingSource)).EndInit();
                this.ResumeLayout(false);
                this.PerformLayout();
 
@@ -274,5 +289,6 @@
         internal System.Windows.Forms.Label labelFriendsHometownData;
         internal System.Windows.Forms.Label labelFriendsRelationshipData;
         internal System.Windows.Forms.Label labelFriendsStatusData;
+          private System.Windows.Forms.BindingSource friendsModelBindingSource;
      }
 }
