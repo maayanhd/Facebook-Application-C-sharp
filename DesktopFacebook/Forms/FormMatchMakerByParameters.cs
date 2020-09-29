@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
-using static FacebookWrapper.ObjectModel.User;
 using FacebookLogic.Controllers;
+using static FacebookWrapper.ObjectModel.User;
 
 namespace DesktopFacebook.Forms
 {
     public partial class FormMatchMakerByParameters : Form
     {
-        //public MatchMakerController MatchMakerController { get; private set; }
         private ApplicationController ApplicationController { get; set; }
 
         public FormMatchMakerByParameters(ApplicationController i_AppController)

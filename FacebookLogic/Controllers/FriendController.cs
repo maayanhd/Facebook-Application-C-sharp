@@ -1,19 +1,21 @@
 ﻿using System;
-using System.Linq;
-using System.Threading;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using FacebookLogic.Models;
 using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
 
 namespace FacebookLogic.Controllers
 {
     public class FriendController
     {
         private FriendsModel FriendsData;
+
         private EventHandler FriendItemRetrivied;
+
         private EventHandler ListBoxFriendsSelectedIndexChanged;
+
         private EventHandler ListBoxFriendsIndexSelected;
+
         public Dictionary<string, User> NameToFriendUser { get; set; } = new Dictionary<string, User>();
 
         public FriendController(User i_LoggedInUser, EventHandler i_FriendItemRetriviedEvent, EventHandler i_SelectedIndexChanged)
@@ -48,7 +50,6 @@ namespace FacebookLogic.Controllers
                 FriendsData.FriendsList.Add(friend);
                 NameToFriendUser.Add(friend.Name, friend);
             }
-            
         }
 
           public void updateCurrentUser(User i_User)
@@ -66,7 +67,7 @@ namespace FacebookLogic.Controllers
                FriendsData.RelationshipStatusStr = FriendsData.RelationshipStatus != null ? FriendsData.RelationshipStatus.ToString() : null;
                FriendsData.Status = i_User.Statuses != null ? i_User.Statuses[0].Message : null;
                FriendsData.FullName = !(FriendsData.FirstName == null && FriendsData.LastName == null) ?
-                    String.Format(FriendsData.NameFormat, i_User.FirstName, i_User.LastName) : null;
+                    string.Format(FriendsData.NameFormat, i_User.FirstName, i_User.LastName) : null;
           }
 
           public User GetUserByName(string selectedItemFriendName)

@@ -1,20 +1,14 @@
-﻿using FacebookLogic;
+﻿using System;
+using System.Windows.Forms;
 using FacebookLogic.Controllers;
 using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 
 namespace DesktopFacebook.Forms
 {
      public partial class FormFriends : Form
      {
           public FriendController m_FriendsController { get; private set; }
+
           public FormFriends(User i_LoggedInUser)
           {
                m_FriendsController = new FriendController(i_LoggedInUser, this.FormFriends_FriendItemRetrivied, this.listBoxFriends_SelectedIndexChanged);

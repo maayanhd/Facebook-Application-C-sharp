@@ -6,15 +6,13 @@ using System.Windows.Forms;
 using FacebookLogic;
 using FacebookLogic.Controllers;
 using FacebookWrapper.ObjectModel;
-using static FacebookWrapper.ObjectModel.User;
 using FacebookLogic.Models;
+using static FacebookWrapper.ObjectModel.User;
 
 namespace DesktopFacebook.Forms
 {
     public partial class FormEventByParameters : Form
     {
-        private EventByParametersModel m_FilteredEventLogic;
-        //private EventByParametersController m_FilteredEventController;
         private ApplicationController ApplicationController { get; set; }
 
         public FlowLayoutPanel flowLayoutPanelCutomedEvents { get; private set; }
@@ -32,8 +30,11 @@ namespace DesktopFacebook.Forms
             InitializeComponent();
             ApplicationController = i_AppController;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            ApplicationController.InitializeEventsFinderService(EventByParametersController_EventsFetchedErrorOccured, EventByParametersController_FriendsFetchedErrorOccured,
-            EventByParametersController_GenderFieldFetchedErrorOccured, EventByParametersController_FilteredMatchingEventFound);
+            ApplicationController.InitializeEventsFinderService(
+                EventByParametersController_EventsFetchedErrorOccured, 
+                EventByParametersController_FriendsFetchedErrorOccured,
+            EventByParametersController_GenderFieldFetchedErrorOccured, 
+            EventByParametersController_FilteredMatchingEventFound);
         }
 
         private void EventByParametersController_FilteredMatchingEventFound(object sender, EventArgs e)
@@ -56,7 +57,8 @@ namespace DesktopFacebook.Forms
 
         private void notifyGenderFetchingErrorOccured()
         {
-            MessageBox.Show("Please choose a sex preference first",
+            MessageBox.Show(
+                        "Please choose a sex preference first",
                         "Sex Preference missing",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None);

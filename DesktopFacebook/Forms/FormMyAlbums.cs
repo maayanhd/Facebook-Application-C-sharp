@@ -1,15 +1,13 @@
-﻿using FacebookLogic.Controllers;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookLogic.Controllers;
+using FacebookWrapper.ObjectModel;
 
 namespace DesktopFacebook.Forms
 {
     public partial class FormMyAlbums : Form
     {
-        //private AlbumsController AlbumsController { get; set; }
         private ApplicationController ApplicationController { get; set; }
 
         public FormMyAlbums(ApplicationController i_AppControler)
@@ -17,9 +15,7 @@ namespace DesktopFacebook.Forms
             ApplicationController = i_AppControler;
             ApplicationController.InitizalizeAlbumsService(this.AlbumsController_AlbumCreatedEvent, this.AlbumsController_PhotoCreatedEvent, this.AlbumsController_ErrorMessage);
             InitializeComponent();
-            //this.flowLayoutPanelAlbums.Controls.Clear();
             new Thread(() => ApplicationController.FetchUserAlbums()).Start();
-            //fetchUserAlbums();
         }
 
         private void AlbumsController_PhotoCreatedEvent(object sender, EventArgs e)
@@ -40,7 +36,10 @@ namespace DesktopFacebook.Forms
         private void AlbumsController_AlbumCreatedEvent(object sender, EventArgs e)
         {
             while (!this.IsHandleCreated)
+            {
                 System.Threading.Thread.Sleep(100);
+            }
+
             this.flowLayoutPanelAlbums.Invoke(new Action(() => 
             {
                 Album album = sender as Album;
@@ -55,9 +54,7 @@ namespace DesktopFacebook.Forms
 
                 picBoxAlbum.Click += this.album_Clicked;
                 this.flowLayoutPanelAlbums.Controls.Add(picBoxAlbum);
-            }
-            ));
-            //this.flowLayoutPanelAlbums.Controls.Add(picBoxAlbum);
+            }));
         }
 
         private void album_Clicked(object sender, EventArgs e)
@@ -66,8 +63,6 @@ namespace DesktopFacebook.Forms
             Album selectedAlbum = (sender as PictureBox).Tag as Album;
             ApplicationController.FetchAlbumPhotos(selectedAlbum);
         }
-
-
 
         private void photo_Clicked(object sender, EventArgs e)
         {
@@ -82,7 +77,6 @@ namespace DesktopFacebook.Forms
 
         private void flowLayoutPanelAlbums_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }
