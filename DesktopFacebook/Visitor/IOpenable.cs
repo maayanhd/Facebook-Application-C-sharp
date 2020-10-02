@@ -15,6 +15,7 @@ namespace DesktopFacebook
           DockStyle Dock { get; set; }
           
           void Show();
+
           void BringToFront();
      }
 }

@@ -21,6 +21,7 @@ namespace DesktopFacebook.Forms
                ApplicationController.InitializeNewsFeedService(this.NewsFeedController_FeedItemCreatedEvent, this.NewsFeedController_ErrorMessageEvent);
                InitializeComponent();
                new Thread(ApplicationController.FetchNewsFeed).Start();
+               Opener.Open(this as IOpenable);
           }
 
           private void NewsFeedController_FeedItemCreatedEvent(object sender, EventArgs e)

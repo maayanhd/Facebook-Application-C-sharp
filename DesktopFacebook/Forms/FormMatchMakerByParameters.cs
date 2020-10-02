@@ -19,6 +19,7 @@ namespace DesktopFacebook.Forms
                InitializeComponent();
                ApplicationController = i_AppController;
                ApplicationController.InitializeMatchMakerService(this.MatchMakerController_MatchedFriendFoundEvent, this.MatchMakerController_MatchedFriendNotFoundEvent, this.MatchMakerController_ErrorMessageEvent);
+               Opener.Open(this as IOpenable);
           }
 
           private void MatchMakerController_MatchedFriendFoundEvent(object sender, EventArgs e)

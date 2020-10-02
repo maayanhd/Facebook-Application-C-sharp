@@ -9,7 +9,7 @@ namespace FacebookLogic.Controllers
 {
     public class FriendController
     {
-        public FriendsModel FriendsData;
+        public FriendsModel FriendsData { get; private set; }
 
         private EventHandler FriendItemRetrivied;
 
@@ -17,7 +17,7 @@ namespace FacebookLogic.Controllers
 
         private EventHandler ListBoxFriendsIndexSelected;
 
-        public IFetchStrategy FriendsFetchStrategy;
+        public IFetchStrategy FriendsFetchStrategy { get; set; }
 
         public Dictionary<string, User> NameToFriendUser { get; set; } = new Dictionary<string, User>();
 
@@ -61,11 +61,11 @@ namespace FacebookLogic.Controllers
                FriendsData.LocationStr = FriendsData.Location != null ? FriendsData.Location.Name : null;
                FriendsData.Birthday = i_User.Birthday;
                FriendsData.Gender = i_User.Gender;
-               FriendsData.GenderStr = FriendsData.Gender != null ? FriendsData.Gender.ToString() : null;
+               FriendsData.GenderStr = FriendsData.Gender.HasValue ? FriendsData.Gender.Value.ToString() : null;
                FriendsData.Hometown = i_User.Hometown;
                FriendsData.HometownStr = FriendsData.Hometown != null ? FriendsData.Hometown.ToString() : null;
                FriendsData.RelationshipStatus = i_User.RelationshipStatus;
-               FriendsData.RelationshipStatusStr = FriendsData.RelationshipStatus != null ? FriendsData.RelationshipStatus.ToString() : null;
+               FriendsData.RelationshipStatusStr = FriendsData.RelationshipStatus.HasValue ? FriendsData.RelationshipStatus.Value.ToString() : null;
                FriendsData.Status = i_User.Statuses != null ? i_User.Statuses[0].Message : null;
                FriendsData.FullName = !(FriendsData.FirstName == null && FriendsData.LastName == null) ?
                     string.Format(FriendsData.NameFormat, i_User.FirstName, i_User.LastName) : null;

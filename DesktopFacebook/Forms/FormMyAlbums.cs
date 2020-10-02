@@ -20,6 +20,7 @@ namespace DesktopFacebook.Forms
                ApplicationController.InitizalizeAlbumsService(this.AlbumsController_AlbumCreatedEvent, this.AlbumsController_PhotoCreatedEvent, this.AlbumsController_ErrorMessage);
                InitializeComponent();
                new Thread(() => ApplicationController.FetchUserAlbums()).Start();
+               Opener.Open(this as IOpenable);
           }
 
           private void AlbumsController_PhotoCreatedEvent(object sender, EventArgs e)

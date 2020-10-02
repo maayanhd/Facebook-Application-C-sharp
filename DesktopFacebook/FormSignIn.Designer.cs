@@ -54,13 +54,13 @@ namespace DesktopFacebook
                // 
                this.m_CheckBoxRememberMe.AutoSize = true;
                this.m_CheckBoxRememberMe.BackColor = System.Drawing.Color.Transparent;
-               this.m_CheckBoxRememberMe.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.m_CheckBoxRememberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.m_CheckBoxRememberMe.ForeColor = System.Drawing.Color.Navy;
                this.m_CheckBoxRememberMe.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
                this.m_CheckBoxRememberMe.Location = new System.Drawing.Point(475, 501);
                this.m_CheckBoxRememberMe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
                this.m_CheckBoxRememberMe.Name = "m_CheckBoxRememberMe";
-               this.m_CheckBoxRememberMe.Size = new System.Drawing.Size(168, 27);
+               this.m_CheckBoxRememberMe.Size = new System.Drawing.Size(170, 28);
                this.m_CheckBoxRememberMe.TabIndex = 0;
                this.m_CheckBoxRememberMe.Text = "Remember Me";
                this.m_CheckBoxRememberMe.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;

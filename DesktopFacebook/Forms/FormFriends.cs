@@ -20,6 +20,7 @@ namespace DesktopFacebook.Forms
                InitializeComponent();
                ApplicationController.FriendsController.FetchUserFriends();
                defineListBoxBehaviour();
+               Opener.Open(this as IOpenable);
           }
 
           private void defineListBoxBehaviour()

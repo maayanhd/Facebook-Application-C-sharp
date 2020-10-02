@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookLogic;
@@ -12,7 +13,6 @@ using DesktopFacebook.Forms;
 using FacebookApp.UI;
 using FacebookLogic.Models;
 using FacebookLogic.Controllers;
-using System.Threading;
 
 namespace DesktopFacebook
 {
@@ -34,11 +34,9 @@ namespace DesktopFacebook
                customizePanelsDesign();
                fetchUserDetails();
                LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;
+
                // Update the panel with the inner form
                m_CurrentChildForm.TopLevel = false;
-               //PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
-               //PanelSelectedMenu.Tag = m_CurrentChildForm;
-
                ApplicationController = new ApplicationController(m_LoggedInUser);
           }
 
@@ -113,7 +111,6 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
 
                m_CurrentChildForm = new FormEmpty();
-               (m_CurrentChildForm as FormEmpty).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -125,7 +122,6 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
 
                m_CurrentChildForm = new FormEmpty();
-               (m_CurrentChildForm as FormEmpty).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -139,7 +135,6 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
                
                m_CurrentChildForm = new FormFriends(ApplicationController);
-               (m_CurrentChildForm as FormFriends).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -149,7 +144,6 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
 
                m_CurrentChildForm = new FormMyAlbums(ApplicationController);
-               (m_CurrentChildForm as FormMyAlbums).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -162,7 +156,6 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
 
                m_CurrentChildForm = new FormEmpty();
-               (m_CurrentChildForm as FormEmpty).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -173,7 +166,6 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
 
                m_CurrentChildForm = new FormMatchMakerByParameters(ApplicationController);
-               (m_CurrentChildForm as FormMatchMakerByParameters).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -184,7 +176,6 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
 
                m_CurrentChildForm = new FormEventByParameters(ApplicationController);
-               (m_CurrentChildForm as FormEventByParameters).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -195,7 +186,6 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
 
                m_CurrentChildForm = new FormNewsFeed(ApplicationController);
-               (m_CurrentChildForm as FormNewsFeed).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -208,7 +198,6 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
 
                m_CurrentChildForm = new FormEmpty();
-               (m_CurrentChildForm as FormEmpty).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -232,17 +221,7 @@ namespace DesktopFacebook
                (m_CurrentChildForm as ICloseable)?.Close();
 
                m_CurrentChildForm = new FormPosts(ApplicationController);
-               (m_CurrentChildForm as FormPosts).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
-          }
-
-          private void textboxWritePost_TextChanged(object sender, EventArgs e)
-          {
-          }
-
-          private void PanelSelectedMenu_Paint(object sender, PaintEventArgs e)
-          {
-
           }
      }
 }

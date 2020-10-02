@@ -17,6 +17,7 @@ namespace DesktopFacebook
           {
                InitializeComponent();
           }
+
           public EventCustomedItem(CustomizedEventModel i_CustomizedEventLogic)
           {
                InitializeComponent();
@@ -111,6 +112,5 @@ namespace DesktopFacebook
           }
 
           #endregion
-
      }
 }

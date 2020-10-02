@@ -182,8 +182,6 @@
     <EmbeddedResource Include="CustomPictureBoxButton.resx">
       <DependentUpon>CustomPictureBoxButton.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\DataSources\FacebookLogic.AppSettings.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.Controllers.EventByParametersController.datasource" />
     <None Include="Properties\DataSources\FacebookLogic.Controllers.FriendController.datasource" />

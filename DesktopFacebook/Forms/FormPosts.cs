@@ -21,6 +21,7 @@ namespace DesktopFacebook.Forms
                ApplicationController.InitializePostsService(this.PostsController_PostCreatedEvent, this.PostsController_ErrorMessageEvent);
                InitializeComponent();
                initializePostsForm();
+               Opener.Open(this as IOpenable);
           }
 
           private void initializePostsForm()

@@ -369,7 +369,6 @@ namespace DesktopFacebook
                this.PanelSelectedMenu.Name = "PanelSelectedMenu";
                this.PanelSelectedMenu.Size = new System.Drawing.Size(976, 546);
                this.PanelSelectedMenu.TabIndex = 3;
-               this.PanelSelectedMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelSelectedMenu_Paint);
                // 
                // PanelShadow
                // 
@@ -390,7 +389,6 @@ namespace DesktopFacebook
                this.textboxWritePost.TabIndex = 0;
                this.textboxWritePost.Text = "What\'s on your mind?";
                this.textboxWritePost.MouseClick += new System.Windows.Forms.MouseEventHandler(this.m_TextBoxPost_MouseClick);
-               this.textboxWritePost.TextChanged += new System.EventHandler(this.textboxWritePost_TextChanged);
                // 
                // buttonPost
                // 

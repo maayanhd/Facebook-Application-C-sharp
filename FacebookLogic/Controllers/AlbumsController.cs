@@ -15,7 +15,7 @@ namespace FacebookLogic.Controllers
 
         public AlbumsModel UserAlbumsData { get; private set; }
 
-        public IFetchStrategy AlbumsFetchStrategy;
+        public IFetchStrategy AlbumsFetchStrategy { get; set; }
 
         public AlbumsController(User i_LoggedInUser, EventHandler i_AlbumCreatedEvent, EventHandler i_PhotoCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {

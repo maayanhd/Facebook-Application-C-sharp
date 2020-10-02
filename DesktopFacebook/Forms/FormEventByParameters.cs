@@ -15,13 +15,13 @@ namespace DesktopFacebook.Forms
      {
           private ApplicationController ApplicationController { get; set; }
 
-          public FlowLayoutPanel flowLayoutPanelCutomedEvents { get; private set; }
+          public FlowLayoutPanel m_FlowLayoutPanelCutomedEvents { get; private set; }
 
           public FlowLayoutPanel FlowLayoutPanelCutomedEvents
           {
                get
                {
-                    return flowLayoutPanelCutomedEvents;
+                    return m_FlowLayoutPanelCutomedEvents;
                }
           }
           
@@ -39,6 +39,7 @@ namespace DesktopFacebook.Forms
                    EventByParametersController_FriendsFetchedErrorOccured,
                EventByParametersController_GenderFieldFetchedErrorOccured,
                EventByParametersController_FilteredMatchingEventFound);
+               Opener.Open(this as IOpenable);
           }
 
           private void EventByParametersController_FilteredMatchingEventFound(object sender, EventArgs e)

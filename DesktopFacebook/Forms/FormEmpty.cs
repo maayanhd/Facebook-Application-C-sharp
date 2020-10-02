@@ -11,12 +11,14 @@ namespace DesktopFacebook.Forms
 {
      public partial class FormEmpty : Form, IOpenable, ICloseable
      {
-          public Closer Closer { get;} = new Closer();
+          public Closer Closer { get; } = new Closer();
+
           public Opener Opener { get; } = new Opener();
 
           public FormEmpty()
           {
                InitializeComponent();
+               Opener.Open(this as IOpenable);
           }
      }
 }

@@ -1,9 +1,9 @@
-﻿using FacebookLogic.Models;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FacebookLogic.Models;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookLogic.Strategies
 {

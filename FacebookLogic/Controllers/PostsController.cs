@@ -15,7 +15,7 @@ namespace FacebookLogic.Controllers
 
         public int m_MaxPostsLimit;
 
-        public IFetchStrategy PostsFetchStrategy;
+        public IFetchStrategy PostsFetchStrategy { get; set; }
 
         public PostsController(User i_LoggedInUser, EventHandler i_PostCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {
@@ -31,7 +31,7 @@ namespace FacebookLogic.Controllers
             try
             {
                 PostsFetchStrategy.FetchData();
-                foreach (Post post in UserPostsData.User.Posts)
+                foreach (Post post in UserPostsData.Posts)
                 {
                     onCreatedPost(post);
                 }

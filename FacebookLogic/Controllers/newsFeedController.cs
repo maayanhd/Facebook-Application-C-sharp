@@ -7,7 +7,7 @@ namespace FacebookLogic.Controllers
 {
     public class NewsFeedController
     {
-        public PostsModel NewsFeedData { get; private set; }
+        public NewsFeedModel NewsFeedData { get; private set; }
 
         public event EventHandler FeedItemCreatedEvent;
 
@@ -15,11 +15,11 @@ namespace FacebookLogic.Controllers
 
         public int m_MaxPostsLimit;
 
-        public IFetchStrategy NewsFeedFetchStrategy;
+        public IFetchStrategy NewsFeedFetchStrategy { get; set; }
 
         public NewsFeedController(User i_LoggedInUser, EventHandler i_FeedItemCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {
-            NewsFeedData = new PostsModel();
+            NewsFeedData = new NewsFeedModel();
             NewsFeedData.User = i_LoggedInUser;
             FeedItemCreatedEvent += i_FeedItemCreatedEvent;
             ErrorMessageEvent += i_ErrorMessageNotifier;
@@ -31,7 +31,7 @@ namespace FacebookLogic.Controllers
             try
             {
                 NewsFeedFetchStrategy.FetchData();
-                foreach (Post feed in NewsFeedData.User.Posts)
+                foreach (Post feed in NewsFeedData.Feed)
                 {
                     onCreatedFeedItem(feed);
                 }
