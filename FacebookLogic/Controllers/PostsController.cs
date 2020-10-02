@@ -1,5 +1,6 @@
 ﻿using System;
 using FacebookLogic.Models;
+using FacebookLogic.Strategies;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookLogic.Controllers
@@ -14,6 +15,8 @@ namespace FacebookLogic.Controllers
 
         public int m_MaxPostsLimit;
 
+        public IFetchStrategy PostsFetchStrategy;
+
         public PostsController(User i_LoggedInUser, EventHandler i_PostCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {
             UserPostsData = new PostsModel();
@@ -25,24 +28,17 @@ namespace FacebookLogic.Controllers
 
         public void FetchUserPosts()
         {
-            if (UserPostsData.User.Posts?.Count > 0)
+            try
             {
-                int postIndex = 0;
+                PostsFetchStrategy.FetchData();
                 foreach (Post post in UserPostsData.User.Posts)
                 {
-                    UserPostsData.Posts.Add(post);
                     onCreatedPost(post);
-                    postIndex++;
-
-                    if (postIndex >= m_MaxPostsLimit)
-                    {
-                        break;
-                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                string errorMessage = string.Format("No posts to retrieve!{0]", Environment.NewLine);
+                string errorMessage = ex.Message;
                 onErrorMessageEvent(errorMessage);
             }
         }

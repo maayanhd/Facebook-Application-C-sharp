@@ -1,5 +1,6 @@
 ﻿using System;
 using FacebookLogic.Models;
+using FacebookLogic.Strategies;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookLogic.Controllers
@@ -14,6 +15,8 @@ namespace FacebookLogic.Controllers
 
         public AlbumsModel UserAlbumsData { get; private set; }
 
+        public IFetchStrategy AlbumsFetchStrategy;
+
         public AlbumsController(User i_LoggedInUser, EventHandler i_AlbumCreatedEvent, EventHandler i_PhotoCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {
             UserAlbumsData = new AlbumsModel();
@@ -25,10 +28,9 @@ namespace FacebookLogic.Controllers
 
         public void FetchUserAlbums()
         {
-            UserAlbumsData.Albums.Clear();
+            AlbumsFetchStrategy.FetchData();
             foreach (Album album in UserAlbumsData.User.Albums)
             {
-                UserAlbumsData.Albums.Add(album);
                 onCreatedAlbum(album);
             }
         }

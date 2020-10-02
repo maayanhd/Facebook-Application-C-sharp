@@ -1,4 +1,5 @@
 ﻿using System;
+using FacebookLogic.Strategies;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookLogic.Controllers
@@ -13,7 +14,7 @@ namespace FacebookLogic.Controllers
 
         private AlbumsController AlbumsController { get; set; }
 
-        private FriendController FriendsController { get; set; }
+        public FriendController FriendsController { get; set; }
 
         private NewsFeedController NewsFeedController { get; set; }
 
@@ -27,6 +28,7 @@ namespace FacebookLogic.Controllers
         public void InitizalizeAlbumsService(EventHandler i_AlbumCreatedEvent, EventHandler i_PhotoCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {
             AlbumsController = new AlbumsController(m_LoggedInUser, i_AlbumCreatedEvent, i_PhotoCreatedEvent, i_ErrorMessageNotifier);
+            AlbumsController.AlbumsFetchStrategy = new FetchAlbumsFromAPIStrategy() { AlbumsModel = AlbumsController.UserAlbumsData };
         }
 
         public void FetchUserAlbums()
@@ -51,6 +53,7 @@ namespace FacebookLogic.Controllers
         public void InitializeFriendsService(EventHandler i_FriendItemRetriviedEvent, EventHandler i_SelectedIndexChanged)
         {
             FriendsController = new FriendController(m_LoggedInUser, i_FriendItemRetriviedEvent, i_SelectedIndexChanged);
+            FriendsController.FriendsFetchStrategy = new FetchFriendsFromAPIStrategy() { FriendsModel = FriendsController.FriendsData };
         }
 
         public void FetchUserFriends()
@@ -66,6 +69,7 @@ namespace FacebookLogic.Controllers
         public void InitializeNewsFeedService(EventHandler i_FeedItemCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {
             NewsFeedController = new NewsFeedController(m_LoggedInUser, i_FeedItemCreatedEvent, i_ErrorMessageNotifier);
+            NewsFeedController.NewsFeedFetchStrategy = new FetchNewsFeedFromAPIStrategy() { NewsFeedModel = NewsFeedController.NewsFeedData, MaxPostsLimit = NewsFeedController.m_MaxPostsLimit };
         }
 
         public void FetchNewsFeed()
@@ -76,6 +80,7 @@ namespace FacebookLogic.Controllers
         public void InitializePostsService(EventHandler i_PostCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {
             PostsController = new PostsController(m_LoggedInUser, i_PostCreatedEvent, i_ErrorMessageNotifier);
+            PostsController.PostsFetchStrategy = new FetchPostsFromAPIStrategy() { PostsModel = PostsController.UserPostsData, MaxPostsLimit = PostsController.m_MaxPostsLimit };
         }
 
         public void FetchUserPosts()

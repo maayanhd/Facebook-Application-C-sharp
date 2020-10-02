@@ -1,5 +1,6 @@
 ﻿using System;
 using FacebookLogic.Models;
+using FacebookLogic.Strategies;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookLogic.Controllers
@@ -14,6 +15,8 @@ namespace FacebookLogic.Controllers
 
         public int m_MaxPostsLimit;
 
+        public IFetchStrategy NewsFeedFetchStrategy;
+
         public NewsFeedController(User i_LoggedInUser, EventHandler i_FeedItemCreatedEvent, EventHandler i_ErrorMessageNotifier)
         {
             NewsFeedData = new PostsModel();
@@ -25,24 +28,17 @@ namespace FacebookLogic.Controllers
 
         public void FetchNewsFeed()
         {
-            if (NewsFeedData.User.Posts?.Count > 0)
+            try
             {
-                int postIndex = 0;
+                NewsFeedFetchStrategy.FetchData();
                 foreach (Post feed in NewsFeedData.User.Posts)
                 {
-                    NewsFeedData.Posts.Add(feed);
                     onCreatedFeedItem(feed);
-                    postIndex++;
-
-                    if (postIndex >= m_MaxPostsLimit)
-                    {
-                        break;
-                    }
                 }
             }
-            else
+            catch(Exception ex)
             {
-                string errorMessage = string.Format("No news feed items to retrieve!{0]", Environment.NewLine);
+                string errorMessage = ex.Message;
                 onErrorMessageEvent(errorMessage);
             }
         }

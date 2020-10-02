@@ -124,7 +124,7 @@ namespace DesktopFacebook
           private void buttonMyFriendsList_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "My Friends List";
-               openChildForm(new FormFriends(m_LoggedInUser));
+               openChildForm(new FormFriends(ApplicationController));
           }
 
           private void buttonMyAlbums_Click(object sender, EventArgs e)

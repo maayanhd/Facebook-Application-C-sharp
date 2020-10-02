@@ -7,20 +7,21 @@ namespace DesktopFacebook.Forms
 {
      public partial class FormFriends : Form
      {
-          public FriendController m_FriendsController { get; private set; }
+          public ApplicationController ApplicationController { get; private set; }
 
-          public FormFriends(User i_LoggedInUser)
+          public FormFriends(ApplicationController i_AppController)
           {
-               m_FriendsController = new FriendController(i_LoggedInUser, this.FormFriends_FriendItemRetrivied, this.listBoxFriends_SelectedIndexChanged);
+               ApplicationController = i_AppController;
+               ApplicationController.InitializeFriendsService(this.FormFriends_FriendItemRetrivied, this.listBoxFriends_SelectedIndexChanged);
                InitializeComponent();
-               m_FriendsController.FetchUserFriends();
+               ApplicationController.FriendsController.FetchUserFriends();
                defineListBoxBehaviour();
           }
 
           private void defineListBoxBehaviour()
           {
                this.listBoxFriends.DisplayMember = "Name";
-               m_FriendsController.bindFriendsourceBinding(friendsModelBindingSource);
+            ApplicationController.FriendsController.bindFriendsourceBinding(friendsModelBindingSource);
           }
 
           private void FormFriends_FriendItemRetrivied(object sender, EventArgs e)
@@ -32,10 +33,10 @@ namespace DesktopFacebook.Forms
           {
                if (isThereASelectetdFriendItem())
                {
-                    User selectedFriend = m_FriendsController.GetUserByName((listBoxFriends.SelectedItem as User).Name);
+                    User selectedFriend = ApplicationController.FriendsController.GetUserByName((listBoxFriends.SelectedItem as User).Name);
                     displayFriendPicture(selectedFriend);
-                    m_FriendsController.updateCurrentUser(selectedFriend);
-                    displaySelectedFriend(m_FriendsController.GetUserByName((listBoxFriends.SelectedItem as User).Name));
+                ApplicationController.FriendsController.updateCurrentUser(selectedFriend);
+                    displaySelectedFriend(ApplicationController.FriendsController.GetUserByName((listBoxFriends.SelectedItem as User).Name));
                }
           }
 

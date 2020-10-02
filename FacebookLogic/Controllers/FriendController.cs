@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using FacebookLogic.Models;
+using FacebookLogic.Strategies;
 using FacebookWrapper.ObjectModel;
 
 namespace FacebookLogic.Controllers
 {
     public class FriendController
     {
-        private FriendsModel FriendsData;
+        public FriendsModel FriendsData;
 
         private EventHandler FriendItemRetrivied;
 
         private EventHandler ListBoxFriendsSelectedIndexChanged;
 
         private EventHandler ListBoxFriendsIndexSelected;
+
+        public IFetchStrategy FriendsFetchStrategy;
 
         public Dictionary<string, User> NameToFriendUser { get; set; } = new Dictionary<string, User>();
 
@@ -42,12 +45,10 @@ namespace FacebookLogic.Controllers
 
         public void FetchUserFriends()
         {
-            FriendsData.FriendsList.Clear();
-
+            FriendsFetchStrategy.FetchData();
             foreach (User friend in FriendsData.User.Friends)
             {
                 onFriendItemRetrivied(friend);
-                FriendsData.FriendsList.Add(friend);
                 NameToFriendUser.Add(friend.Name, friend);
             }
         }
