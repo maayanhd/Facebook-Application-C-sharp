@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace DesktopFacebook.Forms
 {
-     public partial class EmptyForm : Form, IOpenable, ICloseable
+     public partial class FormEmpty : Form, IOpenable, ICloseable
      {
           public Closer Closer { get;} = new Closer();
           public Opener Opener { get; } = new Opener();
 
-          public EmptyForm()
+          public FormEmpty()
           {
                InitializeComponent();
           }

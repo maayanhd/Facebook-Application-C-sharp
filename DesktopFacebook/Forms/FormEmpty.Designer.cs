@@ -1,6 +1,6 @@
 ﻿namespace DesktopFacebook.Forms
 {
-     partial class EmptyForm
+     partial class FormEmpty
      {
           /// <summary>
           /// Required designer variable.

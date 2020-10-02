@@ -112,8 +112,8 @@ namespace DesktopFacebook
                showSubMenu(PanelPhotos);
                (m_CurrentChildForm as ICloseable)?.Close();
 
-               m_CurrentChildForm = new EmptyForm();
-               (m_CurrentChildForm as EmptyForm).Opener.Open(m_CurrentChildForm as IOpenable);
+               m_CurrentChildForm = new FormEmpty();
+               (m_CurrentChildForm as FormEmpty).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -124,8 +124,8 @@ namespace DesktopFacebook
                showSubMenu(PanelFriends);
                (m_CurrentChildForm as ICloseable)?.Close();
 
-               m_CurrentChildForm = new EmptyForm();
-               (m_CurrentChildForm as EmptyForm).Opener.Open(m_CurrentChildForm as IOpenable);
+               m_CurrentChildForm = new FormEmpty();
+               (m_CurrentChildForm as FormEmpty).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -161,8 +161,8 @@ namespace DesktopFacebook
 
                (m_CurrentChildForm as ICloseable)?.Close();
 
-               m_CurrentChildForm = new EmptyForm();
-               (m_CurrentChildForm as EmptyForm).Opener.Open(m_CurrentChildForm as IOpenable);
+               m_CurrentChildForm = new FormEmpty();
+               (m_CurrentChildForm as FormEmpty).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
@@ -207,8 +207,8 @@ namespace DesktopFacebook
 
                (m_CurrentChildForm as ICloseable)?.Close();
 
-               m_CurrentChildForm = new EmptyForm();
-               (m_CurrentChildForm as EmptyForm).Opener.Open(m_CurrentChildForm as IOpenable);
+               m_CurrentChildForm = new FormEmpty();
+               (m_CurrentChildForm as FormEmpty).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
