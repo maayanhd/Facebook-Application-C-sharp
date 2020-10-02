@@ -13,7 +13,6 @@ namespace DesktopFacebook.Forms
           
           public Opener Opener { get; } = new Opener();
 
-          public FormFriends(User i_LoggedInUser)
           public FormFriends(ApplicationController i_AppController)
           {
                ApplicationController = i_AppController;

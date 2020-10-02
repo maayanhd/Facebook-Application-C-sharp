@@ -138,7 +138,7 @@ namespace DesktopFacebook
                ButtonChosenMenu.Text = "My Friends List";
                (m_CurrentChildForm as ICloseable)?.Close();
                
-               m_CurrentChildForm = new FormFriends(m_LoggedInUser);
+               m_CurrentChildForm = new FormFriends(ApplicationController);
                (m_CurrentChildForm as FormFriends).Opener.Open(m_CurrentChildForm as IOpenable);
                PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
