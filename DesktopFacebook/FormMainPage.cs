@@ -16,7 +16,7 @@ using System.Threading;
 
 namespace DesktopFacebook
 {
-     public partial class FormMainPage : Form
+     public partial class FormMainPage : Form, ICloseable
      {
           private readonly string logoutSuccessfulMessage = "Logged out successfully!";
 
@@ -26,7 +26,7 @@ namespace DesktopFacebook
 
           internal ApplicationController ApplicationController { get; private set; }
 
-        public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)
+          public FormMainPage(bool i_IsAskingToRememberLoginDets, User i_LoggedInUser, FormSignIn i_SignInForm)          
           {
                m_LoggedInUser = i_LoggedInUser;
                InitializeComponent();
@@ -34,9 +34,13 @@ namespace DesktopFacebook
                customizePanelsDesign();
                fetchUserDetails();
                LoginManager.Instance.LogoutSuccessful += LoginManager_LogoutSuccessful;
+               // Update the panel with the inner form
+               m_CurrentChildForm.TopLevel = false;
+               //PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
+               //PanelSelectedMenu.Tag = m_CurrentChildForm;
 
-            ApplicationController = new ApplicationController(m_LoggedInUser);
-        }
+               ApplicationController = new ApplicationController(m_LoggedInUser);
+          }
 
         private void LoginManager_LogoutSuccessful(object sender, EventArgs e)
           {
@@ -106,7 +110,11 @@ namespace DesktopFacebook
                ButtonChosenMenu.Text = "Photos";
                hideSubMenu();
                showSubMenu(PanelPhotos);
-               openChildForm(new Form());
+               (m_CurrentChildForm as ICloseable)?.Close();
+
+               m_CurrentChildForm = new EmptyForm();
+               (m_CurrentChildForm as EmptyForm).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
           private void ButtonFriends_Click(object sender, EventArgs e)
@@ -114,7 +122,11 @@ namespace DesktopFacebook
                ButtonChosenMenu.Text = "Friends";
                hideSubMenu();
                showSubMenu(PanelFriends);
-               openChildForm(new Form());
+               (m_CurrentChildForm as ICloseable)?.Close();
+
+               m_CurrentChildForm = new EmptyForm();
+               (m_CurrentChildForm as EmptyForm).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
           private void FormMainPage_Load(object sender, EventArgs e)
@@ -124,15 +136,21 @@ namespace DesktopFacebook
           private void buttonMyFriendsList_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "My Friends List";
-               openChildForm(new FormFriends(m_LoggedInUser));
+               (m_CurrentChildForm as ICloseable)?.Close();
+               
+               m_CurrentChildForm = new FormFriends(m_LoggedInUser);
+               (m_CurrentChildForm as FormFriends).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
           private void buttonMyAlbums_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "My Albums";
-               //openChildForm(new FormMyAlbums(m_LoggedInUser));
-               openChildForm(new FormMyAlbums(ApplicationController));
-                
+               (m_CurrentChildForm as ICloseable)?.Close();
+
+               m_CurrentChildForm = new FormMyAlbums(ApplicationController);
+               (m_CurrentChildForm as FormMyAlbums).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
           private void buttonNewFeatures_Click(object sender, EventArgs e)
@@ -140,25 +158,45 @@ namespace DesktopFacebook
                ButtonChosenMenu.Text = "Special Feature";
                hideSubMenu();
                showSubMenu(PanelNewFeatures);
-               openChildForm(new Form());
+
+               (m_CurrentChildForm as ICloseable)?.Close();
+
+               m_CurrentChildForm = new EmptyForm();
+               (m_CurrentChildForm as EmptyForm).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
           private void buttonMatchMaker_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "Match Maker";
-               openChildForm(new FormMatchMakerByParameters(ApplicationController));
+
+               (m_CurrentChildForm as ICloseable)?.Close();
+
+               m_CurrentChildForm = new FormMatchMakerByParameters(ApplicationController);
+               (m_CurrentChildForm as FormMatchMakerByParameters).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
           private void buttonEventsByParam_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "Events Finder";
-               openChildForm(new FormEventByParameters(ApplicationController));
+
+               (m_CurrentChildForm as ICloseable)?.Close();
+
+               m_CurrentChildForm = new FormEventByParameters(ApplicationController);
+               (m_CurrentChildForm as FormEventByParameters).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
-          
+
           private void buttonNewsFeed_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "News Feed";
-               openChildForm(new FormNewsFeed(ApplicationController));
+
+               (m_CurrentChildForm as ICloseable)?.Close();
+
+               m_CurrentChildForm = new FormNewsFeed(ApplicationController);
+               (m_CurrentChildForm as FormNewsFeed).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
           private void buttonPosts_Click(object sender, EventArgs e)
@@ -166,7 +204,12 @@ namespace DesktopFacebook
                ButtonChosenMenu.Text = "News Feed";
                hideSubMenu();
                showSubMenu(panelPosts);
-               openChildForm(new Form());
+
+               (m_CurrentChildForm as ICloseable)?.Close();
+
+               m_CurrentChildForm = new EmptyForm();
+               (m_CurrentChildForm as EmptyForm).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
           private void buttonLogout_Click(object sender, EventArgs e)
@@ -175,7 +218,7 @@ namespace DesktopFacebook
                LoginManager eventLogoutHandler = LoginManager.Instance;
 
                eventLogoutHandler.Logout();
-               this.Close();
+               (this as ICloseable)?.Close();
           }
 
           private void m_TextBoxPost_MouseClick(object sender, MouseEventArgs e)
@@ -186,8 +229,11 @@ namespace DesktopFacebook
           private void ButtonMyPosts_Click(object sender, EventArgs e)
           {
                ButtonChosenMenu.Text = "My Posts";
-               openChildForm(new FormPosts(ApplicationController));
-               //new Thread(() => openChildForm(new FormPosts(m_LoggedInUser))).Start();
+               (m_CurrentChildForm as ICloseable)?.Close();
+
+               m_CurrentChildForm = new FormPosts(ApplicationController);
+               (m_CurrentChildForm as FormPosts).Opener.Open(m_CurrentChildForm as IOpenable);
+               PanelSelectedMenu.Controls.Add(m_CurrentChildForm);
           }
 
           private void textboxWritePost_TextChanged(object sender, EventArgs e)

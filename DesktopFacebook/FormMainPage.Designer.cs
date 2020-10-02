@@ -23,27 +23,26 @@ namespace DesktopFacebook
                base.Dispose(disposing);
           }
 
-          #region childForms
+          //#region childForms
 
-          private void openChildForm(Form ChildForm)// open(new customizedForm())
-          {
-               if (ChildForm != null) // Check whether the form exists 
-               {
-                    //m_CurrentChildForm.Visible = false;
-                    m_CurrentChildForm.Close();
-               }
+          //private void openChildForm(Form ChildForm)// open(new customizedForm())
+          //{
+          //     if (ChildForm != null) // Check whether the form exists 
+          //     {
+          //          m_CurrentChildForm.Close();
+          //     }
 
-               m_CurrentChildForm = ChildForm;
-               ChildForm.TopLevel = false;
-               ChildForm.FormBorderStyle = FormBorderStyle.None;
-               ChildForm.Dock = DockStyle.Fill;
-               PanelSelectedMenu.Controls.Add(ChildForm);
-               PanelSelectedMenu.Tag = ChildForm;
-               ChildForm.BringToFront();
-               ChildForm.Show();
-          }
+          //     m_CurrentChildForm = ChildForm;
+          //     ChildForm.TopLevel = false;
+          //     ChildForm.FormBorderStyle = FormBorderStyle.None;
+          //     ChildForm.Dock = DockStyle.Fill;
+          //     PanelSelectedMenu.Controls.Add(ChildForm);
+          //     PanelSelectedMenu.Tag = ChildForm;
+          //     ChildForm.BringToFront();
+          //     ChildForm.Show();
+          //}
 
-          #endregion
+          //#endregion
 
           #region Windows Form Designer generated code
 
