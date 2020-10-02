@@ -5,10 +5,15 @@ using FacebookWrapper.ObjectModel;
 
 namespace DesktopFacebook.Forms
 {
-     public partial class FormFriends : Form
+     public partial class FormFriends : Form, IOpenable, ICloseable
      {
           public ApplicationController ApplicationController { get; private set; }
 
+          public Closer Closer { get; } = new Closer();
+          
+          public Opener Opener { get; } = new Opener();
+
+          public FormFriends(User i_LoggedInUser)
           public FormFriends(ApplicationController i_AppController)
           {
                ApplicationController = i_AppController;
